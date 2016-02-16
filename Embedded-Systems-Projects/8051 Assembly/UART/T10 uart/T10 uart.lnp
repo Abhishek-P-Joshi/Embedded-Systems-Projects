@@ -1,0 +1,3 @@
+"T10 uart.obj" 
+TO "T10 uart" 
+RAMSIZE(256) 

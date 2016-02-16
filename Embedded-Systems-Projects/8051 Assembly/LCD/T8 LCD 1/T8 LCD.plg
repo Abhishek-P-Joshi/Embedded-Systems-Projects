@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\8051 Assembly\LCD\T8 LCD\T8 LCD.uvproj
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling T8 LCD.asm...
+T8 LCD.asm(553): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+T8 LCD.asm(554): error A8: ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+T8 LCD.asm(556): error A51: TARGET OUT OF RANGE
+T8 LCD.asm(557): error A51: TARGET OUT OF RANGE
+Target not created
+Build target 'Target 1'
+assembling T8 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=693
+creating hex file from "T8 LCD"...
+"T8 LCD" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling T8 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=693
+creating hex file from "T8 LCD"...
+"T8 LCD" - 0 Error(s), 0 Warning(s).

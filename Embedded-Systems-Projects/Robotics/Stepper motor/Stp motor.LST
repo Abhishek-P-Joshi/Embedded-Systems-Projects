@@ -1,0 +1,76 @@
+C51 COMPILER V9.00   STP_MOTOR                                                             03/09/2000 14:31:52 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE STP_MOTOR
+OBJECT MODULE PLACED IN Stp motor.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Stp motor.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51f.h>
+   2          
+   3          sbit stm1=P3^4;
+   4          sbit stm2=P3^5;
+   5          sbit stm3=P3^6;
+   6          sbit stm4=P3^7;
+   7          
+   8          
+   9          void delay(unsigned int);
+  10          
+  11          void main()
+  12          {
+  13   1       while(1)
+  14   1       {
+  15   2       stm1=1;
+  16   2       stm2=0;
+  17   2       stm3=0;
+  18   2       stm4=0;
+  19   2       delay(20);
+  20   2      
+  21   2       stm1=0;
+  22   2       stm2=1;
+  23   2       stm3=0;
+  24   2       stm4=0;
+  25   2       delay(20);
+  26   2      
+  27   2       stm1=0;
+  28   2       stm2=0;
+  29   2       stm3=1;
+  30   2       stm4=0;
+  31   2       delay(20);
+  32   2      
+  33   2       stm1=0;
+  34   2       stm2=0;
+  35   2       stm3=0;
+  36   2       stm4=1;
+  37   2       delay(20);
+  38   2       
+  39   2       }
+  40   1      
+  41   1      }
+  42          
+  43          void delay(unsigned int a)
+  44          {
+  45   1       int i,j;
+  46   1      
+  47   1       for(i=0;i<=a;i++)
+  48   1       for(j=0;j<=120;j++);
+  49   1      }
+  50          
+  51          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     76    ----
+C51 COMPILER V9.00   STP_MOTOR                                                             03/09/2000 14:31:52 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

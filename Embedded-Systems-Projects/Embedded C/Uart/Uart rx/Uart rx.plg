@@ -1,0 +1,29 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\Embedded C\Uart\Uart rx\Uart rx.uvproj
+Project File Date:  01/02/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Uart rx.C...
+UART RX.C(19): error C193: '=': illegal type conversion from/to 'void'
+Target not created
+Build target 'Target 1'
+compiling Uart rx.C...
+UART RX.C(66): error C231: 'rx': redefinition
+UART RX.C(71): error C231: 'rx': redefinition
+Target not created
+Build target 'Target 1'
+compiling Uart rx.C...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CLR_SCREEN?UART_RX
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HOME_SCREEN?UART_RX
+Program Size: data=10.0 xdata=0 code=167
+creating hex file from "Uart rx"...
+"Uart rx" - 0 Error(s), 2 Warning(s).

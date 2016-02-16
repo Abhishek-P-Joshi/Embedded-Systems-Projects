@@ -1,0 +1,82 @@
+A51 MACRO ASSEMBLER  T6                                                                   01/02/2002 04:00:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T6.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T6.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+0000                   2     main:
+0000 7580FF            3     mov p0,#0ffh
+0003 110C              4     call init_timer0
+0005 758000            5     mov p0,#00h
+0008 1125              6     call init_timer1
+000A 80F4              7     jmp main
+                       8     
+000C                   9     init_timer0:
+000C 7828             10     mov r0,#40d
+000E D802             11     N2:djnz r0,N1
+0010 8012             12     jmp N3
+                      13     
+0012 758901           14     N1: mov TMOD,#01h
+0015 758C4B           15     mov TH0,#4Bh
+0018 758AFD           16     mov TL0,#0FDh
+001B D28C             17     setb TR0
+001D 308DFD           18     JNB TF0,$
+0020 C28D             19     clr TF0
+0022 80EA             20     jmp N2
+                      21     
+0024 22               22     N3: ret
+                      23     
+                      24     
+0025                  25     init_timer1:
+0025 7814             26     mov r0,#20d
+0027 D802             27     M2:djnz r0,M1
+0029 8012             28     jmp M3
+                      29     
+002B 758910           30     M1: mov TMOD,#10h
+002E 758D4B           31     mov TH1,#4Bh
+0031 758BFD           32     mov TL1,#0FDh
+0034 D28E             33     setb TR1
+0036 308FFD           34     JNB TF1,$
+0039 C28F             35     clr TF1
+003B 80EA             36     jmp M2
+                      37     
+003D 22               38     M3: ret
+                      39     
+                      40     end
+A51 MACRO ASSEMBLER  T6                                                                   01/02/2002 04:00:39 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+INIT_TIMER0. . . .  C ADDR   000CH   A   
+INIT_TIMER1. . . .  C ADDR   0025H   A   
+M1 . . . . . . . .  C ADDR   002BH   A   
+M2 . . . . . . . .  C ADDR   0027H   A   
+M3 . . . . . . . .  C ADDR   003DH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+N1 . . . . . . . .  C ADDR   0012H   A   
+N2 . . . . . . . .  C ADDR   000EH   A   
+N3 . . . . . . . .  C ADDR   0024H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

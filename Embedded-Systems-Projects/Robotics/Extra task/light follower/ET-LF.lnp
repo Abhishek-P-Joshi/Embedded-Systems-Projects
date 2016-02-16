@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ET-LF.obj" 
+TO "ET-LF" 
+RAMSIZE(256) 

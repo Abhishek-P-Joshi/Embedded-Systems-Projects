@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\ARM\T3\T3.uv2
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling T3.C...
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+T3.C(5): warning:  #69-D: integer conversion resulted in truncation
+linking...
+Program Size: Code=1408 RO-data=16400 RW-data=0 ZI-data=1288  
+FromELF: creating hex file...
+"T3.axf" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+assembling Startup.s...
+compiling T3.C...
+linking...
+Program Size: Code=1448 RO-data=16416 RW-data=100 ZI-data=1260  
+FromELF: creating hex file...
+"T3.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling Startup.s...
+compiling T3.C...
+linking...
+Program Size: Code=1480 RO-data=16416 RW-data=28 ZI-data=1260  
+FromELF: creating hex file...
+"T3.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>

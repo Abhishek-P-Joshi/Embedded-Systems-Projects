@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"Uart T9.obj" 
+TO "Uart T9" 
+RAMSIZE(256) 

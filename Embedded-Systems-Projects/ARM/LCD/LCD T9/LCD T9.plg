@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\ARM\LCD\LCD T9\LCD T9.uv2
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling LCD T9.C...
+LCD T9.C(310): error:  #147: declaration is incompatible with "void lcd_disp(void)" (declared at line 28)
+Target not created
+Build target 'Target 1'
+assembling Startup.s...
+compiling LCD T9.C...
+linking...
+Program Size: Code=3656 RO-data=16416 RW-data=132 ZI-data=1260  
+FromELF: creating hex file...
+"LCD T9.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>

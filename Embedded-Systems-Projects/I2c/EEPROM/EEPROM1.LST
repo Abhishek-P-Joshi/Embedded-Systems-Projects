@@ -1,0 +1,118 @@
+C51 COMPILER V9.00   EEPROM1                                                               01/01/2002 17:21:47 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE EEPROM1
+OBJECT MODULE PLACED IN EEPROM1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE EEPROM1.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51f.h>
+   2          #include<i2c.h>
+   3          
+   4          unsigned char name[10]={'H','E','L','L','O'};
+   5          unsigned char name1[10],rd_d='5';
+   6          int i;
+   7          
+   8          void wr_eeprom();
+   9          void read_eeprom();
+  10          void display();
+  11          
+  12          
+  13          void main()
+  14          {
+  15   1       init_lcd();
+  16   1       wr_eeprom();
+  17   1       
+  18   1       while(1)
+  19   1       {
+  20   2        read_eeprom();
+  21   2        display();
+  22   2       }
+  23   1      }
+  24          
+  25          void wr_eeprom()
+  26          {
+  27   1       start_i2c();
+  28   1      
+  29   1       shout_i2c(0xA0); //device address and write mode
+  30   1       ack_i2c();
+  31   1      
+  32   1       shout_i2c(0x00); //start address high
+  33   1       ack_i2c();
+  34   1      
+  35   1       shout_i2c(0x00); //start address low
+  36   1       ack_i2c();
+  37   1      
+  38   1       for(i=0;i<=4;i++)
+  39   1       {
+  40   2        shout_i2c(name[i]);
+  41   2        ack_i2c();
+  42   2       }
+  43   1      
+  44   1       stop_i2c();
+  45   1      
+  46   1      }
+  47          
+  48          void read_eeprom()
+  49          {
+  50   1       start_i2c();
+  51   1      
+  52   1       shout_i2c(0xA0); //device address and write mode
+  53   1       ack_i2c();
+  54   1      
+  55   1       shout_i2c(0x00); //start address high
+C51 COMPILER V9.00   EEPROM1                                                               01/01/2002 17:21:47 PAGE 2   
+
+  56   1       ack_i2c();
+  57   1      
+  58   1       shout_i2c(0x00); //start address low
+  59   1       ack_i2c();
+  60   1      
+  61   1       start_i2c();
+  62   1      
+  63   1       shout_i2c(0xA1); //device address and read mode
+  64   1       ack_i2c();
+  65   1       
+  66   1       for(i=0;i<=4;i++)
+  67   1       {
+  68   2       name1[i]=shin_i2c();
+  69   2        ack_i2c();
+  70   2       }
+  71   1      
+  72   1        nack_i2c();
+  73   1       
+  74   1       stop_i2c();
+  75   1      
+  76   1      }
+  77          
+  78          void display()
+  79          {
+  80   1       cmd_wr(0x80);
+  81   1       delay(2);
+  82   1       for(i=0;i<=4;i++)
+  83   1       {
+  84   2        data_wr(name1[i]);
+  85   2        delay(2);
+  86   2       }
+  87   1      
+  88   1      }
+  89          
+  90          
+  91          
+  92          
+  93          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    575    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     26       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

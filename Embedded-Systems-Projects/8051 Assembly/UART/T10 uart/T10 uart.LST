@@ -1,0 +1,924 @@
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T10 uart.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T10 uart.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  0037                10     count equ 37h
+  0038                11     scan_no equ 38h
+  0039                12     dcount equ 39h
+  0040                13     krcount equ 40h
+  0041                14     key_code equ 41h
+  0042                15     cnt_1sl equ 42h
+  0043                16     cnt_1sh equ 43h
+                      17     
+  0044                18     tx_data equ 44h
+                      19     
+                      20     
+  0060                21     top_of_stack equ 60h
+                      22     
+  00A0                23     sl1 bit p2.0
+  00A1                24     sl2 bit p2.1
+  00A2                25     sl3 bit p2.2
+  00A3                26     sl4 bit p2.3
+                      27     
+  00A4                28     krl1 bit p2.4
+  00A5                29     krl2 bit p2.5
+  00A6                30     krl3 bit p2.6
+  00A7                31     krl4 bit p2.7
+                      32     
+  0000                33     key_ready bit 00h
+  0001                34     nkp bit 01h
+  0002                35     tb bit 02h
+                      36     
+  0003                37     start_sw bit 03h
+  0004                38     s1_over bit 04h
+  0005                39     start_buzzer bit 05h
+                      40     
+                      41     
+0000                  42     org 0000h
+0000 802A             43     jmp main
+                      44     
+0003                  45     org 0003h
+0003 32               46     reti 
+                      47     
+000B                  48     org 000bh
+000B 020082           49     ljmp isr_t0
+                      50     
+0013                  51     org 0013h
+0013 32               52     reti
+                      53     
+001B                  54     org 001bh
+001B 32               55     reti
+                      56     
+0023                  57     org 0023h
+0023 32               58     reti
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     2
+
+                      59     
+002B                  60     org 002bh
+002B 32               61     reti
+                      62     
+                      63     
+                      64     
+002C                  65     main:
+                      66     
+002C 51B1             67     call init_uart
+                      68     
+                      69     
+002E 758160           70     mov sp,#top_of_stack
+                      71     
+0031 113B             72     call init
+0033 D2AF             73     setb ea
+                      74     
+                      75     
+                      76     
+                      77     
+0035                  78     loop:
+                      79     
+0035 513F             80     call get_key
+0037 515D             81     call keyprocess
+                      82     
+0039 80FA             83     jmp loop
+                      84     
+                      85     
+003B                  86     init:
+                      87     
+003B 116B             88     call init_timer0
+003D 1144             89     call init_display
+003F 1151             90     call init_keypad
+0041 1179             91     call init_delay_1sec
+0043 22               92     ret
+                      93     
+                      94     
+0044                  95     init_display:
+                      96     
+0044 753030           97     mov ds1,#"0"
+0047 753130           98     mov ds2,#"0"
+004A 753230           99     mov ds3,#"0"
+004D 753330          100     mov ds4,#"0"
+0050 22              101     ret
+                     102     
+                     103     
+0051                 104     init_keypad:
+                     105     
+0051 D2A4            106     setb krl1
+0053 D2A5            107     setb krl2
+0055 D2A6            108     setb krl3
+0057 D2A7            109     setb krl4
+0059 753800          110     mov scan_no,#00d
+005C 753921          111     mov dcount,#33d
+005F 754020          112     mov krcount,#32d
+0062 C200            113     clr key_ready
+0064 C201            114     clr nkp
+0066 C205            115     clr start_buzzer
+0068 C203            116     clr start_sw
+006A 22              117     ret
+                     118     
+006B                 119     init_timer0:
+                     120     
+006B 438901          121     orl tmod,#01h
+006E 758A66          122     mov tl0,#66h
+0071 758CFC          123     mov th0,#0fch
+0074 D28C            124     setb tr0
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     3
+
+0076 D2A9            125     setb et0
+0078 22              126     ret
+                     127     
+                     128     
+0079                 129     init_delay_1sec:
+                     130     
+0079 7542E8          131     mov cnt_1sl,#0e8h
+007C 754304          132     mov cnt_1sh,#04h
+007F D204            133     setb s1_over
+0081 22              134     ret
+                     135     
+                     136     
+0082                 137     isr_t0:
+                     138     
+0082 C0E0            139     push acc
+0084 C0D0            140     push psw
+0086 C083            141     push dph
+0088 C082            142     push dpl
+                     143     
+008A 116B            144     call init_timer0
+008C 11A2            145     call delay_1sec
+008E 518C            146     call buzzer
+0090 11B8            147     call scanner
+                     148     
+0092 300404          149     jnb s1_over,out_isr
+0095 31F9            150     call inc_d
+                     151     
+0097 C204            152     clr s1_over
+                     153     
+0099                 154     out_isr:
+                     155     
+0099 D082            156     pop dpl
+009B D083            157     pop dph
+009D D0D0            158     pop psw
+009F D0E0            159     pop acc
+00A1 32              160     reti
+                     161     
+00A2                 162     delay_1sec:
+                     163     
+00A2 200412          164     jb s1_over,out_ds1sec
+00A5 D5420F          165     djnz cnt_1sl,out_ds1sec
+00A8 D54309          166     djnz cnt_1sh,reinit_1sl
+                     167     
+00AB 754304          168     mov cnt_1sh,#04h
+00AE 7542E8          169     mov cnt_1sl,#0e8h
+00B1 D204            170     setb s1_over
+00B3 22              171     ret
+                     172     
+00B4                 173     reinit_1sl:
+                     174     
+00B4 7542FF          175     mov cnt_1sl,#0ffh
+                     176     
+00B7                 177     out_ds1sec:
+00B7 22              178     ret
+                     179     
+                     180     
+00B8                 181     scanner:
+                     182     
+00B8 E538            183     mov a,scan_no
+                     184     
+                     185     
+00BA                 186     zero:
+                     187     
+00BA B40011          188     cjne a,#00d,one
+                     189     
+                     190     
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     4
+
+00BD C2A0            191     clr sl1
+00BF D2A1            192     setb sl2
+00C1 D2A2            193     setb sl3
+00C3 D2A3            194     setb sl4
+                     195     
+                     196     
+                     197     
+00C5 A2A4            198     mov c,krl1
+00C7 319B            199     call k
+                     200     
+00C9 753801          201     mov scan_no,#01d
+00CC 219A            202     ajmp out_scanner
+                     203     
+                     204     
+00CE                 205     one:
+                     206     
+00CE B40109          207     cjne a,#01d,two
+                     208     
+00D1 A2A5            209     mov c,krl2
+00D3 319B            210     call k
+                     211     
+00D5 753802          212     mov scan_no,#02d
+00D8 219A            213     ajmp out_scanner
+                     214     
+                     215     
+00DA                 216     two:
+                     217     
+00DA B40209          218     cjne a,#02d,three
+                     219     
+00DD A2A6            220     mov c,krl3
+00DF 319B            221     call k
+                     222     
+00E1 753803          223     mov scan_no,#03d
+00E4 219A            224     ajmp out_scanner
+                     225     
+                     226     
+00E6                 227     three:
+                     228     
+00E6 B40309          229     cjne a,#03d,four
+                     230     
+                     231     
+                     232     
+00E9 A2A7            233     mov c,krl4
+00EB 319B            234     call k
+                     235     
+00ED 753804          236     mov scan_no,#04d
+00F0 219A            237     ajmp out_scanner
+                     238     
+                     239     
+00F2                 240     four:
+                     241     
+00F2 B40411          242     cjne a,#04d,five
+                     243     
+                     244     
+00F5 D2A0            245     setb sl1
+00F7 C2A1            246     clr sl2
+00F9 D2A2            247     setb sl3
+00FB D2A3            248     setb sl4
+                     249     
+                     250     
+                     251     
+00FD A2A4            252     mov c,krl1
+00FF 319B            253     call k
+                     254     
+0101 753805          255     mov scan_no,#05d
+0104 219A            256     ajmp out_scanner
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     5
+
+                     257     
+                     258     
+0106                 259     five:
+                     260     
+0106 B40509          261     cjne a,#05d,six
+                     262     
+0109 A2A5            263     mov c,krl2
+010B 319B            264     call k
+                     265     
+010D 753806          266     mov scan_no,#06d
+0110 219A            267     ajmp out_scanner
+                     268     
+                     269     
+0112                 270     six:
+                     271     
+0112 B40609          272     cjne a,#06d,seven
+                     273     
+0115 A2A6            274     mov c,krl3
+0117 319B            275     call k
+                     276     
+0119 753807          277     mov scan_no,#07d
+011C 219A            278     ajmp out_scanner
+                     279     
+                     280     
+011E                 281     seven:
+                     282     
+011E B40709          283     cjne a,#07d,eight
+                     284     
+                     285     
+                     286     
+0121 A2A7            287     mov c,krl4
+0123 319B            288     call k
+                     289     
+                     290     
+0125 753808          291     mov scan_no,#08d
+0128 219A            292     ajmp out_scanner
+                     293     
+                     294     
+012A                 295     eight:
+                     296     
+012A B40811          297     cjne a,#08d,nine
+                     298     
+                     299     
+012D D2A0            300     setb sl1
+012F D2A1            301     setb sl2
+0131 C2A2            302     clr sl3
+0133 D2A3            303     setb sl4
+                     304     
+                     305     
+                     306     
+0135 A2A4            307     mov c,krl1
+0137 319B            308     call k
+                     309     
+                     310     
+0139 753809          311     mov scan_no,#09d
+013C 219A            312     ajmp out_scanner
+                     313     
+                     314     
+013E                 315     nine:
+                     316     
+013E B40909          317     cjne a,#09d,ten
+                     318     
+0141 A2A5            319     mov c,krl2
+0143 319B            320     call k
+                     321     
+                     322     
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     6
+
+0145 75380A          323     mov scan_no,#10d
+0148 219A            324     ajmp out_scanner
+                     325     
+                     326     
+014A                 327     ten:
+                     328     
+014A B40A09          329     cjne a,#10d,eleven
+                     330     
+014D A2A6            331     mov c,krl3
+014F 319B            332     call k
+                     333     
+                     334     
+0151 75380B          335     mov scan_no,#11d
+0154 219A            336     ajmp out_scanner
+                     337     
+                     338     
+0156                 339     eleven:
+                     340     
+0156 B40B09          341     cjne a,#11d,twelve
+                     342     
+                     343     
+                     344     
+0159 A2A7            345     mov c,krl4
+015B 319B            346     call k
+                     347     
+                     348     
+015D 75380C          349     mov scan_no,#12d
+0160 219A            350     ajmp out_scanner
+                     351     
+                     352     
+0162                 353     twelve:
+                     354     
+0162 B40C11          355     cjne a,#12d,thirteen
+                     356     
+                     357     
+0165 D2A0            358     setb sl1
+0167 D2A1            359     setb sl2
+0169 D2A2            360     setb sl3
+016B C2A3            361     clr sl4
+                     362     
+                     363     
+                     364     
+016D A2A4            365     mov c,krl1
+016F 319B            366     call k
+                     367     
+                     368     
+0171 75380D          369     mov scan_no,#13d
+0174 219A            370     ajmp out_scanner
+                     371     
+                     372     
+0176                 373     thirteen:
+                     374     
+0176 B40D09          375     cjne a,#13d,fourteen
+                     376     
+0179 A2A5            377     mov c,krl2
+017B 319B            378     call k
+                     379     
+                     380     
+017D 75380E          381     mov scan_no,#14d
+0180 219A            382     ajmp out_scanner
+                     383     
+                     384     
+0182                 385     fourteen:
+                     386     
+0182 B40E09          387     cjne a,#14d,fifteen
+                     388     
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     7
+
+0185 A2A6            389     mov c,krl3
+0187 319B            390     call k
+                     391     
+                     392     
+0189 75380F          393     mov scan_no,#15d
+018C 219A            394     ajmp out_scanner
+                     395     
+                     396     
+018E                 397     fifteen:
+                     398     
+018E B40F04          399     cjne a,#15d,dummy
+                     400     
+                     401     
+                     402     
+0191 A2A7            403     mov c,krl4
+0193 319B            404     call k
+                     405     
+                     406     
+                     407     
+0195                 408     dummy:
+                     409     
+0195 753800          410     mov scan_no,#00d
+0198 219A            411     ajmp out_scanner
+                     412     
+019A                 413     out_scanner:
+                     414     
+019A 22              415     ret
+                     416     
+019B                 417     k:
+                     418     
+019B 200027          419     jb key_ready,out_debounce
+                     420     
+019E 9202            421     mov tb,c
+01A0 E539            422     mov a,dcount
+01A2 B4210B          423     cjne a,#33d,debounce
+01A5 A202            424     mov c,tb
+01A7 402F            425     jc out_k
+                     426     
+01A9 1539            427     dec dcount
+01AB 853841          428     mov key_code,scan_no
+01AE 8028            429     jmp out_k
+                     430     
+01B0                 431     debounce:
+                     432     
+01B0 D53925          433     djnz dcount,out_k
+                     434     
+01B3 A202            435     mov c,tb
+01B5 4009            436     jc spurious_key
+01B7 753921          437     mov dcount,#33d
+01BA D200            438     setb key_ready
+01BC D205            439     setb start_buzzer
+01BE 8018            440     jmp out_k
+                     441     
+01C0                 442     spurious_key:
+                     443     
+01C0 753921          444     mov dcount,#33d
+01C3 8013            445     jmp out_k
+                     446     
+01C5                 447     out_debounce:
+                     448     
+01C5 4005            449     jc l1_k
+01C7 754020          450     mov krcount,#32d
+01CA 800C            451     jmp out_k
+                     452     
+01CC                 453     l1_k:
+                     454     
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     8
+
+01CC D54009          455     djnz krcount,out_k
+01CF D201            456     setb nkp
+01D1 C205            457     clr start_buzzer
+01D3 754020          458     mov krcount,#32d
+01D6 8000            459     jmp out_k
+                     460     
+                     461     
+01D8                 462     out_k:
+01D8 22              463     ret
+                     464     
+01D9                 465     wait_1sec:
+                     466     
+01D9 753602          467     mov dcount3,#02h
+01DC 7535FF          468     L2: mov dcount2,#0ffh
+01DF 7534FF          469     L1: mov dcount1,#0ffh
+01E2 D534FD          470     djnz dcount1,$
+01E5 D535F7          471     djnz dcount2,L1
+01E8 D536F1          472     djnz dcount3,L2
+01EB 22              473     ret
+                     474     
+01EC                 475     wait_20ms:
+                     476     
+01EC 753555          477     mov dcount2,#55h
+01EF 7534FF          478     mov dcount1,#0ffh
+01F2 D534FD          479     djnz dcount1,$
+01F5 D535F7          480     djnz dcount2,$-3-3
+01F8 22              481     ret
+                     482     
+                     483     
+01F9                 484     inc_d:
+                     485     
+01F9 30033A          486     jnb start_sw, out_id
+01FC 0530            487     inc ds1
+01FE E530            488     mov a,ds1
+0200 B43A00          489     cjne a,#"9"+1,$+3
+0203 5001            490     jnc L1_id
+0205 22              491     ret
+                     492     
+0206                 493     L1_id:
+                     494     
+0206 753030          495     mov ds1,#"0"
+0209 0531            496     inc ds2
+020B E531            497     mov a,ds2
+020D B43A00          498     cjne a,#"9"+1,$+3
+0210 5001            499     jnc L2_id
+0212 22              500     ret
+                     501     
+0213                 502     L2_id:
+                     503     
+0213 753130          504     mov ds2,#"0"
+0216 0532            505     inc ds3
+0218 E532            506     mov a,ds3
+021A B43A00          507     cjne a,#"9"+1,$+3
+021D 5001            508     jnc L3_id
+021F 22              509     ret
+                     510     
+0220                 511     L3_id:
+                     512     
+0220 753230          513     mov ds3,#"0"
+0223 0533            514     inc ds4
+0225 E533            515     mov a,ds4
+0227 B43A0C          516     cjne a,#"9"+1,out_id
+                     517     
+022A 753000          518     mov ds1,#00h
+022D 753100          519     mov ds2,#00h
+0230 753200          520     mov ds3,#00h
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE     9
+
+0233 753300          521     mov ds4,#00h
+                     522     
+                     523     
+0236                 524     out_id:
+                     525     
+0236 22              526     ret
+                     527     
+                     528     
+0237                 529     key_release:
+0237 3001FD          530     jnb nkp,$
+023A C200            531     clr key_ready
+023C C201            532     clr nkp
+023E 22              533     ret
+                     534     
+                     535     
+023F                 536     get_key:
+023F 5192            537       call tx_disp
+0241 3000FB          538     jnb key_ready,get_key
+0244 E541            539     mov a,key_code
+0246 90024D          540     mov dptr,#ascii_key
+0249 93              541     movc a,@a+dptr
+024A F541            542     mov key_code,a
+024C 22              543     ret
+                     544     
+024D                 545     ascii_key:
+                     546     
+024D 30313233        547     db "0123456789ABCDEF"
+0251 34353637                
+0255 38394142                
+0259 43444546                
+                     548     
+025D                 549     keyprocess:
+                     550     
+025D E541            551     mov a,key_code
+025F B44104          552     cjne a,#"A",chk_b
+0262 5177            553     call process_a
+0264 800E            554     jmp out_kp
+                     555     
+0266                 556     chk_b:
+                     557     
+0266 B44204          558     cjne a,#"B",chk_c
+0269 517A            559     call process_b
+026B 8007            560     jmp out_kp
+                     561     
+026D                 562     chk_c:
+                     563     
+026D B44304          564     cjne a,#"C",out_kp
+0270 517D            565     call process_c
+0272 8000            566     jmp out_kp
+                     567     
+0274                 568     out_kp:
+                     569     
+0274 5137            570     call key_release
+0276 22              571     ret
+                     572     
+0277                 573     process_a:
+                     574     
+0277 D203            575     setb start_sw
+0279 22              576     ret
+                     577     
+027A                 578     process_b:
+                     579     
+027A C203            580     clr start_sw
+027C 22              581     ret
+                     582     
+027D                 583     process_c:
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE    10
+
+                     584     
+027D C203            585     clr start_sw
+                     586     
+027F 753030          587     mov ds1,#"0"
+0282 753130          588     mov ds2,#"0"
+0285 753230          589     mov ds3,#"0"
+0288 753330          590     mov ds4,#"0"
+                     591     
+028B 22              592     ret
+                     593     
+                     594     
+028C                 595     buzzer:
+                     596     
+028C 300502          597     jnb start_buzzer,out_b
+028F B295            598     cpl p1.5
+                     599     
+0291                 600     out_b:
+                     601     
+0291 22              602     ret
+                     603     
+0292                 604     tx_disp:
+                     605     
+0292 51F2            606     call row3
+                     607     
+0294 853344          608     mov tx_data,ds4
+0297 7150            609     call tx
+0299 7159            610     call uart_delay
+                     611     
+029B 853244          612     mov tx_data,ds3
+029E 7150            613     call tx
+02A0 7159            614     call uart_delay
+                     615     
+02A2 853144          616     mov tx_data,ds2
+02A5 7150            617     call tx
+02A7 7159            618     call uart_delay
+                     619     
+02A9 853044          620     mov tx_data,ds1
+02AC 7150            621     call tx
+02AE 7159            622     call uart_delay
+02B0 22              623     ret
+                     624      
+02B1                 625     init_uart:
+                     626     
+                     627     
+02B1 438920          628     orl tmod,#20h
+02B4 758DFD          629     mov th1,#0FDh    
+02B7 D28E            630     setb tr1
+02B9 759852          631     mov scon,#52h
+                     632     
+02BC 22              633     ret
+                     634     
+02BD                 635     disp_sw:
+                     636     
+02BD 51C7            637     call row2
+02BF 754453          638     mov tx_data,#"S"
+02C2 7150            639     call tx
+02C4 7159            640     call uart_delay
+02C6 22              641     ret
+                     642     
+02C7                 643     row2:
+                     644     
+02C7 75441B          645     mov tx_data,#1bh
+02CA 7150            646     call tx
+02CC 7159            647     call uart_delay
+                     648     
+02CE 75445B          649     mov tx_data,#"["
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE    11
+
+02D1 7150            650     call tx
+02D3 7159            651     call uart_delay
+                     652     
+02D5 754432          653     mov tx_data,#"2"
+02D8 7150            654     call tx
+02DA 7159            655     call uart_delay
+                     656     
+02DC 75443B          657     mov tx_data,#';'
+02DF 7150            658     call tx
+02E1 7159            659     call uart_delay
+                     660     
+02E3 754430          661     mov tx_data,#"0"
+02E6 7150            662     call tx
+02E8 7159            663     call uart_delay
+                     664     
+02EA 754466          665     mov tx_data,#"f"
+02ED 7150            666     call tx
+02EF 7159            667     call uart_delay
+                     668      
+02F1 22              669     ret
+                     670     
+02F2                 671     row3:
+                     672     
+02F2 75441B          673     mov tx_data,#1bh
+02F5 7150            674     call tx
+02F7 7159            675     call uart_delay
+                     676     
+02F9 75445B          677     mov tx_data,#"["
+02FC 7150            678     call tx
+02FE 7159            679     call uart_delay
+                     680     
+0300 754433          681     mov tx_data,#"3"
+0303 7150            682     call tx
+0305 7159            683     call uart_delay
+                     684     
+0307 75443B          685     mov tx_data,#3bh
+030A 7150            686     call tx
+030C 7159            687     call uart_delay
+                     688     
+030E 754430          689     mov tx_data,#"0"
+0311 7150            690     call tx
+0313 7159            691     call uart_delay
+                     692     
+0315 754466          693     mov tx_data,#"f"
+0318 7150            694     call tx
+031A 7159            695     call uart_delay
+                     696      
+031C 22              697     ret
+                     698     
+031D                 699     clr_screen:
+                     700     
+031D 75441B          701     mov tx_data,#1bh
+0320 7150            702     call tx
+0322 7159            703     call uart_delay
+                     704     
+0324 75445B          705     mov tx_data,#"["
+0327 7150            706     call tx
+0329 7159            707     call uart_delay
+                     708     
+032B 754432          709     mov tx_data,#"2"
+032E 7150            710     call tx
+0330 7159            711     call uart_delay
+                     712     
+0332 75444A          713     mov tx_data,#"J"
+0335 7150            714     call tx
+0337 7159            715     call uart_delay
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE    12
+
+                     716     
+0339 22              717     ret
+                     718     
+033A                 719     home_screen:
+                     720     
+033A 75441B          721     mov tx_data,#1bh
+033D 7150            722     call tx
+033F 7159            723     call uart_delay
+                     724     
+0341 75445B          725     mov tx_data,#"["
+0344 7150            726     call tx
+0346 7159            727     call uart_delay
+                     728     
+0348 754448          729     mov tx_data,#"H"
+034B 7150            730     call tx
+034D 7159            731     call uart_delay
+                     732     
+034F 22              733     ret
+                     734     
+0350                 735     tx:
+0350 3099FD          736     jnb ti,$
+0353 854499          737     mov sbuf,tx_data
+0356 C299            738     clr ti
+0358 22              739     ret
+                     740     
+0359                 741     uart_delay:
+                     742     
+0359 753602          743     mov dcount3,#02h
+035C 75353F          744     K2: mov dcount2,#3fh
+035F 7534FF          745     K1: mov dcount1,#0ffh
+0362 D534FD          746     djnz dcount1,$
+0365 D535F7          747     djnz dcount2,K1
+0368 D536F1          748     djnz dcount3,K2
+036B 22              749     ret
+                     750     
+                     751     
+                     752     
+                     753     
+                     754     end
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE    13
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ASCII_KEY. . . . .  C ADDR   024DH   A   
+BUZZER . . . . . .  C ADDR   028CH   A   
+CHK_B. . . . . . .  C ADDR   0266H   A   
+CHK_C. . . . . . .  C ADDR   026DH   A   
+CLR_SCREEN . . . .  C ADDR   031DH   A   
+CNT_1SH. . . . . .  N NUMB   0043H   A   
+CNT_1SL. . . . . .  N NUMB   0042H   A   
+COUNT. . . . . . .  N NUMB   0037H   A   
+DCOUNT . . . . . .  N NUMB   0039H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DEBOUNCE . . . . .  C ADDR   01B0H   A   
+DELAY_1SEC . . . .  C ADDR   00A2H   A   
+DISP_SW. . . . . .  C ADDR   02BDH   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+DUMMY. . . . . . .  C ADDR   0195H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EIGHT. . . . . . .  C ADDR   012AH   A   
+ELEVEN . . . . . .  C ADDR   0156H   A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+FIFTEEN. . . . . .  C ADDR   018EH   A   
+FIVE . . . . . . .  C ADDR   0106H   A   
+FOUR . . . . . . .  C ADDR   00F2H   A   
+FOURTEEN . . . . .  C ADDR   0182H   A   
+GET_KEY. . . . . .  C ADDR   023FH   A   
+HOME_SCREEN. . . .  C ADDR   033AH   A   
+INC_D. . . . . . .  C ADDR   01F9H   A   
+INIT . . . . . . .  C ADDR   003BH   A   
+INIT_DELAY_1SEC. .  C ADDR   0079H   A   
+INIT_DISPLAY . . .  C ADDR   0044H   A   
+INIT_KEYPAD. . . .  C ADDR   0051H   A   
+INIT_TIMER0. . . .  C ADDR   006BH   A   
+INIT_UART. . . . .  C ADDR   02B1H   A   
+ISR_T0 . . . . . .  C ADDR   0082H   A   
+K. . . . . . . . .  C ADDR   019BH   A   
+K1 . . . . . . . .  C ADDR   035FH   A   
+K2 . . . . . . . .  C ADDR   035CH   A   
+KEYPROCESS . . . .  C ADDR   025DH   A   
+KEY_CODE . . . . .  N NUMB   0041H   A   
+KEY_READY. . . . .  B ADDR   0020H.0 A   
+KEY_RELEASE. . . .  C ADDR   0237H   A   
+KRCOUNT. . . . . .  N NUMB   0040H   A   
+KRL1 . . . . . . .  B ADDR   00A0H.4 A   
+KRL2 . . . . . . .  B ADDR   00A0H.5 A   
+KRL3 . . . . . . .  B ADDR   00A0H.6 A   
+KRL4 . . . . . . .  B ADDR   00A0H.7 A   
+L1 . . . . . . . .  C ADDR   01DFH   A   
+L1_ID. . . . . . .  C ADDR   0206H   A   
+L1_K . . . . . . .  C ADDR   01CCH   A   
+L2 . . . . . . . .  C ADDR   01DCH   A   
+L2_ID. . . . . . .  C ADDR   0213H   A   
+L3_ID. . . . . . .  C ADDR   0220H   A   
+LOOP . . . . . . .  C ADDR   0035H   A   
+A51 MACRO ASSEMBLER  T10_UART                                                             01/01/2002 16:55:48 PAGE    14
+
+MAIN . . . . . . .  C ADDR   002CH   A   
+NINE . . . . . . .  C ADDR   013EH   A   
+NKP. . . . . . . .  B ADDR   0020H.1 A   
+ONE. . . . . . . .  C ADDR   00CEH   A   
+OUT_B. . . . . . .  C ADDR   0291H   A   
+OUT_DEBOUNCE . . .  C ADDR   01C5H   A   
+OUT_DS1SEC . . . .  C ADDR   00B7H   A   
+OUT_ID . . . . . .  C ADDR   0236H   A   
+OUT_ISR. . . . . .  C ADDR   0099H   A   
+OUT_K. . . . . . .  C ADDR   01D8H   A   
+OUT_KP . . . . . .  C ADDR   0274H   A   
+OUT_SCANNER. . . .  C ADDR   019AH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PROCESS_A. . . . .  C ADDR   0277H   A   
+PROCESS_B. . . . .  C ADDR   027AH   A   
+PROCESS_C. . . . .  C ADDR   027DH   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+REINIT_1SL . . . .  C ADDR   00B4H   A   
+ROW2 . . . . . . .  C ADDR   02C7H   A   
+ROW3 . . . . . . .  C ADDR   02F2H   A   
+S1_OVER. . . . . .  B ADDR   0020H.4 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCANNER. . . . . .  C ADDR   00B8H   A   
+SCAN_NO. . . . . .  N NUMB   0038H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SEVEN. . . . . . .  C ADDR   011EH   A   
+SIX. . . . . . . .  C ADDR   0112H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+SPURIOUS_KEY . . .  C ADDR   01C0H   A   
+START_BUZZER . . .  B ADDR   0020H.5 A   
+START_SW . . . . .  B ADDR   0020H.3 A   
+TB . . . . . . . .  B ADDR   0020H.2 A   
+TEN. . . . . . . .  C ADDR   014AH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+THIRTEEN . . . . .  C ADDR   0176H   A   
+THREE. . . . . . .  C ADDR   00E6H   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TOP_OF_STACK . . .  N NUMB   0060H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TWELVE . . . . . .  C ADDR   0162H   A   
+TWO. . . . . . . .  C ADDR   00DAH   A   
+TX . . . . . . . .  C ADDR   0350H   A   
+TX_DATA. . . . . .  N NUMB   0044H   A   
+TX_DISP. . . . . .  C ADDR   0292H   A   
+UART_DELAY . . . .  C ADDR   0359H   A   
+WAIT_1SEC. . . . .  C ADDR   01D9H   A   
+WAIT_20MS. . . . .  C ADDR   01ECH   A   
+ZERO . . . . . . .  C ADDR   00BAH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

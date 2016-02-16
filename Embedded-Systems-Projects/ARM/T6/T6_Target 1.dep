@@ -1,0 +1,4 @@
+Dependencies for Project 'T6', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x47F46688)(--device DARMP -g --apcs=interwork -I "C:\Keil\ARM\INC\Philips" --list "Startup.lst" --xref -o "Startup.o")
+F (.\T6.C)(0x3C319097)(-c --device DARMP -g -O0 --apcs=interwork -I "C:\Keil\ARM\INC\Philips" -o "t6.o" --omf_browse "t6.crf" --depend "t6.d")
+I (C:\Keil\ARM\INC\Philips\LPC214X.h)(0x47F46774)

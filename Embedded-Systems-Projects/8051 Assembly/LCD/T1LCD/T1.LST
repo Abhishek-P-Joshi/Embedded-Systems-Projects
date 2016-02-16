@@ -1,0 +1,267 @@
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 17:14:46 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     temp equ 30h
+  0031                 2     cmd_data equ 31h
+  0032                 3     disp_data equ 32h
+  0033                 4     dcount1 equ 33h
+  0034                 5     dcount2 equ 34h
+  0035                 6     dcount3 equ 35h
+  0036                 7     var_data equ 36h
+                       8     
+  0080                 9     vled bit p0.0
+  0081                10     RS bit p0.1
+  0082                11     RW bit p0.2
+  0083                12     e bit p0.3
+                      13     
+                      14     
+                      15     
+0000                  16     org 0000h
+                      17     
+0000                  18     main:
+                      19     
+0000 11AF             20     call init_lcd
+0002 753184           21     mov cmd_data,#84h
+0005 1153             22     call cmd_wr
+0007 119C             23     call lcd_delay
+                      24     
+                      25     
+0009 753241           26     mov disp_data,#"A"
+000C 116B             27     call data_wr
+                      28     
+                      29     
+000E 753242           30     mov disp_data,#"B"
+0011 116B             31     call data_wr
+                      32     
+                      33     
+0013 753248           34     mov disp_data,#"H"
+0016 116B             35     call data_wr
+                      36     
+                      37     
+0018 753249           38     mov disp_data,#"I"
+001B 116B             39     call data_wr
+                      40     
+                      41     
+001D 753253           42     mov disp_data,#"S"
+0020 116B             43     call data_wr
+                      44     
+                      45     
+0022 753248           46     mov disp_data,#"H"
+0025 116B             47     call data_wr
+                      48     
+                      49     
+0027 753245           50     mov disp_data,#"E"
+002A 116B             51     call data_wr
+                      52     
+                      53     
+002C 75324B           54     mov disp_data,#"K"
+002F 116B             55     call data_wr
+                      56     
+                      57     
+0031 7531C5           58     mov cmd_data,#0c5h
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 17:14:46 PAGE     2
+
+0034 1153             59     call cmd_wr
+0036 119C             60     call lcd_delay
+                      61     
+0038 75324A           62     mov disp_data,#"J"
+003B 116B             63     call data_wr
+                      64     
+                      65     
+003D 75324F           66     mov disp_data,#"O"
+0040 116B             67     call data_wr
+                      68     
+                      69     
+0042 753253           70     mov disp_data,#"S"
+0045 116B             71     call data_wr
+                      72     
+                      73     
+0047 753248           74     mov disp_data,#"H"
+004A 116B             75     call data_wr
+                      76     
+                      77     
+004C 753249           78     mov disp_data,#"I"
+004F 116B             79     call data_wr
+                      80     
+                      81     
+                      82     
+                      83     
+                      84     
+0051 80FE             85     jmp $
+                      86     
+                      87     
+0053                  88     cmd_wr:
+                      89     
+0053 C281             90     clr RS
+0055 C282             91     clr RW
+0057 853136           92     mov var_data,cmd_data
+005A 1183             93     call data_map
+005C 1192             94     call enable
+005E E531             95     mov a,cmd_data
+                      96     
+0060 23               97     rl a
+0061 23               98     rl a
+0062 23               99     rl a
+0063 23              100     rl a
+0064 F536            101     mov var_data,a
+0066 1183            102     call data_map
+0068 1192            103     call enable
+006A 22              104     ret
+                     105     
+006B                 106     data_wr:
+                     107     
+006B D281            108     setb RS
+006D C282            109     clr RW
+006F 853236          110     mov var_data,disp_data
+0072 1183            111     call data_map
+0074 1192            112     call enable
+0076 E532            113     mov a,disp_data
+                     114     
+0078 23              115     rl a
+0079 23              116     rl a
+007A 23              117     rl a
+007B 23              118     rl a
+007C F536            119     mov var_data,a
+007E 1183            120     call data_map
+0080 1192            121     call enable
+0082 22              122     ret
+                     123     
+                     124     
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 17:14:46 PAGE     3
+
+0083                 125     data_map:
+                     126     
+0083 E536            127     mov a,var_data
+0085 54F0            128     anl a,#0F0h
+0087 F530            129     mov temp,a
+                     130     
+0089 E580            131     mov a,p0
+008B 540F            132     anl a,#0Fh
+                     133     
+008D 4530            134     orl a,temp
+                     135     
+008F F580            136     mov p0,a
+                     137     
+0091 22              138     ret
+                     139     
+0092                 140     enable:
+0092 D283            141     setb e
+0094 00              142     nop
+0095 00              143     nop
+0096 00              144     nop
+0097 00              145     nop
+0098 00              146     nop
+0099 C283            147     clr e
+009B 22              148     ret
+                     149     
+                     150     
+009C                 151     lcd_delay:
+                     152     
+009C 753502          153     mov dcount3,#02h
+009F 75343F          154     L2: mov dcount2,#3fh
+00A2 7533FF          155     L1: mov dcount1,#0ffh
+00A5 D533FD          156     djnz dcount1,$
+00A8 D534F7          157     djnz dcount2,L1
+00AB D535F1          158     djnz dcount3,L2
+00AE 22              159     ret
+                     160     
+00AF                 161     init_lcd:
+00AF 119C            162             call lcd_delay
+00B1 119C            163             call lcd_delay
+00B3 119C            164             call lcd_delay
+                     165     
+00B5 753103          166             mov cmd_data,#03h
+00B8 1153            167             call cmd_wr
+00BA 119C            168             call lcd_delay
+                     169     
+00BC 753103          170             mov cmd_data,#03h
+00BF 1153            171             call cmd_wr
+00C1 119C            172             call lcd_delay
+                     173     
+00C3 753103          174             mov cmd_data,#03h
+00C6 1153            175             call cmd_wr
+00C8 119C            176             call lcd_delay
+                     177     
+00CA 753120          178             mov cmd_data,#20h
+00CD 1153            179             call cmd_wr
+00CF 119C            180             call lcd_delay
+                     181     
+00D1 753128          182             mov cmd_data,#28h
+00D4 1153            183             call cmd_wr
+00D6 119C            184             call lcd_delay
+                     185     
+00D8 753106          186             mov cmd_data,#06h
+00DB 1153            187             call cmd_wr
+00DD 119C            188             call lcd_delay
+                     189     
+00DF 753101          190             mov cmd_data,#01h
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 17:14:46 PAGE     4
+
+00E2 1153            191             call cmd_wr
+00E4 119C            192             call lcd_delay
+                     193     
+00E6 C280            194             clr vled
+00E8 22              195     ret
+                     196     
+                     197     
+                     198     end 
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 17:14:46 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CMD_DATA . . . . .  N NUMB   0031H   A   
+CMD_WR . . . . . .  C ADDR   0053H   A   
+DATA_MAP . . . . .  C ADDR   0083H   A   
+DATA_WR. . . . . .  C ADDR   006BH   A   
+DCOUNT1. . . . . .  N NUMB   0033H   A   
+DCOUNT2. . . . . .  N NUMB   0034H   A   
+DCOUNT3. . . . . .  N NUMB   0035H   A   
+DISP_DATA. . . . .  N NUMB   0032H   A   
+E. . . . . . . . .  B ADDR   0080H.3 A   
+ENABLE . . . . . .  C ADDR   0092H   A   
+INIT_LCD . . . . .  C ADDR   00AFH   A   
+L1 . . . . . . . .  C ADDR   00A2H   A   
+L2 . . . . . . . .  C ADDR   009FH   A   
+LCD_DELAY. . . . .  C ADDR   009CH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+RS . . . . . . . .  B ADDR   0080H.1 A   
+RW . . . . . . . .  B ADDR   0080H.2 A   
+TEMP . . . . . . .  N NUMB   0030H   A   
+VAR_DATA . . . . .  N NUMB   0036H   A   
+VLED . . . . . . .  B ADDR   0080H.0 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

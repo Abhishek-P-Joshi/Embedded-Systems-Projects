@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"Uart lcd T1.obj" 
+TO "Uart lcd T1" 
+RAMSIZE(256) 

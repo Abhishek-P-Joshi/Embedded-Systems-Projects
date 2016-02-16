@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\ARM\T8\T8.uv2
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling T8.C...
+T8.C(28): warning:  #951-D: return type of function "main" must be "int"
+T8.C(38): error:  #20: identifier "timer0_isr" is undefined
+T8.C(227): warning:  #1-D: last line of file ends without a newline
+Target not created
+Build target 'Target 1'
+assembling Startup.s...
+compiling T8.C...
+T8.C(38): error:  #1034: __irq functions must not be the target of a function call
+T8.C(38): error:  #171: invalid type conversion
+Target not created
+Build target 'Target 1'
+assembling Startup.s...
+compiling T8.C...
+linking...
+Program Size: Code=2496 RO-data=16416 RW-data=40 ZI-data=1256  
+FromELF: creating hex file...
+"T8.axf" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling Startup.s...
+compiling T8.C...
+linking...
+Program Size: Code=2516 RO-data=16416 RW-data=40 ZI-data=1256  
+FromELF: creating hex file...
+"T8.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>

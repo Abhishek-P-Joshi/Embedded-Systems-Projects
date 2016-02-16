@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\I2c\Port expander\PE1.uvproj
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling PE1.C...
+PE1.C(2): warning C318: can't open file 'i2c.h'
+PE1.C(13): warning C206: 'init_lcd': missing function-prototype
+PE1.C(19): error C202: 'result': undefined identifier
+PE1.C(20): error C202: 'p0': undefined identifier
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling PE1.C...
+PE1.C(2): warning C318: can't open file 'i2c.h'
+PE1.C(13): warning C206: 'init_lcd': missing function-prototype
+PE1.C(19): error C202: 'result': undefined identifier
+PE1.C(20): error C202: 'result': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling PE1.C...
+PE1.C(20): warning C206: 'read_eeprom': missing function-prototype
+PE1.C(41): error C231: 'read_eeprom': redefinition
+PE1.C(58): error C202: 'name': undefined identifier
+PE1.C(62): error C202: 'name': undefined identifier
+PE1.C(63): error C231: 'read_eeprom': redefinition
+Target not created
+Build target 'Target 1'
+compiling PE1.C...
+PE1.C(20): warning C206: 'read_eeprom': missing function-prototype
+PE1.C(41): error C231: 'read_eeprom': redefinition
+PE1.C(63): error C231: 'read_eeprom': redefinition
+Target not created
+Build target 'Target 1'
+compiling PE1.C...
+linking...
+Program Size: data=19.0 xdata=0 code=463
+creating hex file from "PE1"...
+"PE1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling PE1.C...
+linking...
+Program Size: data=19.0 xdata=0 code=463
+creating hex file from "PE1"...
+"PE1" - 0 Error(s), 0 Warning(s).

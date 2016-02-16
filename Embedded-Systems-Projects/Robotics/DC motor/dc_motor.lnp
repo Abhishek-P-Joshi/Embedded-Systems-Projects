@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"dc_motor.obj" 
+TO "dc_motor" 
+RAMSIZE(256) 

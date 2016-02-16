@@ -1,0 +1,215 @@
+C51 COMPILER V9.00   UART_LCD_T1                                                           01/02/2002 06:25:33 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE UART_LCD_T1
+OBJECT MODULE PLACED IN Uart lcd T1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Uart lcd T1.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<stdio.h>
+   2          #include<Reg51f.h>
+   3          
+   4          sbit e=P0^3;
+   5          sbit rw=P0^2;
+   6          sbit rs=P0^1;
+   7          sbit vled=P0^0;
+   8          
+   9          void init_uart();
+  10          void uart_delay(unsigned int);
+  11          void tx(unsigned char);
+  12          unsigned char rx();
+  13          void clr_screen();
+  14          void home_screen();
+  15          void init_lcd();
+  16          void lcd_delay(unsigned int);
+  17          void cmd_wr(unsigned char);
+  18          void data_wr(unsigned char);
+  19          void data_mapping(unsigned char);
+  20          void toggle(); 
+  21          
+  22          
+  23          int i,j;
+  24          unsigned char s[5],cmd_data,tx_data;
+  25          
+  26          void main()
+  27          {
+  28   1       init_uart();
+  29   1       init_lcd();
+  30   1      
+  31   1       while(1)
+  32   1       {
+  33   2       for(i=0;i<=4;i++)
+  34   2       {
+  35   3        s[i]=rx();
+  36   3        //data_wr(s[i]);
+  37   3        uart_delay(1);
+  38   3       }
+  39   2        cmd_wr(0x80);
+  40   2        for(i=0;i<=4;i++)
+  41   2        {
+  42   3         data_wr(s[i]);
+  43   3         lcd_delay(1);
+  44   3        }     
+  45   2        }     
+  46   1      }
+  47          
+  48          void init_uart()
+  49          {
+  50   1       TMOD|=0x20;
+  51   1       TH1=0xFD;
+  52   1       TR1=1;
+  53   1       SCON=0x53;
+  54   1      }
+  55          
+C51 COMPILER V9.00   UART_LCD_T1                                                           01/02/2002 06:25:33 PAGE 2   
+
+  56          void clr_screen()
+  57          {
+  58   1       tx(0x1b);
+  59   1       uart_delay(1);
+  60   1       tx('[');
+  61   1       uart_delay(1);
+  62   1       tx('2');
+  63   1       uart_delay(1);
+  64   1       tx('J');
+  65   1       uart_delay(1);
+  66   1      }
+  67          
+  68          void home_screen()
+  69          {
+  70   1       tx(0x1b);
+  71   1       uart_delay(1);
+  72   1       tx('[');
+  73   1       uart_delay(1);
+  74   1       tx('H');
+  75   1       uart_delay(1);
+  76   1      }
+  77          
+  78          void tx(unsigned char tx_data)
+  79          {
+  80   1       while(TI!=1);
+  81   1       SBUF=tx_data;
+  82   1       TI=0;
+  83   1      }
+  84          
+  85          unsigned char rx()
+  86          {
+  87   1       while(RI!=1);
+  88   1       tx_data=SBUF;
+  89   1       RI=0;
+  90   1       return(tx_data);
+  91   1      }
+  92          
+  93          void uart_delay(unsigned int del)
+  94          {
+  95   1       int j,i;
+  96   1       for(i=0;i<=del;i++)
+  97   1        for(j=0;j<=120;j++);
+  98   1      
+  99   1      }
+ 100          
+ 101          void init_lcd()
+ 102          {
+ 103   1              lcd_delay (3);
+ 104   1              lcd_delay (3);
+ 105   1              lcd_delay (3);
+ 106   1      
+ 107   1              cmd_data=0x03;
+ 108   1              cmd_wr(cmd_data);
+ 109   1              lcd_delay(3);
+ 110   1              
+ 111   1              cmd_data=0x03;
+ 112   1              cmd_wr(cmd_data);
+ 113   1              lcd_delay(3);
+ 114   1              
+ 115   1              cmd_data=0x03;
+ 116   1              cmd_wr(cmd_data);
+ 117   1              lcd_delay(3);
+C51 COMPILER V9.00   UART_LCD_T1                                                           01/02/2002 06:25:33 PAGE 3   
+
+ 118   1              
+ 119   1              cmd_data=0x20;
+ 120   1              cmd_wr(cmd_data);
+ 121   1              lcd_delay(3);
+ 122   1                      
+ 123   1              cmd_data=0x28;
+ 124   1              cmd_wr(cmd_data);
+ 125   1              lcd_delay(3);
+ 126   1      
+ 127   1              cmd_data=0x06;
+ 128   1              cmd_wr(cmd_data);
+ 129   1              lcd_delay(3);
+ 130   1      
+ 131   1              cmd_data=0x01;
+ 132   1              cmd_wr(cmd_data);
+ 133   1              lcd_delay(3);
+ 134   1      
+ 135   1              vled=0;
+ 136   1      }
+ 137          
+ 138          
+ 139          void cmd_wr(unsigned char var_data)
+ 140          {
+ 141   1              rs=rw=0;
+ 142   1              data_mapping(var_data);
+ 143   1              toggle();
+ 144   1              var_data=var_data<<4;
+ 145   1              data_mapping(var_data);
+ 146   1              toggle();
+ 147   1      }
+ 148          
+ 149          
+ 150          void data_wr(unsigned char var_data)
+ 151          {       
+ 152   1              rs=1;
+ 153   1              rw=0;
+ 154   1              data_mapping(var_data);
+ 155   1              toggle();
+ 156   1              var_data=var_data<<4;
+ 157   1              data_mapping(var_data);
+ 158   1              toggle();
+ 159   1      }
+ 160          
+ 161          
+ 162          void data_mapping(unsigned char var_data1)
+ 163          {
+ 164   1              P0=(var_data1&0xf0)|(P0&0x0f);
+ 165   1      }
+ 166          
+ 167          void toggle()
+ 168          {
+ 169   1      e=1;
+ 170   1      ;
+ 171   1      ;
+ 172   1      ;
+ 173   1      ;
+ 174   1      ;
+ 175   1      e=0;
+ 176   1      }
+ 177          
+ 178          void lcd_delay(unsigned int x)
+ 179          {
+C51 COMPILER V9.00   UART_LCD_T1                                                           01/02/2002 06:25:33 PAGE 4   
+
+ 180   1      unsigned int i,j;
+ 181   1      
+ 182   1      for (i=0;i<=2*x;i++)
+ 183   1              {
+ 184   2              for (j=0;j<=120;j++);
+ 185   2              }
+ 186   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    419    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     11       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,14 @@
+_init: CODE, 662 0 10
+i1_init_timer: CODE, 636 0 15
+_delay: CODE, 461 0 47
+_scanner: CODE, 21 0 162
+_isr_t0: CODE, 581 0 23
+_uart_disp: CODE, 183 0 74
+_main: CODE, 257 0 53
+_init_uart: CODE, 672 0 10
+_uart_delay: CODE, 414 0 47
+_init_timer: CODE, 621 0 15
+_tx: CODE, 651 0 11
+_home_screen: CODE, 310 0 52
+_incrementd: CODE, 362 0 52
+Total: 571

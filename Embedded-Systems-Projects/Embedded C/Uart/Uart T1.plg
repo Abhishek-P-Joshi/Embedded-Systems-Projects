@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\Embedded C\Uart\Uart T1.uvproj
+Project File Date:  01/02/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling Uart T1.C...
+UART T1.C(12): error C141: syntax error near '{'
+UART T1.C(13): error C231: 'init_uart': redefinition
+UART T1.C(14): error C231: 'clr_screen': redefinition
+UART T1.C(15): error C141: syntax error near 'while'
+UART T1.C(15): error C141: syntax error near '1'
+UART T1.C(17): error C231: 'home_screen': redefinition
+UART T1.C(18): error C141: syntax error near ''H''
+UART T1.C(18): error C231: '_tx': redefinition
+UART T1.C(19): error C141: syntax error near '5'
+UART T1.C(19): error C231: '_delay': redefinition
+UART T1.C(21): error C141: syntax error near ''E''
+UART T1.C(21): error C231: '_tx': redefinition
+UART T1.C(22): error C141: syntax error near '5'
+UART T1.C(22): error C231: '_delay': redefinition
+UART T1.C(23): error C141: syntax error near '}'
+UART T1.C(66): error C141: syntax error near 'for'
+UART T1.C(66): error C231: 'i': redefinition
+UART T1.C(66): error C231: 'del': redefinition
+UART T1.C(66): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling Uart T1.C...
+UART T1.C(66): error C141: syntax error near 'for'
+UART T1.C(66): error C231: 'i': redefinition
+UART T1.C(66): error C231: 'del': redefinition
+UART T1.C(66): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling Uart T1.C...
+linking...
+Program Size: data=9.0 xdata=0 code=162
+creating hex file from "Uart T1"...
+"Uart T1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling Uart T1.C...
+linking...
+Program Size: data=9.0 xdata=0 code=162
+creating hex file from "Uart T1"...
+"Uart T1" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling Uart T1.C...
+linking...
+Program Size: data=9.0 xdata=0 code=170
+creating hex file from "Uart T1"...
+"Uart T1" - 0 Error(s), 0 Warning(s).

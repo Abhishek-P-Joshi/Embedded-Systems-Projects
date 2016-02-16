@@ -1,0 +1,152 @@
+C51 COMPILER V9.00   DC_UART                                                               03/09/2000 13:17:47 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE DC_UART
+OBJECT MODULE PLACED IN DC uart.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE DC uart.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51f.h>
+   2          
+   3          
+   4          sbit EN1 = P1^0;
+   5          sbit DCM1 = P1^1;
+   6          sbit DCM2 = P1^2;
+   7          sbit DCM3 = P1^3;
+   8          sbit DCM4 = P1^4;
+   9          sbit EN2 = P1^5;
+  10          
+  11          void init_uart();
+  12          void disp_motor();
+  13          unsigned char rx();
+  14          void tx(unsigned char);
+  15          void delay(unsigned int);
+  16          void process_A();
+  17          void process_B();
+  18          void process_C();
+  19          
+  20          unsigned char receive,ch;
+  21          
+  22          void main()
+  23          {
+  24   1      
+  25   1       init_uart();
+  26   1      
+  27   1       disp_motor();
+  28   1      
+  29   1       while(1)
+  30   1       {
+  31   2       receive=rx();
+  32   2       tx(receive);
+  33   2       
+  34   2      
+  35   2       if(receive=='a'||receive=='A')
+  36   2       process_A();
+  37   2       else if(receive=='b'||receive=='B')
+  38   2       process_B();
+  39   2        else if(receive=='c'||receive=='C')
+  40   2       process_C();
+  41   2       }
+  42   1       }
+  43          
+  44           void process_A()
+  45           {
+  46   1        EN1=1;
+  47   1        DCM1=1;
+  48   1        DCM2=0;
+  49   1       }
+  50           void process_B()
+  51           {
+  52   1        EN1=1;
+  53   1        DCM1=0;
+  54   1        DCM2=1;
+  55   1       }
+C51 COMPILER V9.00   DC_UART                                                               03/09/2000 13:17:47 PAGE 2   
+
+  56          
+  57           void process_C()
+  58           {
+  59   1        EN1=0;
+  60   1       }
+  61          
+  62           void init_uart()
+  63           {
+  64   1         TMOD=0x20;
+  65   1         TH1=0xfd;
+  66   1         TR1=1;
+  67   1         SCON=0x53;
+  68   1       }
+  69          
+  70           unsigned char rx()
+  71           {
+  72   1        while(RI==0);
+  73   1        ch=SBUF;
+  74   1        RI=0;
+  75   1        return(ch);
+  76   1       }
+  77          
+  78           void tx(unsigned char x)
+  79           {
+  80   1       while(TI==0);
+  81   1       SBUF=x;
+  82   1       TI=0;
+  83   1       }
+  84          
+  85           void disp_motor()
+  86           {
+  87   1        unsigned char disp[8]="DC MOTOR";
+  88   1        unsigned char disp1[13]="A - ANTICLOCK";
+  89   1        unsigned char disp2[10]="B - CLOCK";
+  90   1        unsigned char disp3[10]="C - STOP";
+  91   1        int i;
+  92   1        for(i=0;i<=7;i++)
+  93   1        {
+  94   2        tx(disp[i]);
+  95   2        delay(2);
+  96   2        }
+  97   1      
+  98   1        for(i=0;i<=13;i++)
+  99   1        {
+ 100   2        tx(disp1[i]);
+ 101   2        delay(2);
+ 102   2        }
+ 103   1      
+ 104   1        for(i=0;i<=9;i++)
+ 105   1        {
+ 106   2        tx(disp2[i]);
+ 107   2        delay(2);
+ 108   2        }
+ 109   1      
+ 110   1        for(i=0;i<=8;i++)
+ 111   1        {
+ 112   2        tx(disp3[i]);
+ 113   2        delay(2);
+ 114   2        }
+ 115   1       }
+ 116          
+ 117          void delay(unsigned int x)
+C51 COMPILER V9.00   DC_UART                                                               03/09/2000 13:17:47 PAGE 3   
+
+ 118          {
+ 119   1       int i,j;
+ 120   1       for(i=0;i<=x;i++)
+ 121   1       for(j=0;j<=120;j++);
+ 122   1      
+ 123   1      }
+ 124          
+ 125                    
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    347    ----
+   CONSTANT SIZE    =     41    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2      43
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

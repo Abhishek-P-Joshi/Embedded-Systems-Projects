@@ -1,0 +1,19 @@
+*** Creating Trace Output File 'T5.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"t5.o"'
+### ADS-LD Command completed:
+"startup.o" "t5.o" --device DARMP --ro-base 0x00000000 --entry Reset_Handler --rw-base 0x40000000 --first Reset_Handler --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\T5.map" -o "T5.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'T5.axf'
+### ADS-LD Command File: 'T5.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'T5.lnp', Handle=0x000003C4
+### Writing '.lnp' file
+### ADS-LD Command file 'T5.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

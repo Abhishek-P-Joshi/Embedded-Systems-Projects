@@ -1,0 +1,18 @@
+_init: CODE, 1273 0 11
+i1_init_timer: CODE, 1207 0 15
+_lcd_delay: CODE, 855 0 54
+_scanner: CODE, 21 0 460
+_data_mapping: CODE, 1262 0 11
+_isr_t0: CODE, 1116 0 28
+_data_wr: CODE, 1007 0 39
+_lcd_disp: CODE, 1237 0 13
+_k1: CODE, 632 0 113
+_main: CODE, 745 0 110
+_toggle: CODE, 1292 0 5
+_key_release: CODE, 1172 0 18
+_init_timer: CODE, 1222 0 15
+_cmd_wr: CODE, 1046 0 39
+_init_lcd: CODE, 481 0 151
+_init_keypad: CODE, 1085 0 31
+_buzzer: CODE, 1250 0 12
+Total: 1125

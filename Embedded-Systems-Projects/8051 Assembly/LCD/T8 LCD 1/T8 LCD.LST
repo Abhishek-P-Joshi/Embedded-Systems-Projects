@@ -1,0 +1,722 @@
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T8 LCD.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T8 LCD.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  0037                10     count equ 37h
+  0038                11     scan_no equ 38h
+                      12     
+  0060                13     top_of_stack equ 60h
+                      14     
+  00A0                15     sl1 bit p2.0
+  00A1                16     sl2 bit p2.1
+  00A2                17     sl3 bit p2.2
+  00A3                18     sl4 bit p2.3
+                      19     
+  0039                20     temp equ 39h
+  0040                21     cmd_data equ 40h
+  0041                22     disp_data equ 41h
+  0042                23     var_data equ 42h
+                      24     
+  0080                25     vled bit p0.0
+  0081                26     RS bit p0.1
+  0082                27     RW bit p0.2
+  0083                28     e bit p0.3
+                      29     
+0000                  30     org 0000h
+0000 802A             31     jmp main
+                      32     
+0003                  33     org 0003h
+0003 32               34     reti 
+                      35     
+000B                  36     org 000bh
+000B 020087           37     ljmp isr_t0
+                      38     
+0013                  39     org 0013h
+0013 32               40     reti
+                      41     
+001B                  42     org 001bh
+001B 32               43     reti
+                      44     
+0023                  45     org 0023h
+0023 32               46     reti
+                      47     
+002B                  48     org 002bh
+002B 32               49     reti
+                      50     
+002C                  51     main:
+                      52     
+002C 517B             53     call init_lcd
+                      54     
+002E 7540C0           55     mov cmd_data,#0C0h
+0031 31BF             56     call cmd_wr
+0033 5168             57     call lcd_delay
+                      58     
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     2
+
+0035 754143           59     mov disp_data,#"C"
+0038 31D7             60     call data_wr
+                      61     
+                      62     
+003A 75414F           63     mov disp_data,#"O"
+003D 31D7             64     call data_wr
+                      65     
+                      66     
+003F 754155           67     mov disp_data,#"U"
+0042 31D7             68     call data_wr
+                      69     
+                      70     
+0044 75414E           71     mov disp_data,#"N"
+0047 31D7             72     call data_wr
+                      73     
+                      74     
+0049 754154           75     mov disp_data,#"T"
+004C 31D7             76     call data_wr
+                      77     
+                      78     
+004E 754145           79     mov disp_data,#"E"
+0051 31D7             80     call data_wr
+                      81     
+                      82     
+0053 754152           83     mov disp_data,#"R"
+0056 31D7             84     call data_wr
+                      85     
+                      86     
+0058 758160           87     mov sp,#top_of_stack
+005B 1173             88     call init
+005D D2AF             89     setb ea
+                      90     
+                      91     
+005F 753030           92     mov ds1,#"0"
+0062 753130           93     mov ds2,#"0"
+0065 753230           94     mov ds3,#"0"
+0068 753330           95     mov ds4,#"0"
+                      96     
+006B                  97     l1_main:
+                      98     
+006B 319A             99     call lcd_disp
+                     100     
+006D 313F            101     call wait_1sec
+006F 315F            102     call inc_d
+0071 80F8            103     jmp l1_main
+                     104     
+                     105     
+                     106     
+0073                 107     init:
+                     108     
+0073 753800          109     mov scan_no,#00h
+0076 1179            110     call init_timer0
+0078 22              111     ret
+                     112     
+                     113     
+0079                 114     init_timer0:
+                     115     
+0079 438901          116     orl tmod,#01h
+007C 758A66          117     mov tl0,#66h
+007F 758CFC          118     mov th0,#0fch
+0082 D28C            119     setb tr0
+0084 D2A9            120     setb et0
+0086 22              121     ret
+                     122     
+                     123     
+0087                 124     isr_t0:
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     3
+
+                     125     
+0087 C0E0            126     push acc
+0089 C0D0            127     push psw
+008B C083            128     push dph
+008D C082            129     push dpl
+                     130     
+008F 1179            131     call init_timer0
+0091 119C            132     call scanner
+                     133     
+0093                 134     out_isr:
+                     135     
+0093 D082            136     pop dpl
+0095 D083            137     pop dph
+0097 D0D0            138     pop psw
+0099 D0E0            139     pop acc
+009B 32              140     reti
+                     141     
+                     142     
+009C                 143     scanner:
+                     144     
+009C E538            145     mov a,scan_no
+                     146     
+                     147     
+                     148     
+009E                 149     zero:
+                     150     
+009E B4000D          151     cjne a,#00d,one
+                     152     
+                     153     
+00A1 C2A0            154     clr sl1
+00A3 D2A1            155     setb sl2
+00A5 D2A2            156     setb sl3
+00A7 D2A3            157     setb sl4
+                     158     
+                     159     
+                     160     
+00A9 753801          161     mov scan_no,#01d
+00AC 213E            162     ajmp out_scanner
+                     163     
+                     164     
+00AE                 165     one:
+                     166     
+00AE B40105          167     cjne a,#01d,two
+                     168     
+00B1 753802          169     mov scan_no,#02d
+00B4 213E            170     ajmp out_scanner
+                     171     
+                     172     
+00B6                 173     two:
+                     174     
+00B6 B40205          175     cjne a,#02d,three
+                     176     
+00B9 753803          177     mov scan_no,#03d
+00BC 213E            178     ajmp out_scanner
+                     179     
+                     180     
+00BE                 181     three:
+                     182     
+00BE B40305          183     cjne a,#03d,four
+                     184     
+                     185     
+                     186     
+00C1 753804          187     mov scan_no,#04d
+00C4 213E            188     ajmp out_scanner
+                     189     
+                     190     
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     4
+
+00C6                 191     four:
+                     192     
+00C6 B4040D          193     cjne a,#04d,five
+                     194     
+                     195     
+00C9 D2A0            196     setb sl1
+00CB C2A1            197     clr sl2
+00CD D2A2            198     setb sl3
+00CF D2A3            199     setb sl4
+                     200     
+                     201     
+                     202     
+00D1 753805          203     mov scan_no,#05d
+00D4 213E            204     ajmp out_scanner
+                     205     
+                     206     
+00D6                 207     five:
+                     208     
+00D6 B40505          209     cjne a,#05d,six
+                     210     
+00D9 753806          211     mov scan_no,#06d
+00DC 213E            212     ajmp out_scanner
+                     213     
+                     214     
+00DE                 215     six:
+                     216     
+00DE B40605          217     cjne a,#06d,seven
+                     218     
+00E1 753807          219     mov scan_no,#07d
+00E4 213E            220     ajmp out_scanner
+                     221     
+                     222     
+00E6                 223     seven:
+                     224     
+00E6 B40705          225     cjne a,#07d,eight
+                     226     
+                     227     
+                     228     
+00E9 753808          229     mov scan_no,#08d
+00EC 213E            230     ajmp out_scanner
+                     231     
+                     232     
+00EE                 233     eight:
+                     234     
+00EE B4080D          235     cjne a,#08d,nine
+                     236     
+                     237     
+00F1 D2A0            238     setb sl1
+00F3 D2A1            239     setb sl2
+00F5 C2A2            240     clr sl3
+00F7 D2A3            241     setb sl4
+                     242     
+                     243     
+                     244     
+00F9 753809          245     mov scan_no,#09d
+00FC 213E            246     ajmp out_scanner
+                     247     
+                     248     
+00FE                 249     nine:
+                     250     
+00FE B40905          251     cjne a,#09d,ten
+                     252     
+0101 75380A          253     mov scan_no,#10d
+0104 213E            254     ajmp out_scanner
+                     255     
+                     256     
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     5
+
+0106                 257     ten:
+                     258     
+0106 B40A05          259     cjne a,#10d,eleven
+                     260     
+0109 75380B          261     mov scan_no,#11d
+010C 213E            262     ajmp out_scanner
+                     263     
+                     264     
+010E                 265     eleven:
+                     266     
+010E B40B05          267     cjne a,#11d,twelve
+                     268     
+                     269     
+                     270     
+0111 75380C          271     mov scan_no,#12d
+0114 213E            272     ajmp out_scanner
+                     273     
+                     274     
+0116                 275     twelve:
+                     276     
+0116 B40C0D          277     cjne a,#12d,thirteen
+                     278     
+                     279     
+0119 D2A0            280     setb sl1
+011B D2A1            281     setb sl2
+011D D2A2            282     setb sl3
+011F C2A3            283     clr sl4
+                     284     
+                     285     
+                     286     
+0121 75380D          287     mov scan_no,#13d
+0124 213E            288     ajmp out_scanner
+                     289     
+                     290     
+0126                 291     thirteen:
+                     292     
+0126 B40D05          293     cjne a,#13d,fourteen
+                     294     
+0129 75380E          295     mov scan_no,#14d
+012C 213E            296     ajmp out_scanner
+                     297     
+                     298     
+012E                 299     fourteen:
+                     300     
+012E B40E05          301     cjne a,#14d,fifteen
+                     302     
+0131 75380F          303     mov scan_no,#15d
+0134 213E            304     ajmp out_scanner
+                     305     
+                     306     
+0136                 307     fifteen:
+                     308     
+0136 B40F00          309     cjne a,#15d,dummy
+                     310     
+                     311     
+                     312     
+                     313     
+0139                 314     dummy:
+                     315     
+0139 753800          316     mov scan_no,#00d
+013C 213E            317     ajmp out_scanner
+                     318     
+013E                 319     out_scanner:
+                     320     
+013E 22              321     ret
+                     322     
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     6
+
+                     323     
+013F                 324     wait_1sec:
+                     325     
+013F 753602          326     mov dcount3,#02h
+0142 7535FF          327     L2: mov dcount2,#0ffh
+0145 7534FF          328     L1: mov dcount1,#0ffh
+0148 D534FD          329     djnz dcount1,$
+014B D535F7          330     djnz dcount2,L1
+014E D536F1          331     djnz dcount3,L2
+0151 22              332     ret
+                     333     
+0152                 334     wait_20ms:
+                     335     
+0152 753555          336     mov dcount2,#55h
+0155 7534FF          337     mov dcount1,#0ffh
+0158 D534FD          338     djnz dcount1,$
+015B D535F7          339     djnz dcount2,$-3-3
+015E 22              340     ret
+                     341     
+                     342     
+015F                 343     inc_d:
+                     344     
+015F 0530            345     inc ds1
+0161 E530            346     mov a,ds1
+0163 B43A00          347     cjne a,#"9"+1,$+3
+0166 5001            348     jnc L1_id
+0168 22              349     ret
+                     350     
+0169                 351     L1_id:
+                     352     
+0169 753030          353     mov ds1,#"0"
+016C 0531            354     inc ds2
+016E E531            355     mov a,ds2
+0170 B43A00          356     cjne a,#"9"+1,$+3
+0173 5001            357     jnc L2_id
+0175 22              358     ret
+                     359     
+0176                 360     L2_id:
+                     361     
+0176 753130          362     mov ds2,#"0"
+0179 0532            363     inc ds3
+017B E532            364     mov a,ds3
+017D B43A00          365     cjne a,#"9"+1,$+3
+0180 5001            366     jnc L3_id
+0182 22              367     ret
+                     368     
+0183                 369     L3_id:
+                     370     
+0183 753230          371     mov ds3,#"0"
+0186 0533            372     inc ds4
+0188 E533            373     mov a,ds4
+018A B43A0C          374     cjne a,#"9"+1,out_id
+                     375     
+018D 753000          376     mov ds1,#00h
+0190 753100          377     mov ds2,#00h
+0193 753200          378     mov ds3,#00h
+0196 753300          379     mov ds4,#00h
+                     380     
+                     381     
+0199                 382     out_id:
+                     383     
+0199 22              384     ret
+                     385     
+019A                 386     lcd_disp:
+                     387     
+019A 754087          388     mov cmd_data,#87h
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     7
+
+019D 31BF            389     call cmd_wr
+019F 5168            390     call lcd_delay
+                     391     
+                     392     
+01A1 31EF            393     call data_wr1
+                     394     
+01A3 754086          395     mov cmd_data,#86h
+01A6 31BF            396     call cmd_wr
+01A8 5168            397     call lcd_delay
+                     398     
+01AA 5107            399     call data_wr2
+                     400     
+01AC 754085          401     mov cmd_data,#85h
+01AF 31BF            402     call cmd_wr
+01B1 5168            403     call lcd_delay
+                     404     
+01B3 511F            405     call data_wr3
+                     406     
+01B5 754084          407     mov cmd_data,#84h
+01B8 31BF            408     call cmd_wr
+01BA 5168            409     call lcd_delay
+                     410     
+01BC 5137            411     call data_wr4
+                     412     
+01BE 22              413     ret
+                     414     
+01BF                 415     cmd_wr:
+                     416     
+01BF C281            417     clr RS
+01C1 C282            418     clr RW
+01C3 854042          419     mov var_data,cmd_data
+01C6 514F            420     call data_map
+01C8 515E            421     call enable
+01CA E540            422     mov a,cmd_data
+                     423     
+01CC 23              424     rl a
+01CD 23              425     rl a
+01CE 23              426     rl a
+01CF 23              427     rl a
+01D0 F542            428     mov var_data,a
+01D2 514F            429     call data_map
+01D4 515E            430     call enable
+01D6 22              431     ret
+                     432     
+01D7                 433     data_wr:
+                     434     
+01D7 D281            435     setb RS
+01D9 C282            436     clr RW
+01DB 854142          437     mov var_data,disp_data
+01DE 514F            438     call data_map
+01E0 515E            439     call enable
+01E2 E541            440     mov a,disp_data
+                     441     
+01E4 23              442     rl a
+01E5 23              443     rl a
+01E6 23              444     rl a
+01E7 23              445     rl a
+01E8 F542            446     mov var_data,a
+01EA 514F            447     call data_map
+01EC 515E            448     call enable
+01EE 22              449     ret
+                     450     
+01EF                 451     data_wr1:
+                     452     
+01EF D281            453     setb RS
+01F1 C282            454     clr RW
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     8
+
+01F3 853042          455     mov var_data,ds1
+01F6 514F            456     call data_map
+01F8 515E            457     call enable
+01FA E530            458     mov a,ds1
+                     459     
+01FC 23              460     rl a
+01FD 23              461     rl a
+01FE 23              462     rl a
+01FF 23              463     rl a
+0200 F542            464     mov var_data,a
+0202 514F            465     call data_map
+0204 515E            466     call enable
+0206 22              467     ret
+                     468     
+0207                 469     data_wr2:
+                     470     
+0207 D281            471     setb RS
+0209 C282            472     clr RW
+020B 853142          473     mov var_data,ds2
+020E 514F            474     call data_map
+0210 515E            475     call enable
+0212 E531            476     mov a,ds2
+                     477     
+0214 23              478     rl a
+0215 23              479     rl a
+0216 23              480     rl a
+0217 23              481     rl a
+0218 F542            482     mov var_data,a
+021A 514F            483     call data_map
+021C 515E            484     call enable
+021E 22              485     ret
+                     486     
+021F                 487     data_wr3:
+                     488     
+021F D281            489     setb RS
+0221 C282            490     clr RW
+0223 853242          491     mov var_data,ds3
+0226 514F            492     call data_map
+0228 515E            493     call enable
+022A E532            494     mov a,ds3
+                     495     
+022C 23              496     rl a
+022D 23              497     rl a
+022E 23              498     rl a
+022F 23              499     rl a
+0230 F542            500     mov var_data,a
+0232 514F            501     call data_map
+0234 515E            502     call enable
+0236 22              503     ret
+                     504     
+0237                 505     data_wr4:
+                     506     
+0237 D281            507     setb RS
+0239 C282            508     clr RW
+023B 853342          509     mov var_data,ds4
+023E 514F            510     call data_map
+0240 515E            511     call enable
+0242 E533            512     mov a,ds4
+                     513     
+0244 23              514     rl a
+0245 23              515     rl a
+0246 23              516     rl a
+0247 23              517     rl a
+0248 F542            518     mov var_data,a
+024A 514F            519     call data_map
+024C 515E            520     call enable
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE     9
+
+024E 22              521     ret
+                     522     
+                     523     
+024F                 524     data_map:
+                     525     
+024F E542            526     mov a,var_data
+0251 54F0            527     anl a,#0F0h
+0253 F539            528     mov temp,a
+                     529     
+0255 E580            530     mov a,p0
+0257 540F            531     anl a,#0Fh
+                     532     
+0259 4539            533     orl a,temp
+                     534     
+025B F580            535     mov p0,a
+                     536     
+025D 22              537     ret
+                     538     
+025E                 539     enable:
+025E D283            540     setb e
+0260 00              541     nop
+0261 00              542     nop
+0262 00              543     nop
+0263 00              544     nop
+0264 00              545     nop
+0265 C283            546     clr e
+0267 22              547     ret
+                     548     
+                     549     
+0268                 550     lcd_delay:
+                     551     
+0268 753602          552     mov dcount3,#02h
+026B 75353F          553     K2: mov dcount2,#3fh
+026E 7534FF          554     K1: mov dcount1,#0ffh
+0271 D534FD          555     djnz dcount1,$
+0274 D535F7          556     djnz dcount2,K1
+0277 D536F1          557     djnz dcount3,K2
+027A 22              558     ret
+                     559     
+027B                 560     init_lcd:
+027B 5168            561             call lcd_delay
+027D 5168            562             call lcd_delay
+027F 5168            563             call lcd_delay
+                     564     
+0281 754003          565             mov cmd_data,#03h
+0284 31BF            566             call cmd_wr
+0286 5168            567             call lcd_delay
+                     568     
+0288 754003          569             mov cmd_data,#03h
+028B 31BF            570             call cmd_wr
+028D 5168            571             call lcd_delay
+                     572     
+028F 754003          573             mov cmd_data,#03h
+0292 31BF            574             call cmd_wr
+0294 5168            575             call lcd_delay
+                     576     
+0296 754020          577             mov cmd_data,#20h
+0299 31BF            578             call cmd_wr
+029B 5168            579             call lcd_delay
+                     580     
+029D 754028          581             mov cmd_data,#28h
+02A0 31BF            582             call cmd_wr
+02A2 5168            583             call lcd_delay
+                     584     
+02A4 754006          585             mov cmd_data,#06h
+02A7 31BF            586             call cmd_wr
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE    10
+
+02A9 5168            587             call lcd_delay
+                     588     
+02AB 754001          589             mov cmd_data,#01h
+02AE 31BF            590             call cmd_wr
+02B0 5168            591             call lcd_delay
+                     592     
+02B2 C280            593             clr vled
+02B4 22              594     ret
+                     595     
+                     596     end
+                             
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE    11
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+CMD_DATA . . . . .  N NUMB   0040H   A   
+CMD_WR . . . . . .  C ADDR   01BFH   A   
+COUNT. . . . . . .  N NUMB   0037H   A   
+DATA_MAP . . . . .  C ADDR   024FH   A   
+DATA_WR. . . . . .  C ADDR   01D7H   A   
+DATA_WR1 . . . . .  C ADDR   01EFH   A   
+DATA_WR2 . . . . .  C ADDR   0207H   A   
+DATA_WR3 . . . . .  C ADDR   021FH   A   
+DATA_WR4 . . . . .  C ADDR   0237H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DISP_DATA. . . . .  N NUMB   0041H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+DUMMY. . . . . . .  C ADDR   0139H   A   
+E. . . . . . . . .  B ADDR   0080H.3 A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EIGHT. . . . . . .  C ADDR   00EEH   A   
+ELEVEN . . . . . .  C ADDR   010EH   A   
+ENABLE . . . . . .  C ADDR   025EH   A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+FIFTEEN. . . . . .  C ADDR   0136H   A   
+FIVE . . . . . . .  C ADDR   00D6H   A   
+FOUR . . . . . . .  C ADDR   00C6H   A   
+FOURTEEN . . . . .  C ADDR   012EH   A   
+INC_D. . . . . . .  C ADDR   015FH   A   
+INIT . . . . . . .  C ADDR   0073H   A   
+INIT_LCD . . . . .  C ADDR   027BH   A   
+INIT_TIMER0. . . .  C ADDR   0079H   A   
+ISR_T0 . . . . . .  C ADDR   0087H   A   
+K1 . . . . . . . .  C ADDR   026EH   A   
+K2 . . . . . . . .  C ADDR   026BH   A   
+L1 . . . . . . . .  C ADDR   0145H   A   
+L1_ID. . . . . . .  C ADDR   0169H   A   
+L1_MAIN. . . . . .  C ADDR   006BH   A   
+L2 . . . . . . . .  C ADDR   0142H   A   
+L2_ID. . . . . . .  C ADDR   0176H   A   
+L3_ID. . . . . . .  C ADDR   0183H   A   
+LCD_DELAY. . . . .  C ADDR   0268H   A   
+LCD_DISP . . . . .  C ADDR   019AH   A   
+MAIN . . . . . . .  C ADDR   002CH   A   
+NINE . . . . . . .  C ADDR   00FEH   A   
+ONE. . . . . . . .  C ADDR   00AEH   A   
+OUT_ID . . . . . .  C ADDR   0199H   A   
+OUT_ISR. . . . . .  C ADDR   0093H   A   
+OUT_SCANNER. . . .  C ADDR   013EH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+RS . . . . . . . .  B ADDR   0080H.1 A   
+RW . . . . . . . .  B ADDR   0080H.2 A   
+SCANNER. . . . . .  C ADDR   009CH   A   
+SCAN_NO. . . . . .  N NUMB   0038H   A   
+SEVEN. . . . . . .  C ADDR   00E6H   A   
+A51 MACRO ASSEMBLER  T8_LCD                                                               01/01/2002 00:57:38 PAGE    12
+
+SIX. . . . . . . .  C ADDR   00DEH   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TEMP . . . . . . .  N NUMB   0039H   A   
+TEN. . . . . . . .  C ADDR   0106H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+THIRTEEN . . . . .  C ADDR   0126H   A   
+THREE. . . . . . .  C ADDR   00BEH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TOP_OF_STACK . . .  N NUMB   0060H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TWELVE . . . . . .  C ADDR   0116H   A   
+TWO. . . . . . . .  C ADDR   00B6H   A   
+VAR_DATA . . . . .  N NUMB   0042H   A   
+VLED . . . . . . .  B ADDR   0080H.0 A   
+WAIT_1SEC. . . . .  C ADDR   013FH   A   
+WAIT_20MS. . . . .  C ADDR   0152H   A   
+ZERO . . . . . . .  C ADDR   009EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,873 @@
+
+# 1 "D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C"
+
+# 19 "C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h"
+volatile unsigned char INDF @ 0x00;
+volatile unsigned char TMR0 @ 0x01;
+volatile unsigned char PCL @ 0x02;
+volatile unsigned char STATUS @ 0x03;
+unsigned char FSR @ 0x04;
+volatile unsigned char PORTA @ 0x05;
+volatile unsigned char PORTB @ 0x06;
+volatile unsigned char PORTC @ 0x07;
+
+# 31
+unsigned char PCLATH @ 0x0A;
+volatile unsigned char INTCON @ 0x0B;
+volatile unsigned char PIR1 @ 0x0C;
+volatile unsigned char PIR2 @ 0x0D;
+volatile unsigned char TMR1L @ 0x0E;
+volatile unsigned char TMR1H @ 0x0F;
+volatile unsigned char T1CON @ 0x10;
+volatile unsigned char TMR2 @ 0x11;
+volatile unsigned char T2CON @ 0x12;
+volatile unsigned char SSPBUF @ 0x13;
+volatile unsigned char SSPCON @ 0x14;
+volatile unsigned char CCPR1L @ 0x15;
+volatile unsigned char CCPR1H @ 0x16;
+volatile unsigned char CCP1CON @ 0x17;
+volatile unsigned char RCSTA @ 0x18;
+volatile unsigned char TXREG @ 0x19;
+volatile unsigned char RCREG @ 0x1A;
+volatile unsigned char CCPR2L @ 0x1B;
+volatile unsigned char CCPR2H @ 0x1C;
+volatile unsigned char CCP2CON @ 0x1D;
+volatile unsigned char ADRESH @ 0x1E;
+volatile unsigned char ADCON0 @ 0x1F;
+
+
+unsigned char OPTION @ 0x81;
+volatile unsigned char TRISA @ 0x85;
+volatile unsigned char TRISB @ 0x86;
+volatile unsigned char TRISC @ 0x87;
+
+# 63
+volatile unsigned char PIE1 @ 0x8C;
+volatile unsigned char PIE2 @ 0x8D;
+volatile unsigned char PCON @ 0x8E;
+volatile unsigned char SSPCON2 @ 0x91;
+volatile unsigned char PR2 @ 0x92;
+volatile unsigned char SSPADD @ 0x93;
+volatile unsigned char SSPSTAT @ 0x94;
+volatile unsigned char TXSTA @ 0x98;
+volatile unsigned char SPBRG @ 0x99;
+volatile unsigned char CMCON @ 0x9C;
+volatile unsigned char CVRCON @ 0x9D;
+volatile unsigned char ADRESL @ 0x9E;
+volatile unsigned char ADCON1 @ 0x9F;
+
+
+volatile unsigned char EEDATA @ 0x10C;
+volatile unsigned char EEADR @ 0x10D;
+
+volatile unsigned char EEADRL @ 0x10D;
+volatile unsigned char EEDATH @ 0x10E;
+volatile unsigned char EEADRH @ 0x10F;
+
+
+volatile unsigned char EECON1 @ 0x18C;
+volatile unsigned char EECON2 @ 0x18D;
+
+
+volatile bit IRP @ (unsigned)&STATUS*8+7;
+volatile bit RP1 @ (unsigned)&STATUS*8+6;
+volatile bit RP0 @ (unsigned)&STATUS*8+5;
+volatile bit TO @ (unsigned)&STATUS*8+4;
+volatile bit PD @ (unsigned)&STATUS*8+3;
+volatile bit ZERO @ (unsigned)&STATUS*8+2;
+volatile bit DC @ (unsigned)&STATUS*8+1;
+volatile bit CARRY @ (unsigned)&STATUS*8+0;
+
+
+volatile bit RA5 @ (unsigned)&PORTA*8+5;
+volatile bit RA4 @ (unsigned)&PORTA*8+4;
+volatile bit RA3 @ (unsigned)&PORTA*8+3;
+volatile bit RA2 @ (unsigned)&PORTA*8+2;
+volatile bit RA1 @ (unsigned)&PORTA*8+1;
+volatile bit RA0 @ (unsigned)&PORTA*8+0;
+
+
+volatile bit RB7 @ (unsigned)&PORTB*8+7;
+volatile bit RB6 @ (unsigned)&PORTB*8+6;
+volatile bit RB5 @ (unsigned)&PORTB*8+5;
+volatile bit RB4 @ (unsigned)&PORTB*8+4;
+volatile bit RB3 @ (unsigned)&PORTB*8+3;
+volatile bit RB2 @ (unsigned)&PORTB*8+2;
+volatile bit RB1 @ (unsigned)&PORTB*8+1;
+volatile bit RB0 @ (unsigned)&PORTB*8+0;
+
+
+volatile bit RC7 @ (unsigned)&PORTC*8+7;
+volatile bit RC6 @ (unsigned)&PORTC*8+6;
+volatile bit RC5 @ (unsigned)&PORTC*8+5;
+volatile bit RC4 @ (unsigned)&PORTC*8+4;
+volatile bit RC3 @ (unsigned)&PORTC*8+3;
+volatile bit RC2 @ (unsigned)&PORTC*8+2;
+volatile bit RC1 @ (unsigned)&PORTC*8+1;
+volatile bit RC0 @ (unsigned)&PORTC*8+0;
+
+# 145
+volatile bit GIE @ (unsigned)&INTCON*8+7;
+volatile bit PEIE @ (unsigned)&INTCON*8+6;
+volatile bit T0IE @ (unsigned)&INTCON*8+5;
+volatile bit INTE @ (unsigned)&INTCON*8+4;
+volatile bit RBIE @ (unsigned)&INTCON*8+3;
+volatile bit T0IF @ (unsigned)&INTCON*8+2;
+volatile bit INTF @ (unsigned)&INTCON*8+1;
+volatile bit RBIF @ (unsigned)&INTCON*8+0;
+
+volatile bit TMR0IE @ (unsigned)&INTCON*8+5;
+volatile bit TMR0IF @ (unsigned)&INTCON*8+2;
+
+# 161
+volatile bit ADIF @ (unsigned)&PIR1*8+6;
+volatile bit RCIF @ (unsigned)&PIR1*8+5;
+volatile bit TXIF @ (unsigned)&PIR1*8+4;
+volatile bit SSPIF @ (unsigned)&PIR1*8+3;
+volatile bit CCP1IF @ (unsigned)&PIR1*8+2;
+volatile bit TMR2IF @ (unsigned)&PIR1*8+1;
+volatile bit TMR1IF @ (unsigned)&PIR1*8+0;
+
+
+volatile bit CMIF @ (unsigned)&PIR2*8+6;
+volatile bit EEIF @ (unsigned)&PIR2*8+4;
+volatile bit BCLIF @ (unsigned)&PIR2*8+3;
+volatile bit CCP2IF @ (unsigned)&PIR2*8+0;
+
+
+volatile bit T1CKPS1 @ (unsigned)&T1CON*8+5;
+volatile bit T1CKPS0 @ (unsigned)&T1CON*8+4;
+volatile bit T1OSCEN @ (unsigned)&T1CON*8+3;
+volatile bit T1SYNC @ (unsigned)&T1CON*8+2;
+volatile bit TMR1CS @ (unsigned)&T1CON*8+1;
+volatile bit TMR1ON @ (unsigned)&T1CON*8+0;
+
+
+volatile bit TOUTPS3 @ (unsigned)&T2CON*8+6;
+volatile bit TOUTPS2 @ (unsigned)&T2CON*8+5;
+volatile bit TOUTPS1 @ (unsigned)&T2CON*8+4;
+volatile bit TOUTPS0 @ (unsigned)&T2CON*8+3;
+volatile bit TMR2ON @ (unsigned)&T2CON*8+2;
+volatile bit T2CKPS1 @ (unsigned)&T2CON*8+1;
+volatile bit T2CKPS0 @ (unsigned)&T2CON*8+0;
+
+
+volatile bit WCOL @ (unsigned)&SSPCON*8+7;
+volatile bit SSPOV @ (unsigned)&SSPCON*8+6;
+volatile bit SSPEN @ (unsigned)&SSPCON*8+5;
+volatile bit CKP @ (unsigned)&SSPCON*8+4;
+volatile bit SSPM3 @ (unsigned)&SSPCON*8+3;
+volatile bit SSPM2 @ (unsigned)&SSPCON*8+2;
+volatile bit SSPM1 @ (unsigned)&SSPCON*8+1;
+volatile bit SSPM0 @ (unsigned)&SSPCON*8+0;
+
+
+volatile bit CCP1X @ (unsigned)&CCP1CON*8+5;
+volatile bit CCP1Y @ (unsigned)&CCP1CON*8+4;
+volatile bit CCP1M3 @ (unsigned)&CCP1CON*8+3;
+volatile bit CCP1M2 @ (unsigned)&CCP1CON*8+2;
+volatile bit CCP1M1 @ (unsigned)&CCP1CON*8+1;
+volatile bit CCP1M0 @ (unsigned)&CCP1CON*8+0;
+
+
+volatile bit SPEN @ (unsigned)&RCSTA*8+7;
+volatile bit RX9 @ (unsigned)&RCSTA*8+6;
+volatile bit SREN @ (unsigned)&RCSTA*8+5;
+volatile bit CREN @ (unsigned)&RCSTA*8+4;
+volatile bit ADDEN @ (unsigned)&RCSTA*8+3;
+volatile bit FERR @ (unsigned)&RCSTA*8+2;
+volatile bit OERR @ (unsigned)&RCSTA*8+1;
+volatile bit RX9D @ (unsigned)&RCSTA*8+0;
+
+
+volatile bit CCP2X @ (unsigned)&CCP2CON*8+5;
+volatile bit CCP2Y @ (unsigned)&CCP2CON*8+4;
+volatile bit CCP2M3 @ (unsigned)&CCP2CON*8+3;
+volatile bit CCP2M2 @ (unsigned)&CCP2CON*8+2;
+volatile bit CCP2M1 @ (unsigned)&CCP2CON*8+1;
+volatile bit CCP2M0 @ (unsigned)&CCP2CON*8+0;
+
+
+volatile bit ADCS1 @ (unsigned)&ADCON0*8+7;
+volatile bit ADCS0 @ (unsigned)&ADCON0*8+6;
+volatile bit CHS2 @ (unsigned)&ADCON0*8+5;
+volatile bit CHS1 @ (unsigned)&ADCON0*8+4;
+volatile bit CHS0 @ (unsigned)&ADCON0*8+3;
+volatile bit ADGO @ (unsigned)&ADCON0*8+2;
+
+volatile bit GODONE @ (unsigned)&ADCON0*8+2;
+volatile bit ADON @ (unsigned)&ADCON0*8+0;
+
+
+bit RBPU @ (unsigned)&OPTION*8+7;
+bit INTEDG @ (unsigned)&OPTION*8+6;
+bit T0CS @ (unsigned)&OPTION*8+5;
+bit T0SE @ (unsigned)&OPTION*8+4;
+bit PSA @ (unsigned)&OPTION*8+3;
+bit PS2 @ (unsigned)&OPTION*8+2;
+bit PS1 @ (unsigned)&OPTION*8+1;
+bit PS0 @ (unsigned)&OPTION*8+0;
+
+
+volatile bit TRISA5 @ (unsigned)&TRISA*8+5;
+volatile bit TRISA4 @ (unsigned)&TRISA*8+4;
+volatile bit TRISA3 @ (unsigned)&TRISA*8+3;
+volatile bit TRISA2 @ (unsigned)&TRISA*8+2;
+volatile bit TRISA1 @ (unsigned)&TRISA*8+1;
+volatile bit TRISA0 @ (unsigned)&TRISA*8+0;
+
+
+volatile bit TRISB7 @ (unsigned)&TRISB*8+7;
+volatile bit TRISB6 @ (unsigned)&TRISB*8+6;
+volatile bit TRISB5 @ (unsigned)&TRISB*8+5;
+volatile bit TRISB4 @ (unsigned)&TRISB*8+4;
+volatile bit TRISB3 @ (unsigned)&TRISB*8+3;
+volatile bit TRISB2 @ (unsigned)&TRISB*8+2;
+volatile bit TRISB1 @ (unsigned)&TRISB*8+1;
+volatile bit TRISB0 @ (unsigned)&TRISB*8+0;
+
+
+volatile bit TRISC7 @ (unsigned)&TRISC*8+7;
+volatile bit TRISC6 @ (unsigned)&TRISC*8+6;
+volatile bit TRISC5 @ (unsigned)&TRISC*8+5;
+volatile bit TRISC4 @ (unsigned)&TRISC*8+4;
+volatile bit TRISC3 @ (unsigned)&TRISC*8+3;
+volatile bit TRISC2 @ (unsigned)&TRISC*8+2;
+volatile bit TRISC1 @ (unsigned)&TRISC*8+1;
+volatile bit TRISC0 @ (unsigned)&TRISC*8+0;
+
+# 303
+volatile bit ADIE @ (unsigned)&PIE1*8+6;
+volatile bit RCIE @ (unsigned)&PIE1*8+5;
+volatile bit TXIE @ (unsigned)&PIE1*8+4;
+volatile bit SSPIE @ (unsigned)&PIE1*8+3;
+volatile bit CCP1IE @ (unsigned)&PIE1*8+2;
+volatile bit TMR2IE @ (unsigned)&PIE1*8+1;
+volatile bit TMR1IE @ (unsigned)&PIE1*8+0;
+
+
+volatile bit CMIE @ (unsigned)&PIE2*8+6;
+volatile bit EEIE @ (unsigned)&PIE2*8+4;
+volatile bit BCLIE @ (unsigned)&PIE2*8+3;
+volatile bit CCP2IE @ (unsigned)&PIE2*8+0;
+
+
+volatile bit POR @ (unsigned)&PCON*8+1;
+volatile bit BOR @ (unsigned)&PCON*8+0;
+
+
+volatile bit GCEN @ (unsigned)&SSPCON2*8+7;
+volatile bit ACKSTAT @ (unsigned)&SSPCON2*8+6;
+volatile bit ACKDT @ (unsigned)&SSPCON2*8+5;
+volatile bit ACKEN @ (unsigned)&SSPCON2*8+4;
+volatile bit RCEN @ (unsigned)&SSPCON2*8+3;
+volatile bit PEN @ (unsigned)&SSPCON2*8+2;
+volatile bit RSEN @ (unsigned)&SSPCON2*8+1;
+volatile bit SEN @ (unsigned)&SSPCON2*8+0;
+
+
+volatile bit SMP @ (unsigned)&SSPSTAT*8+7;
+volatile bit CKE @ (unsigned)&SSPSTAT*8+6;
+volatile bit DA @ (unsigned)&SSPSTAT*8+5;
+volatile bit STOP @ (unsigned)&SSPSTAT*8+4;
+volatile bit START @ (unsigned)&SSPSTAT*8+3;
+volatile bit RW @ (unsigned)&SSPSTAT*8+2;
+volatile bit UA @ (unsigned)&SSPSTAT*8+1;
+volatile bit BF @ (unsigned)&SSPSTAT*8+0;
+
+# 352
+volatile bit CSRC @ (unsigned)&TXSTA*8+7;
+volatile bit TX9 @ (unsigned)&TXSTA*8+6;
+volatile bit TXEN @ (unsigned)&TXSTA*8+5;
+volatile bit SYNC @ (unsigned)&TXSTA*8+4;
+volatile bit BRGH @ (unsigned)&TXSTA*8+2;
+volatile bit TRMT @ (unsigned)&TXSTA*8+1;
+volatile bit TX9D @ (unsigned)&TXSTA*8+0;
+
+
+volatile bit C2OUT @ (unsigned)&CMCON*8+7;
+volatile bit C1OUT @ (unsigned)&CMCON*8+6;
+volatile bit C2INV @ (unsigned)&CMCON*8+5;
+volatile bit C1INV @ (unsigned)&CMCON*8+4;
+volatile bit CIS @ (unsigned)&CMCON*8+3;
+volatile bit CM2 @ (unsigned)&CMCON*8+2;
+volatile bit CM1 @ (unsigned)&CMCON*8+1;
+volatile bit CM0 @ (unsigned)&CMCON*8+0;
+
+
+volatile bit CVREN @ (unsigned)&CVRCON*8+7;
+volatile bit CVROE @ (unsigned)&CVRCON*8+6;
+volatile bit CVRR @ (unsigned)&CVRCON*8+5;
+volatile bit CVR3 @ (unsigned)&CVRCON*8+3;
+volatile bit CVR2 @ (unsigned)&CVRCON*8+2;
+volatile bit CVR1 @ (unsigned)&CVRCON*8+1;
+volatile bit CVR0 @ (unsigned)&CVRCON*8+0;
+
+
+volatile bit ADFM @ (unsigned)&ADCON1*8+7;
+volatile bit ADCS2 @ (unsigned)&ADCON1*8+6;
+volatile bit PCFG3 @ (unsigned)&ADCON1*8+3;
+volatile bit PCFG2 @ (unsigned)&ADCON1*8+2;
+volatile bit PCFG1 @ (unsigned)&ADCON1*8+1;
+volatile bit PCFG0 @ (unsigned)&ADCON1*8+0;
+
+
+volatile bit EEPGD @ (unsigned)&EECON1*8+7;
+volatile bit WRERR @ (unsigned)&EECON1*8+3;
+volatile bit WREN @ (unsigned)&EECON1*8+2;
+volatile bit WR @ (unsigned)&EECON1*8+1;
+volatile bit RD @ (unsigned)&EECON1*8+0;
+
+# 392 "C:\Program Files\HI-TECH Software\PICC\9.70\include\PIC.h"
+extern unsigned int flash_read(unsigned short addr);
+
+# 41 "C:\Program Files\HI-TECH Software\PICC\9.70\include\eeprom_routines.h"
+extern void eeprom_write(unsigned char addr, unsigned char value);
+extern unsigned char eeprom_read(unsigned char addr);
+
+
+# 465 "C:\Program Files\HI-TECH Software\PICC\9.70\include\PIC.h"
+#pragma inline(_delay)
+extern void _delay(unsigned long);
+
+# 3 "D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h"
+unsigned char p0_stat,temp;
+
+# 10
+void cmd_wr(unsigned char);
+void toggle();
+void data_map(unsigned char);
+void data_wr(unsigned char);
+
+
+
+void cmd_wr(unsigned char var_cmd)
+{
+RB1=0;
+RB2=0;
+
+data_map(var_cmd);
+toggle();
+
+var_cmd=var_cmd<<4;
+
+data_map(var_cmd);
+toggle();
+}
+
+
+void toggle()
+{
+RB3=1;
+;
+;
+;
+;
+;
+RB3=0;
+}
+
+void data_map(unsigned char var_data)
+{
+temp=var_data & 0xf0;
+p0_stat=PORTB & 0x0f;
+PORTB=p0_stat | temp;
+}
+
+void data_wr(unsigned char var_disp)
+{
+RB1=1;
+RB2=0;
+
+data_map(var_disp);
+toggle();
+
+var_disp=var_disp<<4;
+
+data_map(var_disp);
+toggle();
+}
+
+# 20 "D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C"
+unsigned char cnt[10]={'S','T','O','P','W','A','T','C','H'};
+unsigned char disp[25]={0xfc,0x60,0xda,0xf2,0x66,0xb6,0xbe,0xe0,0xfe,0xf6,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xee,0x3e,0x9c,0x7a,0x9e,0x8e};
+unsigned char ascii_tab[25]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+unsigned char ds1='0',ds2='0',ds3='0',ds4='0', cmd_data,disp_data;
+int k,c,a,s1_over,cnt_1sl,cnt_1sh,i;
+int scan_no,krcount,key_code,key_ready,nkp,tb,start_buzzer,dcount,start_sw;
+
+void delay(unsigned int);
+void display();
+void init();
+void init_timer();
+
+void incrementd();
+void disp_blank();
+void scanner();
+void buzzer();
+void k1();
+void key_release();
+void init_keypad();
+void init_display();
+void disp_sw();
+void process_a();
+void process_b();
+void process_c();
+void keyprocess();
+void get_key();
+void delay_1sec();
+void init_delay_1sec();
+void lcd_disp();
+void init_lcd();
+void lcd_delay(unsigned int);
+
+# 56
+interrupt void isr_t0()
+{
+init_timer();
+delay_1sec();
+
+scanner();
+lcd_disp();
+if(s1_over==1)
+{
+
+incrementd();
+s1_over=0;
+}
+}
+
+void main()
+{
+TRISB=0x00;
+TRISA=0x3C;
+TRISC=0x00;
+ADCON1=0x06;
+init_lcd();
+start_sw=0;
+init();
+GIE=1;
+PEIE=1;
+
+cmd_wr(0xc0);
+for(i=0;i<9;i++)
+{
+data_wr(cnt[i]);
+}
+
+
+while(1)
+{
+get_key();
+keyprocess();
+}
+}
+
+void init()
+{
+
+init_keypad();
+init_timer();
+init_delay_1sec();
+}
+
+void init_timer()
+{
+TMR1H=0xFC;
+TMR1L=0x18;
+T1CON=0x01;
+TMR1IE=1;
+TMR1IF=0;
+}
+
+void init_display()
+{
+ds1='9'+1;
+ds2='9'+1;
+ds3='9'+1;
+ds4='9'+1;
+}
+
+void init_keypad()
+{
+RA2=1;
+RA3=1;
+RA4=1;
+RA5=1;
+start_sw=0;
+scan_no=0;
+dcount=33;
+krcount=32;
+key_ready=0;
+nkp=0;
+start_buzzer=0;
+}
+
+void init_delay_1sec()
+{
+cnt_1sl=0x0e8;
+cnt_1sh=0x04;
+s1_over=1;
+}
+
+void delay_1sec()
+{
+if(s1_over!=1)
+{
+cnt_1sl--;
+if(cnt_1sl==0)
+{
+cnt_1sh--;
+if(cnt_1sh!=0)
+cnt_1sl=0x0ff;
+else
+{
+cnt_1sl=0x0e8;
+cnt_1sh=0x04;
+s1_over=1;
+}
+}
+}
+
+}
+
+void scanner()
+{
+switch (scan_no)
+{
+case 0:
+RA1=0;
+RC0=1;
+RC1=1;
+RC2=1;
+
+c=RA2;
+k1();
+scan_no=1;
+break;
+
+case 1:
+c=RA3;
+k1();
+scan_no=2;
+break;
+
+case 2:
+c=RA4;
+k1();
+scan_no=3;
+break;
+
+case 3:
+
+c=RA5;
+k1();
+scan_no=4;
+break;
+
+case 4:
+RA1=1;
+RC0=0;
+RC1=1;
+RC2=1;
+
+c=RA2;
+k1();
+scan_no=5;
+break;
+
+case 5:
+c=RA3;
+k1();
+scan_no=6;
+break;
+
+case 6:
+c=RA4;
+k1();
+scan_no=7;
+break;
+
+case 7:
+
+c=RA5;
+k1();
+scan_no=8;
+break;
+
+case 8:
+RA1=1;
+RC0=1;
+RC1=0;
+RC2=1;
+
+c=RA2;
+k1();
+scan_no=9;
+break;
+
+case 9:
+c=RA3;
+k1();
+scan_no=10;
+break;
+
+case 10:
+c=RA4;
+k1();
+scan_no=11;
+break;
+
+case 11:
+
+c=RA5;
+k1();
+scan_no=12;
+break;
+
+case 12:
+RA1=1;
+RC0=1;
+RC1=1;
+RC2=0;
+
+c=RA2;
+k1();
+scan_no=13;
+break;
+
+case 13:
+c=RA3;
+k1();
+scan_no=14;
+break;
+
+case 14:
+c=RA4;
+k1();
+scan_no=15;
+break;
+
+case 15:
+c=RA5;
+k1();
+
+scan_no=0;
+break;
+}
+}
+
+void k1()
+{
+if(key_ready==1)
+{
+if(c==0)
+{
+krcount=32;
+}
+else
+{
+krcount=krcount-1;
+
+if(krcount==0)
+{
+nkp=1;
+start_buzzer=0;
+krcount=32;
+}
+}
+}
+else if(dcount==33)
+{
+if(c==0)
+{
+dcount=dcount-1;
+key_code=scan_no;
+}
+
+}
+
+else
+{
+dcount=dcount-1;
+if(dcount==0)
+{
+if(c==0)
+{
+key_ready=1;
+start_buzzer=1;
+dcount=33;
+}
+else dcount=33;
+}
+}
+
+}
+
+
+void delay(unsigned int del)
+{
+int d1,d2;
+for(d1=0;d1<=del;d1++)
+for(d2=0;d2<=120;d2++);
+}
+
+
+
+void incrementd()
+{
+if(start_sw==1)
+{
+ds1=ds1+1;
+if (ds1>'9')
+{
+ds1='0';
+ds2=ds2+1;
+
+if (ds2>'9')
+{
+ds2='0';
+ds3=ds3+1;
+
+if (ds3>'9')
+{
+ds3='0';
+ds4=ds4+1;
+
+if(ds4>'9')
+{
+ds1='0';
+ds2='0';
+ds3='0';
+ds4='0';
+}
+
+}
+
+}
+
+}
+}
+}
+
+void key_release()
+{
+while(nkp!=1);
+key_ready=0;
+nkp=0;
+}
+
+void buzzer()
+{
+if(start_buzzer==1)
+RC5=~RC5;
+}
+
+void get_key()
+{
+while(key_ready!=1);
+a=key_code;
+key_code=ascii_tab[a];
+}
+
+void keyprocess()
+{
+switch(key_code)
+{
+case 'A':
+process_a();
+break;
+
+case 'B' :
+process_b();
+break;
+case 'C' :
+process_c();
+break;
+}
+key_release();
+}
+
+void process_a()
+{
+start_sw=1;
+}
+
+void process_b()
+{
+start_sw=0;
+}
+
+void process_c()
+{
+start_sw=0;
+ds1='0';
+ds2='0';
+ds3='0';
+ds4='0';
+}
+
+void disp_sw()
+{
+ds1='9'+1;
+ds2='9'+1;
+ds3='0';
+ds4='5';
+}
+
+void lcd_disp()
+{
+
+cmd_wr(0x80);
+data_wr(ds4);
+data_wr(ds3);
+data_wr(ds2);
+data_wr(ds1);
+
+}
+void init_lcd()
+{
+lcd_delay (3);
+lcd_delay (3);
+lcd_delay (3);
+
+cmd_data=0x03;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x03;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x03;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x20;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x28;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x06;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+cmd_data=0x01;
+cmd_wr(cmd_data);
+lcd_delay(3);
+
+RB0=0;
+}
+
+void lcd_delay(unsigned int x)
+{
+unsigned int i,j;
+
+for (i=0;i<=2*x;i++)
+{
+for (j=0;j<=120;j++);
+}
+}

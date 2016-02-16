@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"DC uart.obj" 
+TO "DC motor uart" 
+RAMSIZE(256) 

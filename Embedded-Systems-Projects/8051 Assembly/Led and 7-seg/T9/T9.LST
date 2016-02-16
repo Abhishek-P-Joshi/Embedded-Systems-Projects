@@ -1,0 +1,757 @@
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T9.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T9.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  0037                10     count equ 37h
+  0038                11     scan_no equ 38h
+  0039                12     dcount equ 39h
+  0040                13     krcount equ 40h
+  0041                14     key_code equ 41h
+                      15     
+  0060                16     top_of_stack equ 60h
+                      17     
+  00A0                18     sl1 bit p2.0
+  00A1                19     sl2 bit p2.1
+  00A2                20     sl3 bit p2.2
+  00A3                21     sl4 bit p2.3
+                      22     
+  00A4                23     krl1 bit p2.4
+  00A5                24     krl2 bit p2.5
+  00A6                25     krl3 bit p2.6
+  00A7                26     krl4 bit p2.7
+                      27     
+  0000                28     key_ready bit 00h
+  0001                29     nkp bit 01h
+  0002                30     tb bit 02h
+  0003                31     start_buzzer bit 03h
+                      32     
+                      33     
+0000                  34     org 0000h
+0000 802A             35     jmp main
+                      36     
+0003                  37     org 0003h
+0003 32               38     reti 
+                      39     
+000B                  40     org 000bh
+000B 02009A           41     ljmp isr_t0
+                      42     
+0013                  43     org 0013h
+0013 32               44     reti
+                      45     
+001B                  46     org 001bh
+001B 32               47     reti
+                      48     
+0023                  49     org 0023h
+0023 32               50     reti
+                      51     
+002B                  52     org 002bh
+002B 32               53     reti
+                      54     
+                      55     
+                      56     
+002C                  57     main:
+                      58     
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     2
+
+002C 758160           59     mov sp,#top_of_stack
+002F 1160             60     call init
+0031 D2AF             61     setb ea
+0033 512D             62     call test_display
+                      63     
+0035 75303B           64     mov ds1,#"9"+2
+0038 75313A           65     mov ds2,#"9"+1
+003B 75323A           66     mov ds3,#"9"+1
+003E 75333A           67     mov ds4,#"9"+1
+                      68     
+0041                  69     l1_main:
+                      70     
+0041 3000FD           71     jnb key_ready,$
+0044 E541             72     mov a,key_code
+                      73     
+0046 900050           74     mov dptr,#ascii_tab
+0049 93               75     movc a,@a+dptr
+004A F530             76     mov ds1,a
+004C 51A5             77     call key_release
+004E 80F1             78     jmp l1_main
+                      79     
+0050                  80     ascii_tab:
+0050 30313233         81     db "0123456789ABCDEF"
+0054 34353637                
+0058 38394142                
+005C 43444546                
+                      82     
+0060                  83     init:
+                      84     
+0060 1167             85     call init_display
+0062 1174             86     call init_keypad
+0064 118C             87     call init_timer0
+0066 22               88     ret
+                      89     
+0067                  90     init_display:
+                      91     
+0067 75303B           92     mov ds1,#"9"+2
+006A 75313B           93     mov ds2,#"9"+2
+006D 75323B           94     mov ds3,#"9"+2
+0070 75333B           95     mov ds4,#"9"+2
+0073 22               96     ret
+                      97     
+0074                  98     init_keypad:
+                      99     
+0074 D2A4            100     setb krl1
+0076 D2A5            101     setb krl2
+0078 D2A6            102     setb krl3
+007A D2A7            103     setb krl4
+007C 753800          104     mov scan_no,#00d
+007F 753921          105     mov dcount,#33d
+0082 754020          106     mov krcount,#32d
+0085 C200            107     clr key_ready
+0087 C201            108     clr nkp
+0089 C203            109     clr start_buzzer
+008B 22              110     ret
+                     111     
+008C                 112     init_timer0:
+                     113     
+008C 438901          114     orl tmod,#01h
+008F 758A66          115     mov tl0,#66h
+0092 758CFC          116     mov th0,#0fch
+0095 D28C            117     setb tr0
+0097 D2A9            118     setb et0
+0099 22              119     ret
+                     120     
+                     121     
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     3
+
+009A                 122     isr_t0:
+                     123     
+009A C0E0            124     push acc
+009C C0D0            125     push psw
+009E C083            126     push dph
+00A0 C082            127     push dpl
+                     128     
+00A2 118C            129     call init_timer0
+00A4 51AD            130     call buzzer
+00A6 11B1            131     call scanner
+                     132     
+00A8                 133     out_isr:
+                     134     
+00A8 D082            135     pop dpl
+00AA D083            136     pop dph
+00AC D0D0            137     pop psw
+00AE D0E0            138     pop acc
+00B0 32              139     reti
+                     140     
+                     141     
+00B1                 142     scanner:
+                     143     
+00B1 E538            144     mov a,scan_no
+                     145     
+                     146     
+00B3                 147     zero:
+                     148     
+00B3 B40013          149     cjne a,#00d,one
+                     150     
+                     151     
+00B6 C2A0            152     clr sl1
+00B8 D2A1            153     setb sl2
+00BA D2A2            154     setb sl3
+00BC D2A3            155     setb sl4
+                     156     
+00BE 31E6            157     call adisp1
+                     158     
+00C0 A2A4            159     mov c,krl1
+00C2 31A4            160     call k
+                     161     
+00C4 753801          162     mov scan_no,#01d
+00C7 21A3            163     ajmp out_scanner
+                     164     
+                     165     
+00C9                 166     one:
+                     167     
+00C9 B40109          168     cjne a,#01d,two
+                     169     
+00CC A2A5            170     mov c,krl2
+00CE 31A4            171     call k
+                     172     
+00D0 753802          173     mov scan_no,#02d
+00D3 21A3            174     ajmp out_scanner
+                     175     
+                     176     
+00D5                 177     two:
+                     178     
+00D5 B40209          179     cjne a,#02d,three
+                     180     
+00D8 A2A6            181     mov c,krl3
+00DA 31A4            182     call k
+                     183     
+00DC 753803          184     mov scan_no,#03d
+00DF 21A3            185     ajmp out_scanner
+                     186     
+                     187     
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     4
+
+00E1                 188     three:
+                     189     
+00E1 B4030B          190     cjne a,#03d,four
+                     191     
+00E4 31E2            192     call disp_blank
+                     193     
+00E6 A2A7            194     mov c,krl4
+00E8 31A4            195     call k
+                     196     
+00EA 753804          197     mov scan_no,#04d
+00ED 21A3            198     ajmp out_scanner
+                     199     
+                     200     
+00EF                 201     four:
+                     202     
+00EF B40413          203     cjne a,#04d,five
+                     204     
+                     205     
+00F2 D2A0            206     setb sl1
+00F4 C2A1            207     clr sl2
+00F6 D2A2            208     setb sl3
+00F8 D2A3            209     setb sl4
+                     210     
+00FA 31F2            211     call adisp2
+                     212     
+00FC A2A4            213     mov c,krl1
+00FE 31A4            214     call k
+                     215     
+0100 753805          216     mov scan_no,#05d
+0103 21A3            217     ajmp out_scanner
+                     218     
+                     219     
+0105                 220     five:
+                     221     
+0105 B40509          222     cjne a,#05d,six
+                     223     
+0108 A2A5            224     mov c,krl2
+010A 31A4            225     call k
+                     226     
+010C 753806          227     mov scan_no,#06d
+010F 21A3            228     ajmp out_scanner
+                     229     
+                     230     
+0111                 231     six:
+                     232     
+0111 B40609          233     cjne a,#06d,seven
+                     234     
+0114 A2A6            235     mov c,krl3
+0116 31A4            236     call k
+                     237     
+0118 753807          238     mov scan_no,#07d
+011B 21A3            239     ajmp out_scanner
+                     240     
+                     241     
+011D                 242     seven:
+                     243     
+011D B4070B          244     cjne a,#07d,eight
+                     245     
+0120 31E2            246     call disp_blank
+                     247     
+0122 A2A7            248     mov c,krl4
+0124 31A4            249     call k
+                     250     
+                     251     
+0126 753808          252     mov scan_no,#08d
+0129 21A3            253     ajmp out_scanner
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     5
+
+                     254     
+                     255     
+012B                 256     eight:
+                     257     
+012B B40813          258     cjne a,#08d,nine
+                     259     
+                     260     
+012E D2A0            261     setb sl1
+0130 D2A1            262     setb sl2
+0132 C2A2            263     clr sl3
+0134 D2A3            264     setb sl4
+                     265     
+0136 31FE            266     call adisp3
+                     267     
+0138 A2A4            268     mov c,krl1
+013A 31A4            269     call k
+                     270     
+                     271     
+013C 753809          272     mov scan_no,#09d
+013F 21A3            273     ajmp out_scanner
+                     274     
+                     275     
+0141                 276     nine:
+                     277     
+0141 B40909          278     cjne a,#09d,ten
+                     279     
+0144 A2A5            280     mov c,krl2
+0146 31A4            281     call k
+                     282     
+                     283     
+0148 75380A          284     mov scan_no,#10d
+014B 21A3            285     ajmp out_scanner
+                     286     
+                     287     
+014D                 288     ten:
+                     289     
+014D B40A09          290     cjne a,#10d,eleven
+                     291     
+0150 A2A6            292     mov c,krl3
+0152 31A4            293     call k
+                     294     
+                     295     
+0154 75380B          296     mov scan_no,#11d
+0157 21A3            297     ajmp out_scanner
+                     298     
+                     299     
+0159                 300     eleven:
+                     301     
+0159 B40B0B          302     cjne a,#11d,twelve
+                     303     
+015C 31E2            304     call disp_blank
+                     305     
+015E A2A7            306     mov c,krl4
+0160 31A4            307     call k
+                     308     
+                     309     
+0162 75380C          310     mov scan_no,#12d
+0165 21A3            311     ajmp out_scanner
+                     312     
+                     313     
+0167                 314     twelve:
+                     315     
+0167 B40C13          316     cjne a,#12d,thirteen
+                     317     
+                     318     
+016A D2A0            319     setb sl1
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     6
+
+016C D2A1            320     setb sl2
+016E D2A2            321     setb sl3
+0170 C2A3            322     clr sl4
+                     323     
+0172 510A            324     call adisp4
+                     325     
+0174 A2A4            326     mov c,krl1
+0176 31A4            327     call k
+                     328     
+                     329     
+0178 75380D          330     mov scan_no,#13d
+017B 21A3            331     ajmp out_scanner
+                     332     
+                     333     
+017D                 334     thirteen:
+                     335     
+017D B40D09          336     cjne a,#13d,fourteen
+                     337     
+0180 A2A5            338     mov c,krl2
+0182 31A4            339     call k
+                     340     
+                     341     
+0184 75380E          342     mov scan_no,#14d
+0187 21A3            343     ajmp out_scanner
+                     344     
+                     345     
+0189                 346     fourteen:
+                     347     
+0189 B40E09          348     cjne a,#14d,fifteen
+                     349     
+018C A2A6            350     mov c,krl3
+018E 31A4            351     call k
+                     352     
+                     353     
+0190 75380F          354     mov scan_no,#15d
+0193 21A3            355     ajmp out_scanner
+                     356     
+                     357     
+0195                 358     fifteen:
+                     359     
+0195 B40F06          360     cjne a,#15d,dummy
+                     361     
+0198 31E2            362     call disp_blank
+                     363     
+019A A2A7            364     mov c,krl4
+019C 31A4            365     call k
+                     366     
+                     367     
+                     368     
+019E                 369     dummy:
+                     370     
+019E 753800          371     mov scan_no,#00d
+01A1 21A3            372     ajmp out_scanner
+                     373     
+01A3                 374     out_scanner:
+                     375     
+01A3 22              376     ret
+                     377     
+01A4                 378     k:
+                     379     
+01A4 200027          380     jb key_ready,out_debounce
+                     381     
+01A7 9202            382     mov tb,c
+01A9 E539            383     mov a,dcount
+01AB B4210B          384     cjne a,#33d,debounce
+01AE A202            385     mov c,tb
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     7
+
+01B0 402F            386     jc out_k
+                     387     
+01B2 1539            388     dec dcount
+01B4 853841          389     mov key_code,scan_no
+01B7 8028            390     jmp out_k
+                     391     
+01B9                 392     debounce:
+                     393     
+01B9 D53925          394     djnz dcount,out_k
+                     395     
+01BC A202            396     mov c,tb
+01BE 4009            397     jc spurious_key
+01C0 753921          398     mov dcount,#33d
+01C3 D200            399     setb key_ready
+01C5 D203            400     setb start_buzzer
+01C7 8018            401     jmp out_k
+                     402     
+01C9                 403     spurious_key:
+                     404     
+01C9 753921          405     mov dcount,#33d
+01CC 8013            406     jmp out_k
+                     407     
+01CE                 408     out_debounce:
+                     409     
+01CE 4005            410     jc l1_k
+01D0 754020          411     mov krcount,#32d
+01D3 800C            412     jmp out_k
+                     413     
+01D5                 414     l1_k:
+                     415     
+01D5 D54009          416     djnz krcount,out_k
+01D8 D201            417     setb nkp
+01DA C203            418     clr start_buzzer
+01DC 754020          419     mov krcount,#32d
+01DF 8000            420     jmp out_k
+                     421     
+                     422     
+01E1                 423     out_k:
+01E1 22              424     ret
+                     425     
+                     426     
+01E2                 427     disp_blank:
+                     428     
+01E2 758000          429     mov p0,#00h
+01E5 22              430     ret
+                     431     
+01E6                 432     adisp1:
+                     433     
+01E6 900216          434     mov dptr,#adisp_lut
+01E9 E530            435     mov a,ds1
+01EB C3              436     clr c
+01EC 9430            437     subb a,#"0"
+01EE 93              438     movc a,@a+dptr
+01EF F580            439     mov p0,a
+01F1 22              440     ret
+                     441     
+                     442     
+01F2                 443     adisp2:
+                     444     
+01F2 900216          445     mov dptr,#adisp_lut
+01F5 E531            446     mov a,ds2
+01F7 C3              447     clr c
+01F8 9430            448     subb a,#"0"
+01FA 93              449     movc a,@a+dptr
+01FB F580            450     mov p0,a
+01FD 22              451     ret
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     8
+
+                     452     
+                     453     
+01FE                 454     adisp3:
+                     455     
+01FE 900216          456     mov dptr,#adisp_lut
+0201 E532            457     mov a,ds3
+0203 C3              458     clr c
+0204 9430            459     subb a,#"0"
+0206 93              460     movc a,@a+dptr
+0207 F580            461     mov p0,a
+0209 22              462     ret
+                     463     
+                     464     
+020A                 465     adisp4:
+                     466     
+020A 900216          467     mov dptr,#adisp_lut
+020D E533            468     mov a,ds4
+020F C3              469     clr c
+0210 9430            470     subb a,#"0"
+0212 93              471     movc a,@a+dptr
+0213 F580            472     mov p0,a
+0215 22              473     ret
+                     474     
+                     475     
+0216                 476     adisp_lut:
+                     477     
+0216 FC              478     db 0FCh ;0
+0217 60              479     db 60h  ;1
+0218 DA              480     db 0DAh ;2
+0219 F2              481     db 0F2h ;3
+021A 66              482     db 66h  ;4
+021B B6              483     db 0B6h ;5
+021C BE              484     db 0BEh ;6
+021D E0              485     db 0E0h ;7
+021E FE              486     db 0FEh ;8
+021F F6              487     db 0F6h ;9
+                     488     
+0220 00              489     db 00h  ;for space
+0221 FF              490     db 0FFh ;3b
+0222 FF              491     db 0FFh ;3c
+0223 FF              492     db 0FFh ;3d
+0224 FF              493     db 0FFh ;3e
+0225 FF              494     db 0FFh ;3f
+0226 FF              495     db 0FFh ;40
+                     496     
+0227 EE              497     db 0EEh ;A
+0228 3E              498     db 3Eh  ;B
+0229 9C              499     db 9Ch  ;C
+022A 7A              500     db 7Ah  ;D
+022B 9E              501     db 9Eh  ;E
+022C 8E              502     db 8Eh  ;F
+                     503     
+                     504     
+022D                 505     test_display:
+                     506     
+022D 75303B          507     mov ds1,#"9"+2
+0230 75313B          508     mov ds2,#"9"+2
+0233 75323B          509     mov ds3,#"9"+2
+0236 75333B          510     mov ds4,#"9"+2
+                     511     
+0239 514A            512     call wait_1sec
+                     513     
+023B 75303A          514     mov ds1,#"9"+1
+023E 75313A          515     mov ds2,#"9"+1
+0241 75323A          516     mov ds3,#"9"+1
+0244 75333A          517     mov ds4,#"9"+1
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE     9
+
+                     518     
+0247 514A            519     call wait_1sec
+                     520     
+0249 22              521     ret
+                     522     
+                     523     
+024A                 524     wait_1sec:
+                     525     
+024A 753602          526     mov dcount3,#02h
+024D 7535FF          527     L2: mov dcount2,#0ffh
+0250 7534FF          528     L1: mov dcount1,#0ffh
+0253 D534FD          529     djnz dcount1,$
+0256 D535F7          530     djnz dcount2,L1
+0259 D536F1          531     djnz dcount3,L2
+025C 22              532     ret
+                     533     
+025D                 534     wait_20ms:
+                     535     
+025D 753555          536     mov dcount2,#55h
+0260 7534FF          537     mov dcount1,#0ffh
+0263 D534FD          538     djnz dcount1,$
+0266 D535F7          539     djnz dcount2,$-3-3
+0269 22              540     ret
+                     541     
+                     542     
+026A                 543     inc_d:
+                     544     
+026A 0530            545     inc ds1
+026C E530            546     mov a,ds1
+026E B43A00          547     cjne a,#"9"+1,$+3
+0271 5001            548     jnc L1_id
+0273 22              549     ret
+                     550     
+0274                 551     L1_id:
+                     552     
+0274 753030          553     mov ds1,#"0"
+0277 0531            554     inc ds2
+0279 E531            555     mov a,ds2
+027B B43A00          556     cjne a,#"9"+1,$+3
+027E 5001            557     jnc L2_id
+0280 22              558     ret
+                     559     
+0281                 560     L2_id:
+                     561     
+0281 753130          562     mov ds2,#"0"
+0284 0532            563     inc ds3
+0286 E532            564     mov a,ds3
+0288 B43A00          565     cjne a,#"9"+1,$+3
+028B 5001            566     jnc L3_id
+028D 22              567     ret
+                     568     
+028E                 569     L3_id:
+                     570     
+028E 753230          571     mov ds3,#"0"
+0291 0533            572     inc ds4
+0293 E533            573     mov a,ds4
+0295 B43A0C          574     cjne a,#"9"+1,out_id
+                     575     
+0298 753000          576     mov ds1,#00h
+029B 753100          577     mov ds2,#00h
+029E 753200          578     mov ds3,#00h
+02A1 753300          579     mov ds4,#00h
+                     580     
+                     581     
+02A4                 582     out_id:
+                     583     
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE    10
+
+02A4 22              584     ret
+                     585     
+                     586     
+02A5                 587     key_release:
+02A5 3001FD          588     jnb nkp,$
+02A8 C200            589     clr key_ready
+02AA C201            590     clr nkp
+02AC 22              591     ret
+                     592     
+02AD                 593     buzzer:
+                     594     
+02AD 300302          595     jnb start_buzzer,out_b
+02B0 B295            596     cpl p1.5
+                     597     
+02B2                 598     out_b:
+                     599     
+02B2 22              600     ret
+                     601     
+                     602     end
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE    11
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ADISP1 . . . . . .  C ADDR   01E6H   A   
+ADISP2 . . . . . .  C ADDR   01F2H   A   
+ADISP3 . . . . . .  C ADDR   01FEH   A   
+ADISP4 . . . . . .  C ADDR   020AH   A   
+ADISP_LUT. . . . .  C ADDR   0216H   A   
+ASCII_TAB. . . . .  C ADDR   0050H   A   
+BUZZER . . . . . .  C ADDR   02ADH   A   
+COUNT. . . . . . .  N NUMB   0037H   A   
+DCOUNT . . . . . .  N NUMB   0039H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DEBOUNCE . . . . .  C ADDR   01B9H   A   
+DISP_BLANK . . . .  C ADDR   01E2H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+DUMMY. . . . . . .  C ADDR   019EH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EIGHT. . . . . . .  C ADDR   012BH   A   
+ELEVEN . . . . . .  C ADDR   0159H   A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+FIFTEEN. . . . . .  C ADDR   0195H   A   
+FIVE . . . . . . .  C ADDR   0105H   A   
+FOUR . . . . . . .  C ADDR   00EFH   A   
+FOURTEEN . . . . .  C ADDR   0189H   A   
+INC_D. . . . . . .  C ADDR   026AH   A   
+INIT . . . . . . .  C ADDR   0060H   A   
+INIT_DISPLAY . . .  C ADDR   0067H   A   
+INIT_KEYPAD. . . .  C ADDR   0074H   A   
+INIT_TIMER0. . . .  C ADDR   008CH   A   
+ISR_T0 . . . . . .  C ADDR   009AH   A   
+K. . . . . . . . .  C ADDR   01A4H   A   
+KEY_CODE . . . . .  N NUMB   0041H   A   
+KEY_READY. . . . .  B ADDR   0020H.0 A   
+KEY_RELEASE. . . .  C ADDR   02A5H   A   
+KRCOUNT. . . . . .  N NUMB   0040H   A   
+KRL1 . . . . . . .  B ADDR   00A0H.4 A   
+KRL2 . . . . . . .  B ADDR   00A0H.5 A   
+KRL3 . . . . . . .  B ADDR   00A0H.6 A   
+KRL4 . . . . . . .  B ADDR   00A0H.7 A   
+L1 . . . . . . . .  C ADDR   0250H   A   
+L1_ID. . . . . . .  C ADDR   0274H   A   
+L1_K . . . . . . .  C ADDR   01D5H   A   
+L1_MAIN. . . . . .  C ADDR   0041H   A   
+L2 . . . . . . . .  C ADDR   024DH   A   
+L2_ID. . . . . . .  C ADDR   0281H   A   
+L3_ID. . . . . . .  C ADDR   028EH   A   
+MAIN . . . . . . .  C ADDR   002CH   A   
+NINE . . . . . . .  C ADDR   0141H   A   
+NKP. . . . . . . .  B ADDR   0020H.1 A   
+ONE. . . . . . . .  C ADDR   00C9H   A   
+OUT_B. . . . . . .  C ADDR   02B2H   A   
+OUT_DEBOUNCE . . .  C ADDR   01CEH   A   
+OUT_ID . . . . . .  C ADDR   02A4H   A   
+OUT_ISR. . . . . .  C ADDR   00A8H   A   
+A51 MACRO ASSEMBLER  T9                                                                   01/04/2002 02:37:30 PAGE    12
+
+OUT_K. . . . . . .  C ADDR   01E1H   A   
+OUT_SCANNER. . . .  C ADDR   01A3H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+SCANNER. . . . . .  C ADDR   00B1H   A   
+SCAN_NO. . . . . .  N NUMB   0038H   A   
+SEVEN. . . . . . .  C ADDR   011DH   A   
+SIX. . . . . . . .  C ADDR   0111H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+SPURIOUS_KEY . . .  C ADDR   01C9H   A   
+START_BUZZER . . .  B ADDR   0020H.3 A   
+TB . . . . . . . .  B ADDR   0020H.2 A   
+TEN. . . . . . . .  C ADDR   014DH   A   
+TEST_DISPLAY . . .  C ADDR   022DH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+THIRTEEN . . . . .  C ADDR   017DH   A   
+THREE. . . . . . .  C ADDR   00E1H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TOP_OF_STACK . . .  N NUMB   0060H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TWELVE . . . . . .  C ADDR   0167H   A   
+TWO. . . . . . . .  C ADDR   00D5H   A   
+WAIT_1SEC. . . . .  C ADDR   024AH   A   
+WAIT_20MS. . . . .  C ADDR   025DH   A   
+ZERO . . . . . . .  C ADDR   00B3H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,88 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/02/2002  04:00:39  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE T6.obj TO T6 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  T6.obj (T6)
+
+
+LINK MAP OF MODULE:  T6 (T6)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     003EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  T6 (T6)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        T6
+  C:000CH         SYMBOL        INIT_TIMER0
+  C:0025H         SYMBOL        INIT_TIMER1
+  C:002BH         SYMBOL        M1
+  C:0027H         SYMBOL        M2
+  C:003DH         SYMBOL        M3
+  C:0000H         SYMBOL        MAIN
+  C:0012H         SYMBOL        N1
+  C:000EH         SYMBOL        N2
+  C:0024H         SYMBOL        N3
+  D:0080H         SYMBOL        P0
+  B:0088H.5       SYMBOL        TF0
+  B:0088H.7       SYMBOL        TF1
+  D:008CH         SYMBOL        TH0
+  D:008DH         SYMBOL        TH1
+  D:008AH         SYMBOL        TL0
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  B:0088H.6       SYMBOL        TR1
+  C:0000H         LINE#         3
+  C:0003H         LINE#         4
+  C:0005H         LINE#         5
+  C:0008H         LINE#         6
+  C:000AH         LINE#         7
+  C:000CH         LINE#         10
+  C:000EH         LINE#         11
+  C:0010H         LINE#         12
+  C:0012H         LINE#         14
+  C:0015H         LINE#         15
+  C:0018H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2002  04:00:39  PAGE 2
+
+
+  C:001BH         LINE#         17
+  C:001DH         LINE#         18
+  C:0020H         LINE#         19
+  C:0022H         LINE#         20
+  C:0024H         LINE#         22
+  C:0025H         LINE#         26
+  C:0027H         LINE#         27
+  C:0029H         LINE#         28
+  C:002BH         LINE#         30
+  C:002EH         LINE#         31
+  C:0031H         LINE#         32
+  C:0034H         LINE#         33
+  C:0036H         LINE#         34
+  C:0039H         LINE#         35
+  C:003BH         LINE#         36
+  C:003DH         LINE#         38
+  -------         ENDMOD        T6
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003EH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=62
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

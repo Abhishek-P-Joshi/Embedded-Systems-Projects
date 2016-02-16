@@ -1,0 +1,529 @@
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE UART_T10
+OBJECT MODULE PLACED IN Uart T10.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Uart T10.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<Reg51f.h>
+   2          #include<stdio.h>
+   3          
+   4          sbit sl1=P2^0;
+   5          sbit sl2=P2^1;
+   6          sbit sl3=P2^2;
+   7          sbit sl4=P2^3;
+   8          sbit krl1=P2^4;
+   9          sbit krl2=P2^5;
+  10          sbit krl3=P2^6;
+  11          sbit krl4=P2^7;
+  12          sbit buzz=P1^5;
+  13          
+  14          sbit e=P0^3;
+  15          sbit rw=P0^2;
+  16          sbit rs=P0^1;
+  17          sbit vled=P0^0;
+  18          
+  19          
+  20          unsigned char cnt[10]={'S','T','O','P','W','A','T','C','H'};
+  21          unsigned char disp[25]={0xfc,0x60,0xda,0xf2,0x66,0xb6,0xbe,0xe0,0xfe,0xf6,0xff,0xff,0xff,0xff,0xff,0xff,0x
+             -ff,0xee,0x3e,0x9c,0x7a,0x9e,0x8e};
+  22          unsigned char ascii_tab[25]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+  23          unsigned char ds1='0',ds2='0',ds3='0',ds4='0', cmd_data,disp_data;
+  24          int k,c,a,s1_over,cnt_1sl,cnt_1sh,i;
+  25          int scan_no,krcount,key_code,key_ready,nkp,tb,start_buzzer,dcount,start_sw;
+  26          
+  27          void delay(unsigned int);
+  28          void display();
+  29          void init();
+  30          void init_timer();
+  31          void incrementd();
+  32          void scanner();
+  33          void buzzer();
+  34          void k1();
+  35          void key_release();
+  36          void init_keypad();
+  37          void init_display();
+  38          void disp_sw();
+  39          void process_a();
+  40          void process_b();
+  41          void process_c();
+  42          void keyprocess();
+  43          void get_key();
+  44          void delay_1sec();
+  45          void init_delay_1sec();
+  46          void uart_disp();
+  47          void init_uart();
+  48          void uart_delay(unsigned int);
+  49          void tx(unsigned char);
+  50          void home_screen();
+  51          void clr_screen();
+  52          
+  53          
+  54          void isr_t0() interrupt 1 using 1
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 2   
+
+  55          {
+  56   1       init_timer();
+  57   1       delay_1sec();
+  58   1       //buzzer();
+  59   1       scanner();
+  60   1       
+  61   1       if(s1_over==1)
+  62   1              {
+  63   2               incrementd();
+  64   2               s1_over=0;
+  65   2              }
+  66   1      }
+  67          
+  68          void main()
+  69          {
+  70   1        init_uart();
+  71   1        start_sw=0;
+  72   1        init();
+  73   1        EA=1;
+  74   1      
+  75   1        /*cmd_wr(0xc0);
+  76   1        for(i=0;i<9;i++)
+  77   1        {
+  78   1         data_wr(cnt[i]);
+  79   1        }     */
+  80   1        
+  81   1        while(1)
+  82   1        {
+  83   2              get_key();
+  84   2              keyprocess();   
+  85   2        }  
+  86   1      }
+  87          
+  88          void init()
+  89          {
+  90   1       //init_display();
+  91   1       init_keypad();
+  92   1       init_timer();
+  93   1       init_delay_1sec();
+  94   1      } 
+  95          
+  96          void init_timer()
+  97          {
+  98   1       TMOD|=0x01;
+  99   1       TL0=0x66;
+ 100   1       TH0=0x0FC;
+ 101   1       TR0=1;
+ 102   1       ET0=1;
+ 103   1      }
+ 104          
+ 105          void init_display()
+ 106          {
+ 107   1       ds1='9'+1;
+ 108   1       ds2='9'+1;
+ 109   1       ds3='9'+1;
+ 110   1       ds4='9'+1;
+ 111   1      }
+ 112          
+ 113          void init_keypad()
+ 114          {
+ 115   1       krl1=1;
+ 116   1       krl2=1;
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 3   
+
+ 117   1       krl3=1;
+ 118   1       krl4=1;
+ 119   1       start_sw=0;
+ 120   1       scan_no=0;
+ 121   1       dcount=33;
+ 122   1       krcount=32;
+ 123   1       key_ready=0;
+ 124   1       nkp=0;
+ 125   1       start_buzzer=0;
+ 126   1      }
+ 127          
+ 128          void init_delay_1sec()
+ 129          {
+ 130   1       cnt_1sl=0x0e8;
+ 131   1       cnt_1sh=0x04;
+ 132   1       s1_over=1;
+ 133   1      }
+ 134          
+ 135          void delay_1sec()
+ 136          {
+ 137   1       if(s1_over!=1)
+ 138   1       {
+ 139   2        cnt_1sl--;
+ 140   2        if(cnt_1sl==0)
+ 141   2        {
+ 142   3         cnt_1sh--;
+ 143   3         if(cnt_1sh!=0)
+ 144   3         cnt_1sl=0x0ff;
+ 145   3         else
+ 146   3         {
+ 147   4              cnt_1sl=0x0e8;
+ 148   4              cnt_1sh=0x04;
+ 149   4              s1_over=1;
+ 150   4         }
+ 151   3        }
+ 152   2       }
+ 153   1      
+ 154   1      }
+ 155          
+ 156          void scanner()
+ 157          {
+ 158   1       switch (scan_no)
+ 159   1          {
+ 160   2                      case 0:
+ 161   2                                              sl1=0;
+ 162   2                                              sl2=1;
+ 163   2                                              sl3=1;
+ 164   2                                              sl4=1;
+ 165   2                                              //adisp1();
+ 166   2                                              c=krl1;
+ 167   2                                              k1();
+ 168   2                                              scan_no=1;
+ 169   2                                              break;
+ 170   2                      
+ 171   2                      case 1:
+ 172   2                                              c=krl2;
+ 173   2                                              k1();
+ 174   2                                              scan_no=2;
+ 175   2                                              break;
+ 176   2      
+ 177   2                      case 2:
+ 178   2                                              c=krl3;
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 4   
+
+ 179   2                                              k1();
+ 180   2                                              scan_no=3;
+ 181   2                                              break;
+ 182   2      
+ 183   2                      case 3:
+ 184   2                                              //disp_blank();
+ 185   2                                              c=krl4;
+ 186   2                                              k1();
+ 187   2                                              scan_no=4;
+ 188   2                                              break;
+ 189   2      
+ 190   2                      case 4:
+ 191   2                                              sl1=1;
+ 192   2                                              sl2=0;
+ 193   2                                              sl3=1;
+ 194   2                                              sl4=1;
+ 195   2                                              //adisp2();
+ 196   2                                              c=krl1;
+ 197   2                                              k1();
+ 198   2                                              scan_no=5;
+ 199   2                                              break;
+ 200   2                      
+ 201   2                      case 5:
+ 202   2                                              c=krl2;
+ 203   2                                              k1();
+ 204   2                                              scan_no=6;
+ 205   2                                              break;
+ 206   2      
+ 207   2                      case 6:
+ 208   2                                              c=krl3;
+ 209   2                                              k1();
+ 210   2                                              scan_no=7;
+ 211   2                                              break;
+ 212   2      
+ 213   2                      case 7:
+ 214   2                                              //disp_blank();
+ 215   2                                              c=krl4;
+ 216   2                                              k1();
+ 217   2                                              scan_no=8;
+ 218   2                                              break;
+ 219   2                      
+ 220   2                      case 8:
+ 221   2                                              sl1=1;
+ 222   2                                              sl2=1;
+ 223   2                                              sl3=0;
+ 224   2                                              sl4=1;
+ 225   2                                              //adisp3();
+ 226   2                                              c=krl1;
+ 227   2                                              k1();
+ 228   2                                              scan_no=9;
+ 229   2                                              break;
+ 230   2                      
+ 231   2                      case 9:
+ 232   2                                              c=krl2;
+ 233   2                                              k1();
+ 234   2                                              scan_no=10;
+ 235   2                                              break;
+ 236   2      
+ 237   2                      case 10:
+ 238   2                                              c=krl3;
+ 239   2                                              k1();
+ 240   2                                              scan_no=11;
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 5   
+
+ 241   2                                              break;
+ 242   2      
+ 243   2                      case 11:
+ 244   2                                              //disp_blank();
+ 245   2                                              c=krl4;
+ 246   2                                              k1();
+ 247   2                                              scan_no=12;
+ 248   2                                              break;                  
+ 249   2              
+ 250   2                      case 12:
+ 251   2                                              sl1=1;
+ 252   2                                              sl2=1;
+ 253   2                                              sl3=1;
+ 254   2                                              sl4=0;
+ 255   2                                              //adisp4();
+ 256   2                                              c=krl1;
+ 257   2                                              k1();
+ 258   2                                              scan_no=13;
+ 259   2                                              break;
+ 260   2                      
+ 261   2                      case 13:
+ 262   2                                              c=krl2;
+ 263   2                                              k1();
+ 264   2                                              scan_no=14;
+ 265   2                                              break;
+ 266   2      
+ 267   2                      case 14:
+ 268   2                                              c=krl3;
+ 269   2                                              k1();
+ 270   2                                              scan_no=15;
+ 271   2                                              break;
+ 272   2      
+ 273   2                      case 15:
+ 274   2                                              c=krl4;
+ 275   2                                              k1();
+ 276   2                                              //disp_blank();
+ 277   2                                              scan_no=0;
+ 278   2                                              break;
+ 279   2              }
+ 280   1      }
+ 281          
+ 282          void k1()
+ 283          {
+ 284   1       if(key_ready==1)
+ 285   1              {
+ 286   2                      if(c==0)
+ 287   2                      {
+ 288   3                       krcount=32;
+ 289   3                      }
+ 290   2                      else
+ 291   2                      {
+ 292   3                       krcount=krcount-1;
+ 293   3                              
+ 294   3                              if(krcount==0)
+ 295   3                              {
+ 296   4                               nkp=1;
+ 297   4                               start_buzzer=0;
+ 298   4                               krcount=32;
+ 299   4                              }
+ 300   3                      }
+ 301   2                }
+ 302   1      else if(dcount==33)
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 6   
+
+ 303   1              {
+ 304   2                      if(c==0)
+ 305   2                      {
+ 306   3                       dcount=dcount-1;
+ 307   3                       key_code=scan_no;
+ 308   3                      }
+ 309   2                      //else return;
+ 310   2              }
+ 311   1      
+ 312   1      else 
+ 313   1       {
+ 314   2       dcount=dcount-1;
+ 315   2               if(dcount==0)
+ 316   2                      {
+ 317   3                       if(c==0)
+ 318   3                              {
+ 319   4                               key_ready=1;
+ 320   4                               start_buzzer=1;
+ 321   4                               dcount=33;
+ 322   4                              }
+ 323   3                       else dcount=33;
+ 324   3                      }
+ 325   2       }
+ 326   1      
+ 327   1      }
+ 328          
+ 329          
+ 330          void delay(unsigned int del)
+ 331          {
+ 332   1      int d1,d2;
+ 333   1       for(d1=0;d1<=del;d1++)
+ 334   1              for(d2=0;d2<=120;d2++);
+ 335   1      }
+ 336          
+ 337                    
+ 338          
+ 339          void incrementd()
+ 340          {
+ 341   1       if(start_sw==1)
+ 342   1       {
+ 343   2       ds1=ds1+1;
+ 344   2       if (ds1>'9')
+ 345   2       {
+ 346   3              ds1='0';
+ 347   3              ds2=ds2+1;
+ 348   3      
+ 349   3                      if (ds2>'9')
+ 350   3                      {
+ 351   4                              ds2='0';
+ 352   4                              ds3=ds3+1;
+ 353   4      
+ 354   4                                      if (ds3>'9')
+ 355   4                                      {
+ 356   5                                              ds3='0';
+ 357   5                                              ds4=ds4+1;
+ 358   5      
+ 359   5                                              if(ds4>'9')
+ 360   5                                              {
+ 361   6                                               ds1='0';
+ 362   6                                               ds2='0';
+ 363   6                                               ds3='0';
+ 364   6                                               ds4='0';
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 7   
+
+ 365   6                                              }
+ 366   5                                              
+ 367   5                                      }
+ 368   4                                      
+ 369   4                      }
+ 370   3                      
+ 371   3       }
+ 372   2      } 
+ 373   1      }
+ 374          
+ 375          void key_release()
+ 376          {
+ 377   1       while(nkp!=1);
+ 378   1       key_ready=0;
+ 379   1       nkp=0;
+ 380   1      }
+ 381          
+ 382          void buzzer()
+ 383          {
+ 384   1       if(start_buzzer==1)
+ 385   1       buzz=~buzz;
+ 386   1      }
+ 387          
+ 388          void get_key()
+ 389          {
+ 390   1       while(key_ready!=1)
+ 391   1       uart_disp();
+ 392   1       a=key_code;
+ 393   1       key_code=ascii_tab[a];
+ 394   1      }
+ 395          
+ 396          void keyprocess()
+ 397          {
+ 398   1       switch(key_code)
+ 399   1              {
+ 400   2               case 'A':
+ 401   2                                      process_a();
+ 402   2                                      break;
+ 403   2      
+ 404   2               case 'B' :
+ 405   2                                      process_b();
+ 406   2                                      break;
+ 407   2               case 'C' :
+ 408   2                                      process_c();
+ 409   2                                      break;
+ 410   2              }
+ 411   1              key_release();
+ 412   1      }
+ 413          
+ 414          void process_a()
+ 415          {
+ 416   1       start_sw=1;
+ 417   1      }
+ 418          
+ 419          void process_b()
+ 420          {
+ 421   1       start_sw=0;
+ 422   1      }
+ 423          
+ 424          void process_c()
+ 425          {
+ 426   1       start_sw=0;
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 8   
+
+ 427   1       ds1='0';
+ 428   1       ds2='0';
+ 429   1       ds3='0';
+ 430   1       ds4='0';
+ 431   1      }
+ 432          
+ 433          
+ 434          void uart_disp()
+ 435          {
+ 436   1       
+ 437   1       home_screen();
+ 438   1       tx(ds4);
+ 439   1       tx(ds3);
+ 440   1       tx(ds2);
+ 441   1       tx(ds1);
+ 442   1       
+ 443   1      }
+ 444          
+ 445          void init_uart()
+ 446          {
+ 447   1       TMOD|=0x20;
+ 448   1       TH1=0xFD;
+ 449   1       TR1=1;
+ 450   1       SCON=0x53;
+ 451   1      }
+ 452          
+ 453          void clr_screen()
+ 454          {
+ 455   1       tx(0x1b);
+ 456   1       uart_delay(1);
+ 457   1       tx('[');
+ 458   1       uart_delay(1);
+ 459   1       tx('2');
+ 460   1       uart_delay(1);
+ 461   1       tx('J');
+ 462   1       uart_delay(1);
+ 463   1      }
+ 464          
+ 465          void home_screen()
+ 466          {
+ 467   1       tx(0x1b);
+ 468   1       uart_delay(1);
+ 469   1       tx('[');
+ 470   1       uart_delay(1);
+ 471   1       tx('H');
+ 472   1       uart_delay(1);
+ 473   1      }
+ 474          
+ 475          void tx(unsigned char tx_data)
+ 476          {
+ 477   1       while(TI!=1);
+ 478   1       SBUF=tx_data;
+ 479   1       TI=0;
+ 480   1      }
+ 481          
+ 482          void uart_delay(unsigned int del)
+ 483          {
+ 484   1       int j,i;
+ 485   1       for(i=0;i<=del;i++)
+ 486   1        for(j=0;j<=120;j++);
+ 487   1      
+ 488   1      }
+C51 COMPILER V9.00   UART_T10                                                              01/02/2002 05:46:05 PAGE 9   
+
+ 489          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    998    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     98    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

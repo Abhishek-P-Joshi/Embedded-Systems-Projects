@@ -1,0 +1,3 @@
+"T9 uart.obj" 
+TO "T9 uart" 
+RAMSIZE(256) 

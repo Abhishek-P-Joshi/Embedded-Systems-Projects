@@ -1,0 +1,177 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/01/2002  17:14:46  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE T1.obj TO T1 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  T1.obj (T1)
+
+
+LINK MAP OF MODULE:  T1 (T1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00E9H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  T1 (T1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        T1
+  N:0031H         SYMBOL        CMD_DATA
+  C:0053H         SYMBOL        CMD_WR
+  C:0083H         SYMBOL        DATA_MAP
+  C:006BH         SYMBOL        DATA_WR
+  N:0033H         SYMBOL        DCOUNT1
+  N:0034H         SYMBOL        DCOUNT2
+  N:0035H         SYMBOL        DCOUNT3
+  N:0032H         SYMBOL        DISP_DATA
+  B:0080H.3       SYMBOL        E
+  C:0092H         SYMBOL        ENABLE
+  C:00AFH         SYMBOL        INIT_LCD
+  C:00A2H         SYMBOL        L1
+  C:009FH         SYMBOL        L2
+  C:009CH         SYMBOL        LCD_DELAY
+  C:0000H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  B:0080H.1       SYMBOL        RS
+  B:0080H.2       SYMBOL        RW
+  N:0030H         SYMBOL        TEMP
+  N:0036H         SYMBOL        VAR_DATA
+  B:0080H.0       SYMBOL        VLED
+  C:0000H         LINE#         20
+  C:0002H         LINE#         21
+  C:0005H         LINE#         22
+  C:0007H         LINE#         23
+  C:0009H         LINE#         26
+  C:000CH         LINE#         27
+  C:000EH         LINE#         30
+  C:0011H         LINE#         31
+  C:0013H         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2002  17:14:46  PAGE 2
+
+
+  C:0016H         LINE#         35
+  C:0018H         LINE#         38
+  C:001BH         LINE#         39
+  C:001DH         LINE#         42
+  C:0020H         LINE#         43
+  C:0022H         LINE#         46
+  C:0025H         LINE#         47
+  C:0027H         LINE#         50
+  C:002AH         LINE#         51
+  C:002CH         LINE#         54
+  C:002FH         LINE#         55
+  C:0031H         LINE#         58
+  C:0034H         LINE#         59
+  C:0036H         LINE#         60
+  C:0038H         LINE#         62
+  C:003BH         LINE#         63
+  C:003DH         LINE#         66
+  C:0040H         LINE#         67
+  C:0042H         LINE#         70
+  C:0045H         LINE#         71
+  C:0047H         LINE#         74
+  C:004AH         LINE#         75
+  C:004CH         LINE#         78
+  C:004FH         LINE#         79
+  C:0051H         LINE#         85
+  C:0053H         LINE#         90
+  C:0055H         LINE#         91
+  C:0057H         LINE#         92
+  C:005AH         LINE#         93
+  C:005CH         LINE#         94
+  C:005EH         LINE#         95
+  C:0060H         LINE#         97
+  C:0061H         LINE#         98
+  C:0062H         LINE#         99
+  C:0063H         LINE#         100
+  C:0064H         LINE#         101
+  C:0066H         LINE#         102
+  C:0068H         LINE#         103
+  C:006AH         LINE#         104
+  C:006BH         LINE#         108
+  C:006DH         LINE#         109
+  C:006FH         LINE#         110
+  C:0072H         LINE#         111
+  C:0074H         LINE#         112
+  C:0076H         LINE#         113
+  C:0078H         LINE#         115
+  C:0079H         LINE#         116
+  C:007AH         LINE#         117
+  C:007BH         LINE#         118
+  C:007CH         LINE#         119
+  C:007EH         LINE#         120
+  C:0080H         LINE#         121
+  C:0082H         LINE#         122
+  C:0083H         LINE#         127
+  C:0085H         LINE#         128
+  C:0087H         LINE#         129
+  C:0089H         LINE#         131
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2002  17:14:46  PAGE 3
+
+
+  C:008BH         LINE#         132
+  C:008DH         LINE#         134
+  C:008FH         LINE#         136
+  C:0091H         LINE#         138
+  C:0092H         LINE#         141
+  C:0094H         LINE#         142
+  C:0095H         LINE#         143
+  C:0096H         LINE#         144
+  C:0097H         LINE#         145
+  C:0098H         LINE#         146
+  C:0099H         LINE#         147
+  C:009BH         LINE#         148
+  C:009CH         LINE#         153
+  C:009FH         LINE#         154
+  C:00A2H         LINE#         155
+  C:00A5H         LINE#         156
+  C:00A8H         LINE#         157
+  C:00ABH         LINE#         158
+  C:00AEH         LINE#         159
+  C:00AFH         LINE#         162
+  C:00B1H         LINE#         163
+  C:00B3H         LINE#         164
+  C:00B5H         LINE#         166
+  C:00B8H         LINE#         167
+  C:00BAH         LINE#         168
+  C:00BCH         LINE#         170
+  C:00BFH         LINE#         171
+  C:00C1H         LINE#         172
+  C:00C3H         LINE#         174
+  C:00C6H         LINE#         175
+  C:00C8H         LINE#         176
+  C:00CAH         LINE#         178
+  C:00CDH         LINE#         179
+  C:00CFH         LINE#         180
+  C:00D1H         LINE#         182
+  C:00D4H         LINE#         183
+  C:00D6H         LINE#         184
+  C:00D8H         LINE#         186
+  C:00DBH         LINE#         187
+  C:00DDH         LINE#         188
+  C:00DFH         LINE#         190
+  C:00E2H         LINE#         191
+  C:00E4H         LINE#         192
+  C:00E6H         LINE#         194
+  C:00E8H         LINE#         195
+  -------         ENDMOD        T1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E9H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=233
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

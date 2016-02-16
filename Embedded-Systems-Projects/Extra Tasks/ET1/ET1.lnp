@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ET1.obj" 
+TO "ET1" 
+RAMSIZE(256) 

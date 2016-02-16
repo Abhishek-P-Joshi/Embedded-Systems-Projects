@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"RTC1.obj" 
+TO "RTC1" 
+RAMSIZE(256) 

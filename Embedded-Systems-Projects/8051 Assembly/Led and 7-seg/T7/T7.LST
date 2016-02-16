@@ -1,0 +1,125 @@
+A51 MACRO ASSEMBLER  T7                                                                   01/03/2002 04:33:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T7.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T7.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0037                 1     count equ 37h
+  0038                 2     count1 equ 38h
+                       3     
+0000                   4     org 0000h
+0000 802A              5     jmp main
+                       6     
+0003                   7     org 0003h
+0003 32                8     reti 
+                       9     
+000B                  10     org 000bh
+000B 020059           11     ljmp isr_t0
+                      12     
+0013                  13     org 0013h
+0013 32               14     reti
+                      15     
+001B                  16     org 001bh
+001B 020064           17     ljmp isr_t1
+001E 32               18     reti
+                      19     
+0023                  20     org 0023h
+0023 32               21     reti
+                      22     
+002B                  23     org 002bh
+002B 32               24     reti
+                      25     
+002C                  26     main:
+                      27     
+002C 758000           28     mov p0,#00h
+002F 753714           29     mov count,#20d
+0032 753814           30     mov count1,#20d
+0035 113D             31     call init_timer0
+0037 114B             32     call init_timer1
+0039 D2AF             33     setb ea
+003B 80FE             34     jmp $
+                      35     
+                      36     
+003D                  37     init_timer0:
+                      38     
+003D 438901           39     orl tmod,#01h
+                      40     
+                      41     
+0040 758CFC           42     mov th0,#0fch;DBh
+0043 758A66           43     mov tl0,#66h;FFh
+0046 D28C             44     setb tr0
+0048 D2A9             45     setb et0
+                      46     
+004A 22               47     ret
+                      48     
+                      49     
+                      50     
+004B                  51     init_timer1:
+                      52     
+004B 438910           53     orl tmod,#10h
+004E 758B00           54     mov tl1,#00h
+0051 758D00           55     mov th1,#00h
+0054 D28E             56     setb tr1
+0056 D2AB             57     setb et1
+0058 22               58     ret
+A51 MACRO ASSEMBLER  T7                                                                   01/03/2002 04:33:52 PAGE     2
+
+0059                  59     isr_t0:
+                      60     
+0059 113D             61     call init_timer0
+005B D53705           62     djnz count,out_isr
+005E B280             63     cpl p0.0
+0060 753714           64     mov count,#20d
+                      65     
+0063                  66     out_isr:
+0063 32               67     reti
+                      68     
+                      69     
+0064                  70     isr_t1:
+                      71     
+0064 114B             72     call init_timer1
+0066 D53805           73     djnz count1,out_isr1
+0069 B285             74     cpl p0.5
+006B 753814           75     mov count1,#20d
+                      76     
+006E                  77     out_isr1:
+006E 32               78     reti
+                      79     
+                      80     end
+A51 MACRO ASSEMBLER  T7                                                                   01/03/2002 04:33:52 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COUNT. . . . . . .  N NUMB   0037H   A   
+COUNT1 . . . . . .  N NUMB   0038H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+INIT_TIMER0. . . .  C ADDR   003DH   A   
+INIT_TIMER1. . . .  C ADDR   004BH   A   
+ISR_T0 . . . . . .  C ADDR   0059H   A   
+ISR_T1 . . . . . .  C ADDR   0064H   A   
+MAIN . . . . . . .  C ADDR   002CH   A   
+OUT_ISR. . . . . .  C ADDR   0063H   A   
+OUT_ISR1 . . . . .  C ADDR   006EH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

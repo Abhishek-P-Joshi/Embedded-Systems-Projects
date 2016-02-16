@@ -1,0 +1,16 @@
+_init: CODE, 1039 0 11
+i1_init_timer: CODE, 989 0 15
+_scanner: CODE, 21 0 458
+_isr_t0: CODE, 886 0 28
+_k1: CODE, 479 0 113
+_uart_disp: CODE, 1004 0 12
+_main: CODE, 592 0 62
+_init_uart: CODE, 1050 0 10
+_key_release: CODE, 939 0 18
+_uart_delay: CODE, 808 0 47
+_init_timer: CODE, 974 0 15
+_init_keypad: CODE, 855 0 31
+_tx: CODE, 1028 0 11
+_buzzer: CODE, 1016 0 12
+_home_screen: CODE, 707 0 52
+Total: 895

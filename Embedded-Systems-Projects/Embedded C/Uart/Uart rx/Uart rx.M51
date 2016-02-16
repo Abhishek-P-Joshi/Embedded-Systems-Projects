@@ -1,0 +1,221 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/02/2002  05:59:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, Uart rx.obj TO Uart rx RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  Uart rx.obj (UART_RX)
+
+
+LINK MAP OF MODULE:  Uart rx (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?UART_RX
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0024H     UNIT         ?PR?CLR_SCREEN?UART_RX
+            CODE    0824H     0024H     UNIT         ?PR?_UART_DELAY?UART_RX
+            CODE    0848H     001CH     UNIT         ?PR?HOME_SCREEN?UART_RX
+            CODE    0864H     0015H     UNIT         ?PR?MAIN?UART_RX
+            CODE    0879H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0885H     000CH     UNIT         ?PR?INIT_UART?UART_RX
+            CODE    0891H     000BH     UNIT         ?PR?RX?UART_RX
+            CODE    089CH     0008H     UNIT         ?PR?_TX?UART_RX
+
+
+
+OVERLAY MAP OF MODULE:   Uart rx (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?UART_RX
+
+?PR?MAIN?UART_RX
+  +--> ?PR?INIT_UART?UART_RX
+  +--> ?PR?RX?UART_RX
+  +--> ?PR?_UART_DELAY?UART_RX
+  +--> ?PR?_TX?UART_RX
+
+
+
+SYMBOL TABLE OF MODULE:  Uart rx (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2002  05:59:33  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0879H         SEGMENT       ?C_C51STARTUP
+  I:0009H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:087CH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0879H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0879H         LINE#         133
+  C:087BH         LINE#         134
+  C:087CH         LINE#         135
+  C:087DH         LINE#         136
+  C:087FH         LINE#         185
+  C:0882H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        UART_RX
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0848H         PUBLIC        home_screen
+  D:00B8H         PUBLIC        IP
+  B:0098H.0       PUBLIC        RI
+  B:0098H.1       PUBLIC        TI
+  D:00D8H         PUBLIC        CCON
+  C:0864H         PUBLIC        main
+  C:0800H         PUBLIC        clr_screen
+  C:0828H         PUBLIC        _uart_delay
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008DH         PUBLIC        TH1
+  C:0885H         PUBLIC        init_uart
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        tx_data
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2002  05:59:33  PAGE 3
+
+
+  C:0891H         PUBLIC        rx
+  C:089CH         PUBLIC        _tx
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0864H         LINE#         13
+  C:0864H         LINE#         14
+  C:0864H         LINE#         15
+  C:0867H         LINE#         17
+  C:0867H         LINE#         18
+  C:0867H         LINE#         19
+  C:086CH         LINE#         20
+  C:086FH         LINE#         22
+  C:0874H         LINE#         23
+  C:0877H         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         PROC          INIT_UART
+  C:0885H         LINE#         28
+  C:0885H         LINE#         29
+  C:0885H         LINE#         30
+  C:0888H         LINE#         31
+  C:088BH         LINE#         32
+  C:088DH         LINE#         33
+  C:0890H         LINE#         34
+  -------         ENDPROC       INIT_UART
+  -------         PROC          CLR_SCREEN
+  C:0800H         LINE#         36
+  C:0800H         LINE#         37
+  C:0800H         LINE#         38
+  C:0805H         LINE#         39
+  C:0808H         LINE#         40
+  C:080DH         LINE#         41
+  C:0810H         LINE#         42
+  C:0815H         LINE#         43
+  C:0818H         LINE#         44
+  C:081DH         LINE#         45
+  -------         ENDPROC       CLR_SCREEN
+  -------         PROC          HOME_SCREEN
+  C:0848H         LINE#         48
+  C:0848H         LINE#         49
+  C:0848H         LINE#         50
+  C:084DH         LINE#         51
+  C:0850H         LINE#         52
+  C:0855H         LINE#         53
+  C:0858H         LINE#         54
+  C:085DH         LINE#         55
+  -------         ENDPROC       HOME_SCREEN
+  -------         PROC          _TX
+  D:0007H         SYMBOL        tx_data
+  C:089CH         LINE#         58
+  C:089CH         LINE#         59
+  C:089CH         LINE#         60
+  C:089FH         LINE#         61
+  C:08A1H         LINE#         62
+  C:08A3H         LINE#         63
+  -------         ENDPROC       _TX
+  -------         PROC          RX
+  C:0891H         LINE#         65
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/02/2002  05:59:33  PAGE 4
+
+
+  C:0891H         LINE#         66
+  C:0891H         LINE#         67
+  C:0894H         LINE#         68
+  C:0897H         LINE#         69
+  C:0899H         LINE#         70
+  C:089BH         LINE#         71
+  -------         ENDPROC       RX
+  C:0824H         SYMBOL        L?0023
+  -------         PROC          L?0022
+  -------         ENDPROC       L?0022
+  C:0824H         SYMBOL        L?0023
+  -------         PROC          _UART_DELAY
+  D:0006H         SYMBOL        del
+  -------         DO            
+  D:0002H         SYMBOL        j
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0828H         LINE#         74
+  C:0828H         LINE#         75
+  C:0828H         LINE#         77
+  C:0832H         LINE#         78
+  C:0847H         LINE#         80
+  -------         ENDPROC       _UART_DELAY
+  -------         ENDMOD        UART_RX
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?CLR_SCREEN?UART_RX
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?HOME_SCREEN?UART_RX
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A7H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=10.0 xdata=0 code=167
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

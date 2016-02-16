@@ -1,0 +1,102 @@
+A51 MACRO ASSEMBLER  UART_RX                                                              01/22/2003 14:33:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN uart rx.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE uart rx.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     dcount1 equ 30h
+  0031                 2     dcount2 equ 31h
+  0032                 3     dcount3 equ 32h
+                       4     
+                       5     
+                       6     
+0000                   7     org 0000h
+                       8     
+                       9     
+0000                  10     main:
+                      11     
+0000 110C             12     call init_uart
+                      13     
+0002                  14     L1:
+                      15     
+0002 1118             16     call rx
+0004 1128             17     call delay
+                      18     
+0006 1120             19     call tx 
+0008 1128             20     call delay
+                      21     
+000A 80F6             22     jmp L1
+                      23     
+                      24     
+000C                  25     init_uart:
+                      26     
+000C 758920           27     mov tmod,#20h
+000F 758DFD           28     mov th1,#0FDh
+0012 D28E             29     setb tr1
+                      30     
+0014 759852           31     mov scon,#52h
+                      32     
+0017 22               33     ret
+                      34     
+0018                  35     rx:
+                      36     
+0018 3098FD           37     jnb ri,$
+001B E599             38     mov a,sbuf
+001D C298             39     clr ri
+001F 22               40     ret
+                      41     
+0020                  42     tx:
+                      43     
+0020 3099FD           44     jnb ti,$
+0023 F599             45     mov sbuf,a
+0025 C299             46     clr ti
+0027 22               47     ret
+                      48     
+0028                  49     delay:
+                      50     
+0028 753207           51     mov dcount3,#07d
+002B 7531FF           52     M2:mov dcount2,#0ffh
+002E 7530FF           53     M1:mov dcount1,#0ffh
+0031 D530FD           54     djnz dcount1,$
+0034 D531F7           55     djnz dcount2,M1
+0037 D532F1           56     djnz dcount3,M2
+003A 22               57     ret
+                      58     
+A51 MACRO ASSEMBLER  UART_RX                                                              01/22/2003 14:33:11 PAGE     2
+
+                      59     end
+A51 MACRO ASSEMBLER  UART_RX                                                              01/22/2003 14:33:11 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DCOUNT1. . . . . .  N NUMB   0030H   A   
+DCOUNT2. . . . . .  N NUMB   0031H   A   
+DCOUNT3. . . . . .  N NUMB   0032H   A   
+DELAY. . . . . . .  C ADDR   0028H   A   
+INIT_UART. . . . .  C ADDR   000CH   A   
+L1 . . . . . . . .  C ADDR   0002H   A   
+M1 . . . . . . . .  C ADDR   002EH   A   
+M2 . . . . . . . .  C ADDR   002BH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RX . . . . . . . .  C ADDR   0018H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TX . . . . . . . .  C ADDR   0020H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

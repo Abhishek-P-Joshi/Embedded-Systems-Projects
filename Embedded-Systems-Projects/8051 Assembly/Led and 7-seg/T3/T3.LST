@@ -1,0 +1,154 @@
+A51 MACRO ASSEMBLER  T3                                                                   01/01/2002 03:30:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T3.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T3.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  00A0                10     sl1 bit p2.0
+  00A1                11     sl2 bit p2.1
+  00A2                12     sl3 bit p2.2
+  00A3                13     sl4 bit p2.3
+                      14     
+0000                  15     org 0000h
+                      16     
+0000 758000           17     mov p0,#00h
+                      18     
+0003 753006           19     mov ds1,#06h
+0006 753107           20     mov ds2,#07h
+0009 753208           21     mov ds3,#08h
+000C 753309           22     mov ds4,#09h
+                      23     
+000F                  24     main:
+                      25     
+000F 1113             26     call display
+0011 80FC             27     jmp main
+                      28     
+0013                  29     display:
+                      30     
+0013 C2A0             31     clr sl1
+0015 D2A1             32     setb sl2
+0017 D2A2             33     setb sl3
+0019 D2A3             34     setb sl4
+                      35     
+001B 90006F           36     mov dptr,#disp_lut
+001E E530             37     mov a,ds1
+0020 93               38     movc a,@a+dptr
+0021 F580             39     mov p0,a
+                      40     
+0023 115C             41     call delay
+                      42     
+                      43     
+0025 D2A0             44     setb sl1
+0027 C2A1             45     clr sl2
+0029 D2A2             46     setb sl3
+002B D2A3             47     setb sl4
+                      48     
+002D 90006F           49     mov dptr,#disp_lut
+0030 E531             50     mov a,ds2
+0032 93               51     movc a,@a+dptr
+0033 F580             52     mov p0,a
+                      53     
+0035 115C             54     call delay
+                      55     
+                      56     
+0037 D2A0             57     setb sl1
+0039 D2A1             58     setb sl2
+A51 MACRO ASSEMBLER  T3                                                                   01/01/2002 03:30:11 PAGE     2
+
+003B C2A2             59     clr sl3
+003D D2A3             60     setb sl4
+                      61     
+003F 90006F           62     mov dptr,#disp_lut
+0042 E532             63     mov a,ds3
+0044 93               64     movc a,@a+dptr
+0045 F580             65     mov p0,a
+                      66     
+0047 115C             67     call delay
+                      68     
+                      69     
+0049 D2A0             70     setb sl1
+004B D2A1             71     setb sl2
+004D D2A2             72     setb sl3
+004F C2A3             73     clr sl4
+                      74     
+0051 90006F           75     mov dptr,#disp_lut
+0054 E533             76     mov a,ds4
+0056 93               77     movc a,@a+dptr
+0057 F580             78     mov p0,a
+                      79     
+0059 115C             80     call delay
+                      81     
+005B 22               82     ret
+                      83     
+                      84     
+005C                  85     delay:
+                      86     
+005C 753601           87     mov dcount3,#01h
+005F 753505           88     L2: mov dcount2,#05h
+0062 7534FF           89     L1: mov dcount1,#0ffh
+0065 D534FD           90     djnz dcount1,$
+0068 D535F7           91     djnz dcount2,L1
+006B D536F1           92     djnz dcount3,L2
+006E 22               93     ret
+                      94     
+                      95     
+006F                  96     disp_lut:
+                      97     
+006F FC               98     db 0FCh
+0070 60               99     db 60h
+0071 DA              100     db 0DAh
+0072 F2              101     db 0F2h
+0073 66              102     db 66h
+0074 B6              103     db 0B6h
+0075 BE              104     db 0BEh
+0076 E0              105     db 0E0h
+0077 FE              106     db 0FEh
+0078 F6              107     db 0F6h
+                     108     
+                     109     
+                     110     end
+A51 MACRO ASSEMBLER  T3                                                                   01/01/2002 03:30:11 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DELAY. . . . . . .  C ADDR   005CH   A   
+DISPLAY. . . . . .  C ADDR   0013H   A   
+DISP_LUT . . . . .  C ADDR   006FH   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+L1 . . . . . . . .  C ADDR   0062H   A   
+L2 . . . . . . . .  C ADDR   005FH   A   
+MAIN . . . . . . .  C ADDR   000FH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

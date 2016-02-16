@@ -1,0 +1,228 @@
+A51 MACRO ASSEMBLER  T4                                                                   01/01/2002 04:25:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T4.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T4.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  0037                10     count equ 37h
+                      11     
+  00A0                12     sl1 bit p2.0
+  00A1                13     sl2 bit p2.1
+  00A2                14     sl3 bit p2.2
+  00A3                15     sl4 bit p2.3
+                      16     
+0000                  17     org 0000h
+                      18     
+0000 758000           19     mov p0,#00h
+                      20     
+0003                  21     main:
+                      22     
+0003 753000           23     mov ds1,#00h
+0006 753100           24     mov ds2,#00h
+0009 753200           25     mov ds3,#00h
+000C 753300           26     mov ds4,#00h
+                      27     
+000F                  28     L1_main:
+                      29     
+000F 753714           30     mov count,#20d
+                      31     
+0012                  32     L2_main:
+                      33     
+0012 111B             34     call display
+0014 D537FB           35     djnz count,L2_main
+                      36     
+0017 1187             37     call inc_d
+0019 80F4             38     jmp L1_main
+                      39     
+                      40     
+001B                  41     display:
+                      42     
+001B C2A0             43     clr sl1
+001D D2A1             44     setb sl2
+001F D2A2             45     setb sl3
+0021 D2A3             46     setb sl4
+                      47     
+0023 900077           48     mov dptr,#disp_lut
+0026 E530             49     mov a,ds1
+0028 93               50     movc a,@a+dptr
+0029 F580             51     mov p0,a
+                      52     
+002B 1164             53     call delay
+                      54     
+                      55     
+002D D2A0             56     setb sl1
+002F C2A1             57     clr sl2
+0031 D2A2             58     setb sl3
+A51 MACRO ASSEMBLER  T4                                                                   01/01/2002 04:25:38 PAGE     2
+
+0033 D2A3             59     setb sl4
+                      60     
+0035 900077           61     mov dptr,#disp_lut
+0038 E531             62     mov a,ds2
+003A 93               63     movc a,@a+dptr
+003B F580             64     mov p0,a
+                      65     
+003D 1164             66     call delay
+                      67     
+                      68     
+003F D2A0             69     setb sl1
+0041 D2A1             70     setb sl2
+0043 C2A2             71     clr sl3
+0045 D2A3             72     setb sl4
+                      73     
+0047 900077           74     mov dptr,#disp_lut
+004A E532             75     mov a,ds3
+004C 93               76     movc a,@a+dptr
+004D F580             77     mov p0,a
+                      78     
+004F 1164             79     call delay
+                      80     
+                      81     
+0051 D2A0             82     setb sl1
+0053 D2A1             83     setb sl2
+0055 D2A2             84     setb sl3
+0057 C2A3             85     clr sl4
+                      86     
+0059 900077           87     mov dptr,#disp_lut
+005C E533             88     mov a,ds4
+005E 93               89     movc a,@a+dptr
+005F F580             90     mov p0,a
+                      91     
+0061 1164             92     call delay
+                      93     
+0063 22               94     ret
+                      95     
+                      96     
+0064                  97     delay:
+                      98     
+0064 753601           99     mov dcount3,#01h
+0067 753505          100     L2: mov dcount2,#05h
+006A 7534FF          101     L1: mov dcount1,#0ffh
+006D D534FD          102     djnz dcount1,$
+0070 D535F7          103     djnz dcount2,L1
+0073 D536F1          104     djnz dcount3,L2
+0076 22              105     ret
+                     106     
+                     107     
+0077                 108     disp_lut:
+                     109     
+0077 FC              110     db 0FCh ;0
+0078 60              111     db 60h  ;1
+0079 DA              112     db 0DAh ;2
+007A F2              113     db 0F2h ;3
+007B 66              114     db 66h  ;4
+007C B6              115     db 0B6h ;5
+007D BE              116     db 0BEh ;6
+007E E0              117     db 0E0h ;7
+007F FE              118     db 0FEh ;8
+0080 F6              119     db 0F6h ;9
+0081 EE              120     db 0EEh ;A
+0082 3E              121     db 3Eh  ;B
+0083 9C              122     db 9Ch  ;C
+0084 7A              123     db 7Ah  ;D
+0085 9E              124     db 9Eh  ;E
+A51 MACRO ASSEMBLER  T4                                                                   01/01/2002 04:25:38 PAGE     3
+
+0086 8E              125     db 8Eh  ;F
+                     126     
+                     127     
+0087                 128     inc_d:
+                     129     
+0087 0530            130     inc ds1
+0089 E530            131     mov a,ds1
+008B B40A00          132     cjne a,#09h+1,$+3
+008E 5001            133     jnc L1_id
+0090 22              134     ret
+                     135     
+0091                 136     L1_id:
+                     137     
+0091 753000          138     mov ds1,#00h
+0094 0531            139     inc ds2
+0096 E531            140     mov a,ds2
+0098 B40A00          141     cjne a,#09h+1,$+3
+009B 5001            142     jnc L2_id
+009D 22              143     ret
+                     144     
+009E                 145     L2_id:
+                     146     
+009E 753100          147     mov ds2,#00h
+00A1 0532            148     inc ds3
+00A3 E532            149     mov a,ds3
+00A5 B40A00          150     cjne a,#09h+1,$+3
+00A8 5001            151     jnc L3_id
+00AA 22              152     ret
+                     153     
+00AB                 154     L3_id:
+                     155     
+00AB 753200          156     mov ds3,#00h
+00AE 0533            157     inc ds4
+00B0 E533            158     mov a,ds4
+00B2 B40A00          159     cjne a,#09h+1,$+3
+00B5 5001            160     jnc L4_id
+00B7 22              161     ret
+                     162     
+00B8                 163     L4_id:
+                     164     
+00B8 753000          165     mov ds1,#00h
+00BB 753100          166     mov ds2,#00h
+00BE 753200          167     mov ds3,#00h
+00C1 753300          168     mov ds4,#00h
+00C4 22              169     ret
+                     170     
+                     171     end
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  T4                                                                   01/01/2002 04:25:38 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COUNT. . . . . . .  N NUMB   0037H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DELAY. . . . . . .  C ADDR   0064H   A   
+DISPLAY. . . . . .  C ADDR   001BH   A   
+DISP_LUT . . . . .  C ADDR   0077H   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+INC_D. . . . . . .  C ADDR   0087H   A   
+L1 . . . . . . . .  C ADDR   006AH   A   
+L1_ID. . . . . . .  C ADDR   0091H   A   
+L1_MAIN. . . . . .  C ADDR   000FH   A   
+L2 . . . . . . . .  C ADDR   0067H   A   
+L2_ID. . . . . . .  C ADDR   009EH   A   
+L2_MAIN. . . . . .  C ADDR   0012H   A   
+L3_ID. . . . . . .  C ADDR   00ABH   A   
+L4_ID. . . . . . .  C ADDR   00B8H   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,94 @@
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 02:54:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0045                 1     dcount_1 equ 45h
+  0046                 2     dcount_2 equ 46h
+  0047                 3     dcount_3 equ 47h
+                       4     
+0000                   5     org 000h
+0000                   6     main:
+0000 758000            7     mov p0,#00h
+                       8     
+0003 7902              9     mov r1,#02h ;count twice
+                      10     
+0005                  11     L5:
+0005 758000           12     mov p0,#00h
+0008 113D             13     call delay
+000A 7580FF           14     mov p0,#0ffh
+000D 113D             15     call delay
+000F D9F4             16     djnz r1,L5
+0011 7902             17     mov r1,#02h
+                      18     
+0013                  19     L6:
+0013 758055           20     mov p0,#01010101b
+0016 113D             21     call delay
+0018 7580AA           22     mov p0,#10101010b
+001B 113D             23     call delay
+001D D9F4             24     djnz r1,L6
+001F 7902             25     mov r1,#02h
+                      26     
+                      27     
+0021                  28     L7:
+0021 7401             29     mov A,#01h
+0023 F580             30     mov p0,A 
+0025 113D             31     call delay
+0027 7807             32     mov r0,#07h
+0029                  33     L3:
+0029 23               34     rl A
+002A F580             35     mov p0,A
+002C 113D             36     call delay
+002E D8F9             37     djnz r0,L3
+0030 7807             38     mov r0,#07h
+0032 03               39     L4:rr A
+0033 F580             40     mov p0,A
+0035 113D             41     call delay
+0037 D8F9             42     djnz r0,L4
+0039 D9E6             43     djnz r1,L7
+                      44     
+003B 80C3             45     jmp main
+                      46     
+                      47     
+                      48     
+003D                  49     delay:
+003D 754705           50             mov dcount_3,#05h
+0040 7546FF           51     L2:     mov dcount_2,#0ffh
+0043 7545FF           52     L1:     mov dcount_1,#0ffh
+0046 D545FD           53             djnz dcount_1,$
+0049 D546F7           54             djnz dcount_2,L1
+004C D547F1           55             djnz dcount_3,L2
+004F 22               56             ret
+                      57     
+                      58     end
+A51 MACRO ASSEMBLER  T1                                                                   01/01/2002 02:54:41 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DCOUNT_1 . . . . .  N NUMB   0045H   A   
+DCOUNT_2 . . . . .  N NUMB   0046H   A   
+DCOUNT_3 . . . . .  N NUMB   0047H   A   
+DELAY. . . . . . .  C ADDR   003DH   A   
+L1 . . . . . . . .  C ADDR   0043H   A   
+L2 . . . . . . . .  C ADDR   0040H   A   
+L3 . . . . . . . .  C ADDR   0029H   A   
+L4 . . . . . . . .  C ADDR   0032H   A   
+L5 . . . . . . . .  C ADDR   0005H   A   
+L6 . . . . . . . .  C ADDR   0013H   A   
+L7 . . . . . . . .  C ADDR   0021H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

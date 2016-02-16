@@ -1,0 +1,14 @@
+_init: CODE, 568 0 12
+i1_init_timer: CODE, 538 0 15
+_delay: CODE, 285 0 45
+_adisp2: CODE, 490 0 16
+_scanner: CODE, 21 0 212
+_isr_t0: CODE, 434 0 23
+_main: CODE, 330 0 44
+_disp_blank: CODE, 580 0 8
+_adisp3: CODE, 522 0 16
+_init_timer: CODE, 553 0 15
+_adisp1: CODE, 506 0 16
+_adisp4: CODE, 474 0 16
+_incrementd: CODE, 233 0 52
+Total: 490

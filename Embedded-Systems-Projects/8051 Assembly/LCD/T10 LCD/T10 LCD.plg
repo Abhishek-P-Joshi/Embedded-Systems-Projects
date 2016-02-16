@@ -1,0 +1,91 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\8051 Assembly\LCD\T10 LCD\T10 LCD.uvproj
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling T10 LCD.asm...
+T10 LCD.asm(590): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(594): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(598): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(602): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(606): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(610): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(614): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(618): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(622): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(626): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(645): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(652): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(658): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(664): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(674): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(675): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(676): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(676): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(679): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(685): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(692): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(693): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(694): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(694): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(697): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(703): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(710): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(711): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(712): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(721): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(728): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(729): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(730): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(739): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(746): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(747): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(748): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(757): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(764): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(765): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(766): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(775): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(783): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(785): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(790): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(797): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(803): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(822): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(826): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(830): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(834): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(838): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(842): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(846): error A45: UNDEFINED SYMBOL (PASS-2)
+T10 LCD.asm(850): error A45: UNDEFINED SYMBOL (PASS-2)
+Target not created
+Build target 'Target 1'
+assembling T10 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=979
+creating hex file from "T10 LCD"...
+"T10 LCD" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling T10 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=994
+creating hex file from "T10 LCD"...
+"T10 LCD" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling T10 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=994
+creating hex file from "T10 LCD"...
+"T10 LCD" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling T10 LCD.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=994
+creating hex file from "T10 LCD"...
+"T10 LCD" - 0 Error(s), 0 Warning(s).

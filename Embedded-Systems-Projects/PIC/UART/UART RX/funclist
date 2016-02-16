@@ -1,0 +1,6 @@
+_main: CODE, 1964 0 39
+_init_uart: CODE, 1942 0 11
+_uart_delay: CODE, 2003 0 45
+_rx: CODE, 1932 0 10
+_tx: CODE, 1953 0 11
+Total: 116

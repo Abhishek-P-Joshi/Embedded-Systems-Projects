@@ -1,0 +1,2336 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"19 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _INDF `Vuc 1 e@0 ]
+"20 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR0 `Vuc 1 e@1 ]
+"21 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCL `Vuc 1 e@2 ]
+"22 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _STATUS `Vuc 1 e@3 ]
+"23 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _FSR `uc 1 e@4 ]
+"24 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PORTA `Vuc 1 e@5 ]
+"25 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PORTB `Vuc 1 e@6 ]
+"26 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PORTC `Vuc 1 e@7 ]
+"31 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCLATH `uc 1 e@10 ]
+"32 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _INTCON `Vuc 1 e@11 ]
+"33 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PIR1 `Vuc 1 e@12 ]
+"34 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PIR2 `Vuc 1 e@13 ]
+"35 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1L `Vuc 1 e@14 ]
+"36 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1H `Vuc 1 e@15 ]
+"37 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T1CON `Vuc 1 e@16 ]
+"38 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR2 `Vuc 1 e@17 ]
+"39 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T2CON `Vuc 1 e@18 ]
+"40 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPBUF `Vuc 1 e@19 ]
+"41 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPCON `Vuc 1 e@20 ]
+"42 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCPR1L `Vuc 1 e@21 ]
+"43 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCPR1H `Vuc 1 e@22 ]
+"44 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1CON `Vuc 1 e@23 ]
+"45 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RCSTA `Vuc 1 e@24 ]
+"46 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TXREG `Vuc 1 e@25 ]
+"47 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RCREG `Vuc 1 e@26 ]
+"48 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCPR2L `Vuc 1 e@27 ]
+"49 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCPR2H `Vuc 1 e@28 ]
+"50 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2CON `Vuc 1 e@29 ]
+"51 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADRESH `Vuc 1 e@30 ]
+"52 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADCON0 `Vuc 1 e@31 ]
+"55 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _OPTION `uc 1 e@129 ]
+"56 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA `Vuc 1 e@133 ]
+"57 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB `Vuc 1 e@134 ]
+"58 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC `Vuc 1 e@135 ]
+"63 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PIE1 `Vuc 1 e@140 ]
+"64 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PIE2 `Vuc 1 e@141 ]
+"65 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCON `Vuc 1 e@142 ]
+"66 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPCON2 `Vuc 1 e@145 ]
+"67 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PR2 `Vuc 1 e@146 ]
+"68 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPADD `Vuc 1 e@147 ]
+"69 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPSTAT `Vuc 1 e@148 ]
+"70 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TXSTA `Vuc 1 e@152 ]
+"71 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SPBRG `Vuc 1 e@153 ]
+"72 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CMCON `Vuc 1 e@156 ]
+"73 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVRCON `Vuc 1 e@157 ]
+"74 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADRESL `Vuc 1 e@158 ]
+"75 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADCON1 `Vuc 1 e@159 ]
+"78 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEDATA `Vuc 1 e@268 ]
+"79 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEADR `Vuc 1 e@269 ]
+"81 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEADRL `Vuc 1 e@269 ]
+"82 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEDATH `Vuc 1 e@270 ]
+"83 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEADRH `Vuc 1 e@271 ]
+"86 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EECON1 `Vuc 1 e@396 ]
+"87 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EECON2 `Vuc 1 e@397 ]
+"90 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _IRP `Vb 1 e@31 ]
+"91 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RP1 `Vb 1 e@30 ]
+"92 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RP0 `Vb 1 e@29 ]
+"93 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TO `Vb 1 e@28 ]
+"94 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PD `Vb 1 e@27 ]
+"95 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ZERO `Vb 1 e@26 ]
+"96 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _DC `Vb 1 e@25 ]
+"97 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CARRY `Vb 1 e@24 ]
+"100 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA5 `Vb 1 e@45 ]
+"101 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA4 `Vb 1 e@44 ]
+"102 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA3 `Vb 1 e@43 ]
+"103 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA2 `Vb 1 e@42 ]
+"104 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA1 `Vb 1 e@41 ]
+"105 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RA0 `Vb 1 e@40 ]
+"108 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB7 `Vb 1 e@55 ]
+"109 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB6 `Vb 1 e@54 ]
+"110 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB5 `Vb 1 e@53 ]
+"111 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB4 `Vb 1 e@52 ]
+"112 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB3 `Vb 1 e@51 ]
+"113 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB2 `Vb 1 e@50 ]
+"114 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB1 `Vb 1 e@49 ]
+"115 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RB0 `Vb 1 e@48 ]
+"118 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC7 `Vb 1 e@63 ]
+"119 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC6 `Vb 1 e@62 ]
+"120 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC5 `Vb 1 e@61 ]
+"121 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC4 `Vb 1 e@60 ]
+"122 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC3 `Vb 1 e@59 ]
+"123 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC2 `Vb 1 e@58 ]
+"124 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC1 `Vb 1 e@57 ]
+"125 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RC0 `Vb 1 e@56 ]
+"145 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _GIE `Vb 1 e@95 ]
+"146 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PEIE `Vb 1 e@94 ]
+"147 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T0IE `Vb 1 e@93 ]
+"148 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _INTE `Vb 1 e@92 ]
+"149 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RBIE `Vb 1 e@91 ]
+"150 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T0IF `Vb 1 e@90 ]
+"151 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _INTF `Vb 1 e@89 ]
+"152 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RBIF `Vb 1 e@88 ]
+"154 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR0IE `Vb 1 e@93 ]
+"155 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR0IF `Vb 1 e@90 ]
+"161 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADIF `Vb 1 e@102 ]
+"162 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RCIF `Vb 1 e@101 ]
+"163 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TXIF `Vb 1 e@100 ]
+"164 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPIF `Vb 1 e@99 ]
+"165 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1IF `Vb 1 e@98 ]
+"166 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR2IF `Vb 1 e@97 ]
+"167 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1IF `Vb 1 e@96 ]
+"170 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CMIF `Vb 1 e@110 ]
+"171 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEIF `Vb 1 e@108 ]
+"172 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _BCLIF `Vb 1 e@107 ]
+"173 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2IF `Vb 1 e@104 ]
+"176 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T1CKPS1 `Vb 1 e@133 ]
+"177 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T1CKPS0 `Vb 1 e@132 ]
+"178 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T1OSCEN `Vb 1 e@131 ]
+"179 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T1SYNC `Vb 1 e@130 ]
+"180 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1CS `Vb 1 e@129 ]
+"181 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1ON `Vb 1 e@128 ]
+"184 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TOUTPS3 `Vb 1 e@150 ]
+"185 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TOUTPS2 `Vb 1 e@149 ]
+"186 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TOUTPS1 `Vb 1 e@148 ]
+"187 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TOUTPS0 `Vb 1 e@147 ]
+"188 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR2ON `Vb 1 e@146 ]
+"189 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T2CKPS1 `Vb 1 e@145 ]
+"190 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T2CKPS0 `Vb 1 e@144 ]
+"193 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _WCOL `Vb 1 e@167 ]
+"194 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPOV `Vb 1 e@166 ]
+"195 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPEN `Vb 1 e@165 ]
+"196 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CKP `Vb 1 e@164 ]
+"197 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPM3 `Vb 1 e@163 ]
+"198 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPM2 `Vb 1 e@162 ]
+"199 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPM1 `Vb 1 e@161 ]
+"200 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPM0 `Vb 1 e@160 ]
+"203 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1X `Vb 1 e@189 ]
+"204 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1Y `Vb 1 e@188 ]
+"205 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1M3 `Vb 1 e@187 ]
+"206 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1M2 `Vb 1 e@186 ]
+"207 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1M1 `Vb 1 e@185 ]
+"208 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1M0 `Vb 1 e@184 ]
+"211 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SPEN `Vb 1 e@199 ]
+"212 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RX9 `Vb 1 e@198 ]
+"213 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SREN `Vb 1 e@197 ]
+"214 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CREN `Vb 1 e@196 ]
+"215 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADDEN `Vb 1 e@195 ]
+"216 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _FERR `Vb 1 e@194 ]
+"217 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _OERR `Vb 1 e@193 ]
+"218 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RX9D `Vb 1 e@192 ]
+"221 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2X `Vb 1 e@237 ]
+"222 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2Y `Vb 1 e@236 ]
+"223 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2M3 `Vb 1 e@235 ]
+"224 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2M2 `Vb 1 e@234 ]
+"225 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2M1 `Vb 1 e@233 ]
+"226 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2M0 `Vb 1 e@232 ]
+"229 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADCS1 `Vb 1 e@255 ]
+"230 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADCS0 `Vb 1 e@254 ]
+"231 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CHS2 `Vb 1 e@253 ]
+"232 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CHS1 `Vb 1 e@252 ]
+"233 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CHS0 `Vb 1 e@251 ]
+"234 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADGO `Vb 1 e@250 ]
+"236 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _GODONE `Vb 1 e@250 ]
+"237 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADON `Vb 1 e@248 ]
+"240 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RBPU `b 1 e@1039 ]
+"241 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _INTEDG `b 1 e@1038 ]
+"242 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T0CS `b 1 e@1037 ]
+"243 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _T0SE `b 1 e@1036 ]
+"244 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PSA `b 1 e@1035 ]
+"245 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PS2 `b 1 e@1034 ]
+"246 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PS1 `b 1 e@1033 ]
+"247 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PS0 `b 1 e@1032 ]
+"250 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA5 `Vb 1 e@1069 ]
+"251 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA4 `Vb 1 e@1068 ]
+"252 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA3 `Vb 1 e@1067 ]
+"253 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA2 `Vb 1 e@1066 ]
+"254 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA1 `Vb 1 e@1065 ]
+"255 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISA0 `Vb 1 e@1064 ]
+"258 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB7 `Vb 1 e@1079 ]
+"259 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB6 `Vb 1 e@1078 ]
+"260 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB5 `Vb 1 e@1077 ]
+"261 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB4 `Vb 1 e@1076 ]
+"262 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB3 `Vb 1 e@1075 ]
+"263 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB2 `Vb 1 e@1074 ]
+"264 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB1 `Vb 1 e@1073 ]
+"265 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISB0 `Vb 1 e@1072 ]
+"268 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC7 `Vb 1 e@1087 ]
+"269 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC6 `Vb 1 e@1086 ]
+"270 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC5 `Vb 1 e@1085 ]
+"271 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC4 `Vb 1 e@1084 ]
+"272 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC3 `Vb 1 e@1083 ]
+"273 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC2 `Vb 1 e@1082 ]
+"274 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC1 `Vb 1 e@1081 ]
+"275 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRISC0 `Vb 1 e@1080 ]
+"303 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADIE `Vb 1 e@1126 ]
+"304 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RCIE `Vb 1 e@1125 ]
+"305 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TXIE `Vb 1 e@1124 ]
+"306 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SSPIE `Vb 1 e@1123 ]
+"307 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP1IE `Vb 1 e@1122 ]
+"308 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR2IE `Vb 1 e@1121 ]
+"309 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TMR1IE `Vb 1 e@1120 ]
+"312 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CMIE `Vb 1 e@1134 ]
+"313 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEIE `Vb 1 e@1132 ]
+"314 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _BCLIE `Vb 1 e@1131 ]
+"315 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CCP2IE `Vb 1 e@1128 ]
+"318 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _POR `Vb 1 e@1137 ]
+"319 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _BOR `Vb 1 e@1136 ]
+"322 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _GCEN `Vb 1 e@1167 ]
+"323 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ACKSTAT `Vb 1 e@1166 ]
+"324 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ACKDT `Vb 1 e@1165 ]
+"325 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ACKEN `Vb 1 e@1164 ]
+"326 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RCEN `Vb 1 e@1163 ]
+"327 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PEN `Vb 1 e@1162 ]
+"328 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RSEN `Vb 1 e@1161 ]
+"329 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SEN `Vb 1 e@1160 ]
+"332 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SMP `Vb 1 e@1191 ]
+"333 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CKE `Vb 1 e@1190 ]
+"334 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _DA `Vb 1 e@1189 ]
+"335 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _STOP `Vb 1 e@1188 ]
+"336 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _START `Vb 1 e@1187 ]
+"337 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RW `Vb 1 e@1186 ]
+"338 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _UA `Vb 1 e@1185 ]
+"339 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _BF `Vb 1 e@1184 ]
+"352 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CSRC `Vb 1 e@1223 ]
+"353 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TX9 `Vb 1 e@1222 ]
+"354 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TXEN `Vb 1 e@1221 ]
+"355 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _SYNC `Vb 1 e@1220 ]
+"356 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _BRGH `Vb 1 e@1218 ]
+"357 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TRMT `Vb 1 e@1217 ]
+"358 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _TX9D `Vb 1 e@1216 ]
+"361 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _C2OUT `Vb 1 e@1255 ]
+"362 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _C1OUT `Vb 1 e@1254 ]
+"363 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _C2INV `Vb 1 e@1253 ]
+"364 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _C1INV `Vb 1 e@1252 ]
+"365 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CIS `Vb 1 e@1251 ]
+"366 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CM2 `Vb 1 e@1250 ]
+"367 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CM1 `Vb 1 e@1249 ]
+"368 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CM0 `Vb 1 e@1248 ]
+"371 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVREN `Vb 1 e@1263 ]
+"372 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVROE `Vb 1 e@1262 ]
+"373 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVRR `Vb 1 e@1261 ]
+"374 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVR3 `Vb 1 e@1259 ]
+"375 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVR2 `Vb 1 e@1258 ]
+"376 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVR1 `Vb 1 e@1257 ]
+"377 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _CVR0 `Vb 1 e@1256 ]
+"380 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADFM `Vb 1 e@1279 ]
+"381 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _ADCS2 `Vb 1 e@1278 ]
+"382 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCFG3 `Vb 1 e@1275 ]
+"383 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCFG2 `Vb 1 e@1274 ]
+"384 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCFG1 `Vb 1 e@1273 ]
+"385 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _PCFG0 `Vb 1 e@1272 ]
+"388 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _EEPGD `Vb 1 e@3175 ]
+"389 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _WRERR `Vb 1 e@3171 ]
+"390 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _WREN `Vb 1 e@3170 ]
+"391 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _WR `Vb 1 e@3169 ]
+"392 C:\Program Files\HI-TECH Software\PICC\9.70\include\pic168xa.h
+[v _RD `Vb 1 e@3168 ]
+"3 D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h
+[v _p0_stat `uc 1 e ]
+"3 D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h
+[v _temp `uc 1 e ]
+"12 D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h
+[v _data_map `(v 0 ef1`uc ]
+"11 D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h
+[v _toggle `(v 0 ef ]
+"20 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _cnt `uc -> 10 `i e ]
+"21 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _disp `uc -> 25 `i e ]
+"22 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _ascii_tab `uc -> 25 `i e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _ds1 `uc 1 e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _ds2 `uc 1 e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _ds3 `uc 1 e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _ds4 `uc 1 e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _cmd_data `uc 1 e ]
+"23 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _disp_data `uc 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _k `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _c `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _a `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _s1_over `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _cnt_1sl `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _cnt_1sh `i 1 e ]
+"24 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _i `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _scan_no `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _krcount `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _key_code `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _key_ready `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _nkp `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _tb `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _start_buzzer `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _dcount `i 1 e ]
+"25 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _start_sw `i 1 e ]
+"30 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _init_timer `(v 0 ef ]
+"46 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _delay_1sec `(v 0 ef ]
+"34 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _scanner `(v 0 ef ]
+"48 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _lcd_disp `(v 0 ef ]
+"32 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _incrementd `(v 0 ef ]
+[p mainexit ]
+"49 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _init_lcd `(v 0 ef ]
+"29 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _init `(v 0 ef ]
+"45 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _get_key `(v 0 ef ]
+"44 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _keyprocess `(v 0 ef ]
+"38 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _init_keypad `(v 0 ef ]
+"47 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _init_delay_1sec `(v 0 ef ]
+"36 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _k1 `(v 0 ef ]
+"41 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _process_a `(v 0 ef ]
+"42 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _process_b `(v 0 ef ]
+"43 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _process_c `(v 0 ef ]
+"50 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[v _lcd_delay `(v 0 ef1`ui ]
+[; ;pic168xa.h: 19: volatile unsigned char INDF @ 0x00;
+[; ;pic168xa.h: 20: volatile unsigned char TMR0 @ 0x01;
+[; ;pic168xa.h: 21: volatile unsigned char PCL @ 0x02;
+[; ;pic168xa.h: 22: volatile unsigned char STATUS @ 0x03;
+[; ;pic168xa.h: 23: unsigned char FSR @ 0x04;
+[; ;pic168xa.h: 24: volatile unsigned char PORTA @ 0x05;
+[; ;pic168xa.h: 25: volatile unsigned char PORTB @ 0x06;
+[; ;pic168xa.h: 26: volatile unsigned char PORTC @ 0x07;
+[; ;pic168xa.h: 31: unsigned char PCLATH @ 0x0A;
+[; ;pic168xa.h: 32: volatile unsigned char INTCON @ 0x0B;
+[; ;pic168xa.h: 33: volatile unsigned char PIR1 @ 0x0C;
+[; ;pic168xa.h: 34: volatile unsigned char PIR2 @ 0x0D;
+[; ;pic168xa.h: 35: volatile unsigned char TMR1L @ 0x0E;
+[; ;pic168xa.h: 36: volatile unsigned char TMR1H @ 0x0F;
+[; ;pic168xa.h: 37: volatile unsigned char T1CON @ 0x10;
+[; ;pic168xa.h: 38: volatile unsigned char TMR2 @ 0x11;
+[; ;pic168xa.h: 39: volatile unsigned char T2CON @ 0x12;
+[; ;pic168xa.h: 40: volatile unsigned char SSPBUF @ 0x13;
+[; ;pic168xa.h: 41: volatile unsigned char SSPCON @ 0x14;
+[; ;pic168xa.h: 42: volatile unsigned char CCPR1L @ 0x15;
+[; ;pic168xa.h: 43: volatile unsigned char CCPR1H @ 0x16;
+[; ;pic168xa.h: 44: volatile unsigned char CCP1CON @ 0x17;
+[; ;pic168xa.h: 45: volatile unsigned char RCSTA @ 0x18;
+[; ;pic168xa.h: 46: volatile unsigned char TXREG @ 0x19;
+[; ;pic168xa.h: 47: volatile unsigned char RCREG @ 0x1A;
+[; ;pic168xa.h: 48: volatile unsigned char CCPR2L @ 0x1B;
+[; ;pic168xa.h: 49: volatile unsigned char CCPR2H @ 0x1C;
+[; ;pic168xa.h: 50: volatile unsigned char CCP2CON @ 0x1D;
+[; ;pic168xa.h: 51: volatile unsigned char ADRESH @ 0x1E;
+[; ;pic168xa.h: 52: volatile unsigned char ADCON0 @ 0x1F;
+[; ;pic168xa.h: 55: unsigned char OPTION @ 0x81;
+[; ;pic168xa.h: 56: volatile unsigned char TRISA @ 0x85;
+[; ;pic168xa.h: 57: volatile unsigned char TRISB @ 0x86;
+[; ;pic168xa.h: 58: volatile unsigned char TRISC @ 0x87;
+[; ;pic168xa.h: 63: volatile unsigned char PIE1 @ 0x8C;
+[; ;pic168xa.h: 64: volatile unsigned char PIE2 @ 0x8D;
+[; ;pic168xa.h: 65: volatile unsigned char PCON @ 0x8E;
+[; ;pic168xa.h: 66: volatile unsigned char SSPCON2 @ 0x91;
+[; ;pic168xa.h: 67: volatile unsigned char PR2 @ 0x92;
+[; ;pic168xa.h: 68: volatile unsigned char SSPADD @ 0x93;
+[; ;pic168xa.h: 69: volatile unsigned char SSPSTAT @ 0x94;
+[; ;pic168xa.h: 70: volatile unsigned char TXSTA @ 0x98;
+[; ;pic168xa.h: 71: volatile unsigned char SPBRG @ 0x99;
+[; ;pic168xa.h: 72: volatile unsigned char CMCON @ 0x9C;
+[; ;pic168xa.h: 73: volatile unsigned char CVRCON @ 0x9D;
+[; ;pic168xa.h: 74: volatile unsigned char ADRESL @ 0x9E;
+[; ;pic168xa.h: 75: volatile unsigned char ADCON1 @ 0x9F;
+[; ;pic168xa.h: 78: volatile unsigned char EEDATA @ 0x10C;
+[; ;pic168xa.h: 79: volatile unsigned char EEADR @ 0x10D;
+[; ;pic168xa.h: 81: volatile unsigned char EEADRL @ 0x10D;
+[; ;pic168xa.h: 82: volatile unsigned char EEDATH @ 0x10E;
+[; ;pic168xa.h: 83: volatile unsigned char EEADRH @ 0x10F;
+[; ;pic168xa.h: 86: volatile unsigned char EECON1 @ 0x18C;
+[; ;pic168xa.h: 87: volatile unsigned char EECON2 @ 0x18D;
+[; ;pic168xa.h: 90: volatile bit IRP @ (unsigned)&STATUS*8+7;
+[; ;pic168xa.h: 91: volatile bit RP1 @ (unsigned)&STATUS*8+6;
+[; ;pic168xa.h: 92: volatile bit RP0 @ (unsigned)&STATUS*8+5;
+[; ;pic168xa.h: 93: volatile bit TO @ (unsigned)&STATUS*8+4;
+[; ;pic168xa.h: 94: volatile bit PD @ (unsigned)&STATUS*8+3;
+[; ;pic168xa.h: 95: volatile bit ZERO @ (unsigned)&STATUS*8+2;
+[; ;pic168xa.h: 96: volatile bit DC @ (unsigned)&STATUS*8+1;
+[; ;pic168xa.h: 97: volatile bit CARRY @ (unsigned)&STATUS*8+0;
+[; ;pic168xa.h: 100: volatile bit RA5 @ (unsigned)&PORTA*8+5;
+[; ;pic168xa.h: 101: volatile bit RA4 @ (unsigned)&PORTA*8+4;
+[; ;pic168xa.h: 102: volatile bit RA3 @ (unsigned)&PORTA*8+3;
+[; ;pic168xa.h: 103: volatile bit RA2 @ (unsigned)&PORTA*8+2;
+[; ;pic168xa.h: 104: volatile bit RA1 @ (unsigned)&PORTA*8+1;
+[; ;pic168xa.h: 105: volatile bit RA0 @ (unsigned)&PORTA*8+0;
+[; ;pic168xa.h: 108: volatile bit RB7 @ (unsigned)&PORTB*8+7;
+[; ;pic168xa.h: 109: volatile bit RB6 @ (unsigned)&PORTB*8+6;
+[; ;pic168xa.h: 110: volatile bit RB5 @ (unsigned)&PORTB*8+5;
+[; ;pic168xa.h: 111: volatile bit RB4 @ (unsigned)&PORTB*8+4;
+[; ;pic168xa.h: 112: volatile bit RB3 @ (unsigned)&PORTB*8+3;
+[; ;pic168xa.h: 113: volatile bit RB2 @ (unsigned)&PORTB*8+2;
+[; ;pic168xa.h: 114: volatile bit RB1 @ (unsigned)&PORTB*8+1;
+[; ;pic168xa.h: 115: volatile bit RB0 @ (unsigned)&PORTB*8+0;
+[; ;pic168xa.h: 118: volatile bit RC7 @ (unsigned)&PORTC*8+7;
+[; ;pic168xa.h: 119: volatile bit RC6 @ (unsigned)&PORTC*8+6;
+[; ;pic168xa.h: 120: volatile bit RC5 @ (unsigned)&PORTC*8+5;
+[; ;pic168xa.h: 121: volatile bit RC4 @ (unsigned)&PORTC*8+4;
+[; ;pic168xa.h: 122: volatile bit RC3 @ (unsigned)&PORTC*8+3;
+[; ;pic168xa.h: 123: volatile bit RC2 @ (unsigned)&PORTC*8+2;
+[; ;pic168xa.h: 124: volatile bit RC1 @ (unsigned)&PORTC*8+1;
+[; ;pic168xa.h: 125: volatile bit RC0 @ (unsigned)&PORTC*8+0;
+[; ;pic168xa.h: 145: volatile bit GIE @ (unsigned)&INTCON*8+7;
+[; ;pic168xa.h: 146: volatile bit PEIE @ (unsigned)&INTCON*8+6;
+[; ;pic168xa.h: 147: volatile bit T0IE @ (unsigned)&INTCON*8+5;
+[; ;pic168xa.h: 148: volatile bit INTE @ (unsigned)&INTCON*8+4;
+[; ;pic168xa.h: 149: volatile bit RBIE @ (unsigned)&INTCON*8+3;
+[; ;pic168xa.h: 150: volatile bit T0IF @ (unsigned)&INTCON*8+2;
+[; ;pic168xa.h: 151: volatile bit INTF @ (unsigned)&INTCON*8+1;
+[; ;pic168xa.h: 152: volatile bit RBIF @ (unsigned)&INTCON*8+0;
+[; ;pic168xa.h: 154: volatile bit TMR0IE @ (unsigned)&INTCON*8+5;
+[; ;pic168xa.h: 155: volatile bit TMR0IF @ (unsigned)&INTCON*8+2;
+[; ;pic168xa.h: 161: volatile bit ADIF @ (unsigned)&PIR1*8+6;
+[; ;pic168xa.h: 162: volatile bit RCIF @ (unsigned)&PIR1*8+5;
+[; ;pic168xa.h: 163: volatile bit TXIF @ (unsigned)&PIR1*8+4;
+[; ;pic168xa.h: 164: volatile bit SSPIF @ (unsigned)&PIR1*8+3;
+[; ;pic168xa.h: 165: volatile bit CCP1IF @ (unsigned)&PIR1*8+2;
+[; ;pic168xa.h: 166: volatile bit TMR2IF @ (unsigned)&PIR1*8+1;
+[; ;pic168xa.h: 167: volatile bit TMR1IF @ (unsigned)&PIR1*8+0;
+[; ;pic168xa.h: 170: volatile bit CMIF @ (unsigned)&PIR2*8+6;
+[; ;pic168xa.h: 171: volatile bit EEIF @ (unsigned)&PIR2*8+4;
+[; ;pic168xa.h: 172: volatile bit BCLIF @ (unsigned)&PIR2*8+3;
+[; ;pic168xa.h: 173: volatile bit CCP2IF @ (unsigned)&PIR2*8+0;
+[; ;pic168xa.h: 176: volatile bit T1CKPS1 @ (unsigned)&T1CON*8+5;
+[; ;pic168xa.h: 177: volatile bit T1CKPS0 @ (unsigned)&T1CON*8+4;
+[; ;pic168xa.h: 178: volatile bit T1OSCEN @ (unsigned)&T1CON*8+3;
+[; ;pic168xa.h: 179: volatile bit T1SYNC @ (unsigned)&T1CON*8+2;
+[; ;pic168xa.h: 180: volatile bit TMR1CS @ (unsigned)&T1CON*8+1;
+[; ;pic168xa.h: 181: volatile bit TMR1ON @ (unsigned)&T1CON*8+0;
+[; ;pic168xa.h: 184: volatile bit TOUTPS3 @ (unsigned)&T2CON*8+6;
+[; ;pic168xa.h: 185: volatile bit TOUTPS2 @ (unsigned)&T2CON*8+5;
+[; ;pic168xa.h: 186: volatile bit TOUTPS1 @ (unsigned)&T2CON*8+4;
+[; ;pic168xa.h: 187: volatile bit TOUTPS0 @ (unsigned)&T2CON*8+3;
+[; ;pic168xa.h: 188: volatile bit TMR2ON @ (unsigned)&T2CON*8+2;
+[; ;pic168xa.h: 189: volatile bit T2CKPS1 @ (unsigned)&T2CON*8+1;
+[; ;pic168xa.h: 190: volatile bit T2CKPS0 @ (unsigned)&T2CON*8+0;
+[; ;pic168xa.h: 193: volatile bit WCOL @ (unsigned)&SSPCON*8+7;
+[; ;pic168xa.h: 194: volatile bit SSPOV @ (unsigned)&SSPCON*8+6;
+[; ;pic168xa.h: 195: volatile bit SSPEN @ (unsigned)&SSPCON*8+5;
+[; ;pic168xa.h: 196: volatile bit CKP @ (unsigned)&SSPCON*8+4;
+[; ;pic168xa.h: 197: volatile bit SSPM3 @ (unsigned)&SSPCON*8+3;
+[; ;pic168xa.h: 198: volatile bit SSPM2 @ (unsigned)&SSPCON*8+2;
+[; ;pic168xa.h: 199: volatile bit SSPM1 @ (unsigned)&SSPCON*8+1;
+[; ;pic168xa.h: 200: volatile bit SSPM0 @ (unsigned)&SSPCON*8+0;
+[; ;pic168xa.h: 203: volatile bit CCP1X @ (unsigned)&CCP1CON*8+5;
+[; ;pic168xa.h: 204: volatile bit CCP1Y @ (unsigned)&CCP1CON*8+4;
+[; ;pic168xa.h: 205: volatile bit CCP1M3 @ (unsigned)&CCP1CON*8+3;
+[; ;pic168xa.h: 206: volatile bit CCP1M2 @ (unsigned)&CCP1CON*8+2;
+[; ;pic168xa.h: 207: volatile bit CCP1M1 @ (unsigned)&CCP1CON*8+1;
+[; ;pic168xa.h: 208: volatile bit CCP1M0 @ (unsigned)&CCP1CON*8+0;
+[; ;pic168xa.h: 211: volatile bit SPEN @ (unsigned)&RCSTA*8+7;
+[; ;pic168xa.h: 212: volatile bit RX9 @ (unsigned)&RCSTA*8+6;
+[; ;pic168xa.h: 213: volatile bit SREN @ (unsigned)&RCSTA*8+5;
+[; ;pic168xa.h: 214: volatile bit CREN @ (unsigned)&RCSTA*8+4;
+[; ;pic168xa.h: 215: volatile bit ADDEN @ (unsigned)&RCSTA*8+3;
+[; ;pic168xa.h: 216: volatile bit FERR @ (unsigned)&RCSTA*8+2;
+[; ;pic168xa.h: 217: volatile bit OERR @ (unsigned)&RCSTA*8+1;
+[; ;pic168xa.h: 218: volatile bit RX9D @ (unsigned)&RCSTA*8+0;
+[; ;pic168xa.h: 221: volatile bit CCP2X @ (unsigned)&CCP2CON*8+5;
+[; ;pic168xa.h: 222: volatile bit CCP2Y @ (unsigned)&CCP2CON*8+4;
+[; ;pic168xa.h: 223: volatile bit CCP2M3 @ (unsigned)&CCP2CON*8+3;
+[; ;pic168xa.h: 224: volatile bit CCP2M2 @ (unsigned)&CCP2CON*8+2;
+[; ;pic168xa.h: 225: volatile bit CCP2M1 @ (unsigned)&CCP2CON*8+1;
+[; ;pic168xa.h: 226: volatile bit CCP2M0 @ (unsigned)&CCP2CON*8+0;
+[; ;pic168xa.h: 229: volatile bit ADCS1 @ (unsigned)&ADCON0*8+7;
+[; ;pic168xa.h: 230: volatile bit ADCS0 @ (unsigned)&ADCON0*8+6;
+[; ;pic168xa.h: 231: volatile bit CHS2 @ (unsigned)&ADCON0*8+5;
+[; ;pic168xa.h: 232: volatile bit CHS1 @ (unsigned)&ADCON0*8+4;
+[; ;pic168xa.h: 233: volatile bit CHS0 @ (unsigned)&ADCON0*8+3;
+[; ;pic168xa.h: 234: volatile bit ADGO @ (unsigned)&ADCON0*8+2;
+[; ;pic168xa.h: 236: volatile bit GODONE @ (unsigned)&ADCON0*8+2;
+[; ;pic168xa.h: 237: volatile bit ADON @ (unsigned)&ADCON0*8+0;
+[; ;pic168xa.h: 240: bit RBPU @ (unsigned)&OPTION*8+7;
+[; ;pic168xa.h: 241: bit INTEDG @ (unsigned)&OPTION*8+6;
+[; ;pic168xa.h: 242: bit T0CS @ (unsigned)&OPTION*8+5;
+[; ;pic168xa.h: 243: bit T0SE @ (unsigned)&OPTION*8+4;
+[; ;pic168xa.h: 244: bit PSA @ (unsigned)&OPTION*8+3;
+[; ;pic168xa.h: 245: bit PS2 @ (unsigned)&OPTION*8+2;
+[; ;pic168xa.h: 246: bit PS1 @ (unsigned)&OPTION*8+1;
+[; ;pic168xa.h: 247: bit PS0 @ (unsigned)&OPTION*8+0;
+[; ;pic168xa.h: 250: volatile bit TRISA5 @ (unsigned)&TRISA*8+5;
+[; ;pic168xa.h: 251: volatile bit TRISA4 @ (unsigned)&TRISA*8+4;
+[; ;pic168xa.h: 252: volatile bit TRISA3 @ (unsigned)&TRISA*8+3;
+[; ;pic168xa.h: 253: volatile bit TRISA2 @ (unsigned)&TRISA*8+2;
+[; ;pic168xa.h: 254: volatile bit TRISA1 @ (unsigned)&TRISA*8+1;
+[; ;pic168xa.h: 255: volatile bit TRISA0 @ (unsigned)&TRISA*8+0;
+[; ;pic168xa.h: 258: volatile bit TRISB7 @ (unsigned)&TRISB*8+7;
+[; ;pic168xa.h: 259: volatile bit TRISB6 @ (unsigned)&TRISB*8+6;
+[; ;pic168xa.h: 260: volatile bit TRISB5 @ (unsigned)&TRISB*8+5;
+[; ;pic168xa.h: 261: volatile bit TRISB4 @ (unsigned)&TRISB*8+4;
+[; ;pic168xa.h: 262: volatile bit TRISB3 @ (unsigned)&TRISB*8+3;
+[; ;pic168xa.h: 263: volatile bit TRISB2 @ (unsigned)&TRISB*8+2;
+[; ;pic168xa.h: 264: volatile bit TRISB1 @ (unsigned)&TRISB*8+1;
+[; ;pic168xa.h: 265: volatile bit TRISB0 @ (unsigned)&TRISB*8+0;
+[; ;pic168xa.h: 268: volatile bit TRISC7 @ (unsigned)&TRISC*8+7;
+[; ;pic168xa.h: 269: volatile bit TRISC6 @ (unsigned)&TRISC*8+6;
+[; ;pic168xa.h: 270: volatile bit TRISC5 @ (unsigned)&TRISC*8+5;
+[; ;pic168xa.h: 271: volatile bit TRISC4 @ (unsigned)&TRISC*8+4;
+[; ;pic168xa.h: 272: volatile bit TRISC3 @ (unsigned)&TRISC*8+3;
+[; ;pic168xa.h: 273: volatile bit TRISC2 @ (unsigned)&TRISC*8+2;
+[; ;pic168xa.h: 274: volatile bit TRISC1 @ (unsigned)&TRISC*8+1;
+[; ;pic168xa.h: 275: volatile bit TRISC0 @ (unsigned)&TRISC*8+0;
+[; ;pic168xa.h: 303: volatile bit ADIE @ (unsigned)&PIE1*8+6;
+[; ;pic168xa.h: 304: volatile bit RCIE @ (unsigned)&PIE1*8+5;
+[; ;pic168xa.h: 305: volatile bit TXIE @ (unsigned)&PIE1*8+4;
+[; ;pic168xa.h: 306: volatile bit SSPIE @ (unsigned)&PIE1*8+3;
+[; ;pic168xa.h: 307: volatile bit CCP1IE @ (unsigned)&PIE1*8+2;
+[; ;pic168xa.h: 308: volatile bit TMR2IE @ (unsigned)&PIE1*8+1;
+[; ;pic168xa.h: 309: volatile bit TMR1IE @ (unsigned)&PIE1*8+0;
+[; ;pic168xa.h: 312: volatile bit CMIE @ (unsigned)&PIE2*8+6;
+[; ;pic168xa.h: 313: volatile bit EEIE @ (unsigned)&PIE2*8+4;
+[; ;pic168xa.h: 314: volatile bit BCLIE @ (unsigned)&PIE2*8+3;
+[; ;pic168xa.h: 315: volatile bit CCP2IE @ (unsigned)&PIE2*8+0;
+[; ;pic168xa.h: 318: volatile bit POR @ (unsigned)&PCON*8+1;
+[; ;pic168xa.h: 319: volatile bit BOR @ (unsigned)&PCON*8+0;
+[; ;pic168xa.h: 322: volatile bit GCEN @ (unsigned)&SSPCON2*8+7;
+[; ;pic168xa.h: 323: volatile bit ACKSTAT @ (unsigned)&SSPCON2*8+6;
+[; ;pic168xa.h: 324: volatile bit ACKDT @ (unsigned)&SSPCON2*8+5;
+[; ;pic168xa.h: 325: volatile bit ACKEN @ (unsigned)&SSPCON2*8+4;
+[; ;pic168xa.h: 326: volatile bit RCEN @ (unsigned)&SSPCON2*8+3;
+[; ;pic168xa.h: 327: volatile bit PEN @ (unsigned)&SSPCON2*8+2;
+[; ;pic168xa.h: 328: volatile bit RSEN @ (unsigned)&SSPCON2*8+1;
+[; ;pic168xa.h: 329: volatile bit SEN @ (unsigned)&SSPCON2*8+0;
+[; ;pic168xa.h: 332: volatile bit SMP @ (unsigned)&SSPSTAT*8+7;
+[; ;pic168xa.h: 333: volatile bit CKE @ (unsigned)&SSPSTAT*8+6;
+[; ;pic168xa.h: 334: volatile bit DA @ (unsigned)&SSPSTAT*8+5;
+[; ;pic168xa.h: 335: volatile bit STOP @ (unsigned)&SSPSTAT*8+4;
+[; ;pic168xa.h: 336: volatile bit START @ (unsigned)&SSPSTAT*8+3;
+[; ;pic168xa.h: 337: volatile bit RW @ (unsigned)&SSPSTAT*8+2;
+[; ;pic168xa.h: 338: volatile bit UA @ (unsigned)&SSPSTAT*8+1;
+[; ;pic168xa.h: 339: volatile bit BF @ (unsigned)&SSPSTAT*8+0;
+[; ;pic168xa.h: 352: volatile bit CSRC @ (unsigned)&TXSTA*8+7;
+[; ;pic168xa.h: 353: volatile bit TX9 @ (unsigned)&TXSTA*8+6;
+[; ;pic168xa.h: 354: volatile bit TXEN @ (unsigned)&TXSTA*8+5;
+[; ;pic168xa.h: 355: volatile bit SYNC @ (unsigned)&TXSTA*8+4;
+[; ;pic168xa.h: 356: volatile bit BRGH @ (unsigned)&TXSTA*8+2;
+[; ;pic168xa.h: 357: volatile bit TRMT @ (unsigned)&TXSTA*8+1;
+[; ;pic168xa.h: 358: volatile bit TX9D @ (unsigned)&TXSTA*8+0;
+[; ;pic168xa.h: 361: volatile bit C2OUT @ (unsigned)&CMCON*8+7;
+[; ;pic168xa.h: 362: volatile bit C1OUT @ (unsigned)&CMCON*8+6;
+[; ;pic168xa.h: 363: volatile bit C2INV @ (unsigned)&CMCON*8+5;
+[; ;pic168xa.h: 364: volatile bit C1INV @ (unsigned)&CMCON*8+4;
+[; ;pic168xa.h: 365: volatile bit CIS @ (unsigned)&CMCON*8+3;
+[; ;pic168xa.h: 366: volatile bit CM2 @ (unsigned)&CMCON*8+2;
+[; ;pic168xa.h: 367: volatile bit CM1 @ (unsigned)&CMCON*8+1;
+[; ;pic168xa.h: 368: volatile bit CM0 @ (unsigned)&CMCON*8+0;
+[; ;pic168xa.h: 371: volatile bit CVREN @ (unsigned)&CVRCON*8+7;
+[; ;pic168xa.h: 372: volatile bit CVROE @ (unsigned)&CVRCON*8+6;
+[; ;pic168xa.h: 373: volatile bit CVRR @ (unsigned)&CVRCON*8+5;
+[; ;pic168xa.h: 374: volatile bit CVR3 @ (unsigned)&CVRCON*8+3;
+[; ;pic168xa.h: 375: volatile bit CVR2 @ (unsigned)&CVRCON*8+2;
+[; ;pic168xa.h: 376: volatile bit CVR1 @ (unsigned)&CVRCON*8+1;
+[; ;pic168xa.h: 377: volatile bit CVR0 @ (unsigned)&CVRCON*8+0;
+[; ;pic168xa.h: 380: volatile bit ADFM @ (unsigned)&ADCON1*8+7;
+[; ;pic168xa.h: 381: volatile bit ADCS2 @ (unsigned)&ADCON1*8+6;
+[; ;pic168xa.h: 382: volatile bit PCFG3 @ (unsigned)&ADCON1*8+3;
+[; ;pic168xa.h: 383: volatile bit PCFG2 @ (unsigned)&ADCON1*8+2;
+[; ;pic168xa.h: 384: volatile bit PCFG1 @ (unsigned)&ADCON1*8+1;
+[; ;pic168xa.h: 385: volatile bit PCFG0 @ (unsigned)&ADCON1*8+0;
+[; ;pic168xa.h: 388: volatile bit EEPGD @ (unsigned)&EECON1*8+7;
+[; ;pic168xa.h: 389: volatile bit WRERR @ (unsigned)&EECON1*8+3;
+[; ;pic168xa.h: 390: volatile bit WREN @ (unsigned)&EECON1*8+2;
+[; ;pic168xa.h: 391: volatile bit WR @ (unsigned)&EECON1*8+1;
+[; ;pic168xa.h: 392: volatile bit RD @ (unsigned)&EECON1*8+0;
+[; ;PIC.h: 392: extern unsigned int flash_read(unsigned short addr);
+[; ;eeprom_routines.h: 41: extern void eeprom_write(unsigned char addr, unsigned char value);
+[; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
+[; ;PIC.h: 466: extern void _delay(unsigned long);
+[; ;lcd.h: 3: unsigned char p0_stat,temp;
+[; ;lcd.h: 10: void cmd_wr(unsigned char);
+[; ;lcd.h: 11: void toggle();
+[; ;lcd.h: 12: void data_map(unsigned char);
+[; ;lcd.h: 13: void data_wr(unsigned char);
+"18 D:\ABHISHEK JOSHI\PIC\LCD\T10\lcd.h
+[v _cmd_wr `(v 1 ef1`uc ]
+{
+[; ;lcd.h: 17: void cmd_wr(unsigned char var_cmd)
+[; ;lcd.h: 18: {
+[e :U _cmd_wr ]
+[v _var_cmd `uc 1 r1 ]
+[f ]
+[; ;lcd.h: 19: RB1=0;
+"19
+[e = _RB1 -> -> 0 `i `b ]
+[; ;lcd.h: 20: RB2=0;
+"20
+[e = _RB2 -> -> 0 `i `b ]
+[; ;lcd.h: 22: data_map(var_cmd);
+"22
+[e ( _data_map (1 _var_cmd ]
+[; ;lcd.h: 23: toggle();
+"23
+[e ( _toggle ..  ]
+[; ;lcd.h: 25: var_cmd=var_cmd<<4;
+"25
+[e = _var_cmd -> << -> _var_cmd `i -> 4 `i `uc ]
+[; ;lcd.h: 27: data_map(var_cmd);
+"27
+[e ( _data_map (1 _var_cmd ]
+[; ;lcd.h: 28: toggle();
+"28
+[e ( _toggle ..  ]
+[; ;lcd.h: 29: }
+"29
+[e :UE 1 ]
+}
+"33
+[v _toggle `(v 1 ef ]
+{
+[; ;lcd.h: 32: void toggle()
+[; ;lcd.h: 33: {
+[e :U _toggle ]
+[f ]
+[; ;lcd.h: 34: RB3=1;
+"34
+[e = _RB3 -> -> 1 `i `b ]
+[; ;lcd.h: 35: ;
+[; ;lcd.h: 36: ;
+[; ;lcd.h: 37: ;
+[; ;lcd.h: 38: ;
+[; ;lcd.h: 39: ;
+[; ;lcd.h: 40: RB3=0;
+"40
+[e = _RB3 -> -> 0 `i `b ]
+[; ;lcd.h: 41: }
+"41
+[e :UE 2 ]
+}
+"44
+[v _data_map `(v 1 ef1`uc ]
+{
+[; ;lcd.h: 43: void data_map(unsigned char var_data)
+[; ;lcd.h: 44: {
+[e :U _data_map ]
+[v _var_data `uc 1 r1 ]
+[f ]
+[; ;lcd.h: 45: temp=var_data & 0xf0;
+"45
+[e = _temp -> & -> _var_data `i -> 240 `i `uc ]
+[; ;lcd.h: 46: p0_stat=PORTB & 0x0f;
+"46
+[e = _p0_stat -> & -> _PORTB `i -> 15 `i `uc ]
+[; ;lcd.h: 47: PORTB=p0_stat | temp;
+"47
+[e = _PORTB -> | -> _p0_stat `i -> _temp `i `uc ]
+[; ;lcd.h: 48: }
+"48
+[e :UE 3 ]
+}
+"51
+[v _data_wr `(v 1 ef1`uc ]
+{
+[; ;lcd.h: 50: void data_wr(unsigned char var_disp)
+[; ;lcd.h: 51: {
+[e :U _data_wr ]
+[v _var_disp `uc 1 r1 ]
+[f ]
+[; ;lcd.h: 52: RB1=1;
+"52
+[e = _RB1 -> -> 1 `i `b ]
+[; ;lcd.h: 53: RB2=0;
+"53
+[e = _RB2 -> -> 0 `i `b ]
+[; ;lcd.h: 55: data_map(var_disp);
+"55
+[e ( _data_map (1 _var_disp ]
+[; ;lcd.h: 56: toggle();
+"56
+[e ( _toggle ..  ]
+[; ;lcd.h: 58: var_disp=var_disp<<4;
+"58
+[e = _var_disp -> << -> _var_disp `i -> 4 `i `uc ]
+[; ;lcd.h: 60: data_map(var_disp);
+"60
+[e ( _data_map (1 _var_disp ]
+[; ;lcd.h: 61: toggle();
+"61
+[e ( _toggle ..  ]
+[; ;lcd.h: 62: }
+"62
+[e :UE 4 ]
+}
+"20 D:\ABHISHEK JOSHI\PIC\LCD\T10\LCD T10.C
+[i _cnt
+:U ..
+-> -> 83 `ui `uc
+-> -> 84 `ui `uc
+-> -> 79 `ui `uc
+-> -> 80 `ui `uc
+-> -> 87 `ui `uc
+-> -> 65 `ui `uc
+-> -> 84 `ui `uc
+-> -> 67 `ui `uc
+-> -> 72 `ui `uc
+..
+]
+[; ;LCD T10.C: 20: unsigned char cnt[10]={'S','T','O','P','W','A','T','C','H'};
+"21
+[i _disp
+:U ..
+-> -> 252 `i `uc
+-> -> 96 `i `uc
+-> -> 218 `i `uc
+-> -> 242 `i `uc
+-> -> 102 `i `uc
+-> -> 182 `i `uc
+-> -> 190 `i `uc
+-> -> 224 `i `uc
+-> -> 254 `i `uc
+-> -> 246 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 238 `i `uc
+-> -> 62 `i `uc
+-> -> 156 `i `uc
+-> -> 122 `i `uc
+-> -> 158 `i `uc
+-> -> 142 `i `uc
+..
+]
+[; ;LCD T10.C: 21: unsigned char disp[25]={0xfc,0x60,0xda,0xf2,0x66,0xb6,0xbe,0xe0,0xfe,0xf6,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xee,0x3e,0x9c,0x7a,0x9e,0x8e};
+"22
+[i _ascii_tab
+:U ..
+-> -> 48 `ui `uc
+-> -> 49 `ui `uc
+-> -> 50 `ui `uc
+-> -> 51 `ui `uc
+-> -> 52 `ui `uc
+-> -> 53 `ui `uc
+-> -> 54 `ui `uc
+-> -> 55 `ui `uc
+-> -> 56 `ui `uc
+-> -> 57 `ui `uc
+-> -> 65 `ui `uc
+-> -> 66 `ui `uc
+-> -> 67 `ui `uc
+-> -> 68 `ui `uc
+-> -> 69 `ui `uc
+-> -> 70 `ui `uc
+..
+]
+[; ;LCD T10.C: 22: unsigned char ascii_tab[25]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+"23
+[i _ds1
+-> -> 48 `ui `uc
+]
+[i _ds2
+-> -> 48 `ui `uc
+]
+[i _ds3
+-> -> 48 `ui `uc
+]
+[i _ds4
+-> -> 48 `ui `uc
+]
+[; ;LCD T10.C: 23: unsigned char ds1='0',ds2='0',ds3='0',ds4='0', cmd_data,disp_data;
+[; ;LCD T10.C: 24: int k,c,a,s1_over,cnt_1sl,cnt_1sh,i;
+[; ;LCD T10.C: 25: int scan_no,krcount,key_code,key_ready,nkp,tb,start_buzzer,dcount,start_sw;
+[; ;LCD T10.C: 27: void delay(unsigned int);
+[; ;LCD T10.C: 28: void display();
+[; ;LCD T10.C: 29: void init();
+[; ;LCD T10.C: 30: void init_timer();
+[; ;LCD T10.C: 32: void incrementd();
+[; ;LCD T10.C: 33: void disp_blank();
+[; ;LCD T10.C: 34: void scanner();
+[; ;LCD T10.C: 35: void buzzer();
+[; ;LCD T10.C: 36: void k1();
+[; ;LCD T10.C: 37: void key_release();
+[; ;LCD T10.C: 38: void init_keypad();
+[; ;LCD T10.C: 39: void init_display();
+[; ;LCD T10.C: 40: void disp_sw();
+[; ;LCD T10.C: 41: void process_a();
+[; ;LCD T10.C: 42: void process_b();
+[; ;LCD T10.C: 43: void process_c();
+[; ;LCD T10.C: 44: void keyprocess();
+[; ;LCD T10.C: 45: void get_key();
+[; ;LCD T10.C: 46: void delay_1sec();
+[; ;LCD T10.C: 47: void init_delay_1sec();
+[; ;LCD T10.C: 48: void lcd_disp();
+[; ;LCD T10.C: 49: void init_lcd();
+[; ;LCD T10.C: 50: void lcd_delay(unsigned int);
+"57
+[v F511 `(v 1 tf ]
+[v _isr_t0 `IF511 1 e ]
+{
+[; ;LCD T10.C: 56: interrupt void isr_t0()
+[; ;LCD T10.C: 57: {
+[e :U _isr_t0 ]
+[f ]
+[; ;LCD T10.C: 58: init_timer();
+"58
+[e ( _init_timer ..  ]
+[; ;LCD T10.C: 59: delay_1sec();
+"59
+[e ( _delay_1sec ..  ]
+[; ;LCD T10.C: 61: scanner();
+"61
+[e ( _scanner ..  ]
+[; ;LCD T10.C: 62: lcd_disp();
+"62
+[e ( _lcd_disp ..  ]
+[; ;LCD T10.C: 63: if(s1_over==1)
+"63
+[e $ ! == _s1_over -> 1 `i 6  ]
+[; ;LCD T10.C: 64: {
+"64
+{
+[; ;LCD T10.C: 66: incrementd();
+"66
+[e ( _incrementd ..  ]
+[; ;LCD T10.C: 67: s1_over=0;
+"67
+[e = _s1_over -> 0 `i ]
+"68
+}
+[e :U 6 ]
+[; ;LCD T10.C: 68: }
+[; ;LCD T10.C: 69: }
+"69
+[e :UE 5 ]
+}
+"72
+[v _main `(v 1 ef ]
+{
+[; ;LCD T10.C: 71: void main()
+[; ;LCD T10.C: 72: {
+[e :U _main ]
+[f ]
+[; ;LCD T10.C: 73: TRISB=0x00;
+"73
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;LCD T10.C: 74: TRISA=0x3C;
+"74
+[e = _TRISA -> -> 60 `i `uc ]
+[; ;LCD T10.C: 75: TRISC=0x00;
+"75
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;LCD T10.C: 76: ADCON1=0x06;
+"76
+[e = _ADCON1 -> -> 6 `i `uc ]
+[; ;LCD T10.C: 77: init_lcd();
+"77
+[e ( _init_lcd ..  ]
+[; ;LCD T10.C: 78: start_sw=0;
+"78
+[e = _start_sw -> 0 `i ]
+[; ;LCD T10.C: 79: init();
+"79
+[e ( _init ..  ]
+[; ;LCD T10.C: 80: GIE=1;
+"80
+[e = _GIE -> -> 1 `i `b ]
+[; ;LCD T10.C: 81: PEIE=1;
+"81
+[e = _PEIE -> -> 1 `i `b ]
+[; ;LCD T10.C: 83: cmd_wr(0xc0);
+"83
+[e ( _cmd_wr (1 -> -> 192 `i `uc ]
+[; ;LCD T10.C: 84: for(i=0;i<9;i++)
+"84
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 9 `i 8  ]
+[e $U 9  ]
+"85
+[e :U 8 ]
+[; ;LCD T10.C: 85: {
+{
+[; ;LCD T10.C: 86: data_wr(cnt[i]);
+"86
+[e ( _data_wr (1 *U + &U _cnt * -> -> _i `ui `ux -> -> # *U &U _cnt `ui `ux ]
+"87
+}
+"84
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 9 `i 8  ]
+[e :U 9 ]
+"87
+}
+[; ;LCD T10.C: 87: }
+[; ;LCD T10.C: 90: while(1)
+"90
+[e :U 12 ]
+[; ;LCD T10.C: 91: {
+"91
+{
+[; ;LCD T10.C: 92: get_key();
+"92
+[e ( _get_key ..  ]
+[; ;LCD T10.C: 93: keyprocess();
+"93
+[e ( _keyprocess ..  ]
+"94
+}
+[e :U 11 ]
+"90
+[e $U 12  ]
+[e :U 13 ]
+[; ;LCD T10.C: 94: }
+[; ;LCD T10.C: 95: }
+"95
+[e :UE 7 ]
+}
+"98
+[v _init `(v 1 ef ]
+{
+[; ;LCD T10.C: 97: void init()
+[; ;LCD T10.C: 98: {
+[e :U _init ]
+[f ]
+[; ;LCD T10.C: 100: init_keypad();
+"100
+[e ( _init_keypad ..  ]
+[; ;LCD T10.C: 101: init_timer();
+"101
+[e ( _init_timer ..  ]
+[; ;LCD T10.C: 102: init_delay_1sec();
+"102
+[e ( _init_delay_1sec ..  ]
+[; ;LCD T10.C: 103: }
+"103
+[e :UE 14 ]
+}
+"106
+[v _init_timer `(v 1 ef ]
+{
+[; ;LCD T10.C: 105: void init_timer()
+[; ;LCD T10.C: 106: {
+[e :U _init_timer ]
+[f ]
+[; ;LCD T10.C: 107: TMR1H=0xFC;
+"107
+[e = _TMR1H -> -> 252 `i `uc ]
+[; ;LCD T10.C: 108: TMR1L=0x18;
+"108
+[e = _TMR1L -> -> 24 `i `uc ]
+[; ;LCD T10.C: 109: T1CON=0x01;
+"109
+[e = _T1CON -> -> 1 `i `uc ]
+[; ;LCD T10.C: 110: TMR1IE=1;
+"110
+[e = _TMR1IE -> -> 1 `i `b ]
+[; ;LCD T10.C: 111: TMR1IF=0;
+"111
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;LCD T10.C: 112: }
+"112
+[e :UE 15 ]
+}
+"115
+[v _init_display `(v 1 ef ]
+{
+[; ;LCD T10.C: 114: void init_display()
+[; ;LCD T10.C: 115: {
+[e :U _init_display ]
+[f ]
+[; ;LCD T10.C: 116: ds1='9'+1;
+"116
+[e = _ds1 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 117: ds2='9'+1;
+"117
+[e = _ds2 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 118: ds3='9'+1;
+"118
+[e = _ds3 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 119: ds4='9'+1;
+"119
+[e = _ds4 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 120: }
+"120
+[e :UE 16 ]
+}
+"123
+[v _init_keypad `(v 1 ef ]
+{
+[; ;LCD T10.C: 122: void init_keypad()
+[; ;LCD T10.C: 123: {
+[e :U _init_keypad ]
+[f ]
+[; ;LCD T10.C: 124: RA2=1;
+"124
+[e = _RA2 -> -> 1 `i `b ]
+[; ;LCD T10.C: 125: RA3=1;
+"125
+[e = _RA3 -> -> 1 `i `b ]
+[; ;LCD T10.C: 126: RA4=1;
+"126
+[e = _RA4 -> -> 1 `i `b ]
+[; ;LCD T10.C: 127: RA5=1;
+"127
+[e = _RA5 -> -> 1 `i `b ]
+[; ;LCD T10.C: 128: start_sw=0;
+"128
+[e = _start_sw -> 0 `i ]
+[; ;LCD T10.C: 129: scan_no=0;
+"129
+[e = _scan_no -> 0 `i ]
+[; ;LCD T10.C: 130: dcount=33;
+"130
+[e = _dcount -> 33 `i ]
+[; ;LCD T10.C: 131: krcount=32;
+"131
+[e = _krcount -> 32 `i ]
+[; ;LCD T10.C: 132: key_ready=0;
+"132
+[e = _key_ready -> 0 `i ]
+[; ;LCD T10.C: 133: nkp=0;
+"133
+[e = _nkp -> 0 `i ]
+[; ;LCD T10.C: 134: start_buzzer=0;
+"134
+[e = _start_buzzer -> 0 `i ]
+[; ;LCD T10.C: 135: }
+"135
+[e :UE 17 ]
+}
+"138
+[v _init_delay_1sec `(v 1 ef ]
+{
+[; ;LCD T10.C: 137: void init_delay_1sec()
+[; ;LCD T10.C: 138: {
+[e :U _init_delay_1sec ]
+[f ]
+[; ;LCD T10.C: 139: cnt_1sl=0x0e8;
+"139
+[e = _cnt_1sl -> 232 `i ]
+[; ;LCD T10.C: 140: cnt_1sh=0x04;
+"140
+[e = _cnt_1sh -> 4 `i ]
+[; ;LCD T10.C: 141: s1_over=1;
+"141
+[e = _s1_over -> 1 `i ]
+[; ;LCD T10.C: 142: }
+"142
+[e :UE 18 ]
+}
+"145
+[v _delay_1sec `(v 1 ef ]
+{
+[; ;LCD T10.C: 144: void delay_1sec()
+[; ;LCD T10.C: 145: {
+[e :U _delay_1sec ]
+[f ]
+[; ;LCD T10.C: 146: if(s1_over!=1)
+"146
+[e $ ! != _s1_over -> 1 `i 20  ]
+[; ;LCD T10.C: 147: {
+"147
+{
+[; ;LCD T10.C: 148: cnt_1sl--;
+"148
+[e -- _cnt_1sl -> 1 `i ]
+[; ;LCD T10.C: 149: if(cnt_1sl==0)
+"149
+[e $ ! == _cnt_1sl -> 0 `i 21  ]
+[; ;LCD T10.C: 150: {
+"150
+{
+[; ;LCD T10.C: 151: cnt_1sh--;
+"151
+[e -- _cnt_1sh -> 1 `i ]
+[; ;LCD T10.C: 152: if(cnt_1sh!=0)
+"152
+[e $ ! != _cnt_1sh -> 0 `i 22  ]
+[; ;LCD T10.C: 153: cnt_1sl=0x0ff;
+"153
+[e = _cnt_1sl -> 255 `i ]
+[e $U 23  ]
+"154
+[e :U 22 ]
+[; ;LCD T10.C: 154: else
+[; ;LCD T10.C: 155: {
+"155
+{
+[; ;LCD T10.C: 156: cnt_1sl=0x0e8;
+"156
+[e = _cnt_1sl -> 232 `i ]
+[; ;LCD T10.C: 157: cnt_1sh=0x04;
+"157
+[e = _cnt_1sh -> 4 `i ]
+[; ;LCD T10.C: 158: s1_over=1;
+"158
+[e = _s1_over -> 1 `i ]
+"159
+}
+[e :U 23 ]
+"160
+}
+[e :U 21 ]
+"161
+}
+[e :U 20 ]
+[; ;LCD T10.C: 159: }
+[; ;LCD T10.C: 160: }
+[; ;LCD T10.C: 161: }
+[; ;LCD T10.C: 163: }
+"163
+[e :UE 19 ]
+}
+"166
+[v _scanner `(v 1 ef ]
+{
+[; ;LCD T10.C: 165: void scanner()
+[; ;LCD T10.C: 166: {
+[e :U _scanner ]
+[f ]
+[; ;LCD T10.C: 167: switch (scan_no)
+"167
+[e $U 26  ]
+[; ;LCD T10.C: 168: {
+"168
+{
+[; ;LCD T10.C: 169: case 0:
+"169
+[e :U 27 ]
+[; ;LCD T10.C: 170: RA1=0;
+"170
+[e = _RA1 -> -> 0 `i `b ]
+[; ;LCD T10.C: 171: RC0=1;
+"171
+[e = _RC0 -> -> 1 `i `b ]
+[; ;LCD T10.C: 172: RC1=1;
+"172
+[e = _RC1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 173: RC2=1;
+"173
+[e = _RC2 -> -> 1 `i `b ]
+[; ;LCD T10.C: 175: c=RA2;
+"175
+[e = _c -> _RA2 `i ]
+[; ;LCD T10.C: 176: k1();
+"176
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 177: scan_no=1;
+"177
+[e = _scan_no -> 1 `i ]
+[; ;LCD T10.C: 178: break;
+"178
+[e $U 25  ]
+[; ;LCD T10.C: 180: case 1:
+"180
+[e :U 28 ]
+[; ;LCD T10.C: 181: c=RA3;
+"181
+[e = _c -> _RA3 `i ]
+[; ;LCD T10.C: 182: k1();
+"182
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 183: scan_no=2;
+"183
+[e = _scan_no -> 2 `i ]
+[; ;LCD T10.C: 184: break;
+"184
+[e $U 25  ]
+[; ;LCD T10.C: 186: case 2:
+"186
+[e :U 29 ]
+[; ;LCD T10.C: 187: c=RA4;
+"187
+[e = _c -> _RA4 `i ]
+[; ;LCD T10.C: 188: k1();
+"188
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 189: scan_no=3;
+"189
+[e = _scan_no -> 3 `i ]
+[; ;LCD T10.C: 190: break;
+"190
+[e $U 25  ]
+[; ;LCD T10.C: 192: case 3:
+"192
+[e :U 30 ]
+[; ;LCD T10.C: 194: c=RA5;
+"194
+[e = _c -> _RA5 `i ]
+[; ;LCD T10.C: 195: k1();
+"195
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 196: scan_no=4;
+"196
+[e = _scan_no -> 4 `i ]
+[; ;LCD T10.C: 197: break;
+"197
+[e $U 25  ]
+[; ;LCD T10.C: 199: case 4:
+"199
+[e :U 31 ]
+[; ;LCD T10.C: 200: RA1=1;
+"200
+[e = _RA1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 201: RC0=0;
+"201
+[e = _RC0 -> -> 0 `i `b ]
+[; ;LCD T10.C: 202: RC1=1;
+"202
+[e = _RC1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 203: RC2=1;
+"203
+[e = _RC2 -> -> 1 `i `b ]
+[; ;LCD T10.C: 205: c=RA2;
+"205
+[e = _c -> _RA2 `i ]
+[; ;LCD T10.C: 206: k1();
+"206
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 207: scan_no=5;
+"207
+[e = _scan_no -> 5 `i ]
+[; ;LCD T10.C: 208: break;
+"208
+[e $U 25  ]
+[; ;LCD T10.C: 210: case 5:
+"210
+[e :U 32 ]
+[; ;LCD T10.C: 211: c=RA3;
+"211
+[e = _c -> _RA3 `i ]
+[; ;LCD T10.C: 212: k1();
+"212
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 213: scan_no=6;
+"213
+[e = _scan_no -> 6 `i ]
+[; ;LCD T10.C: 214: break;
+"214
+[e $U 25  ]
+[; ;LCD T10.C: 216: case 6:
+"216
+[e :U 33 ]
+[; ;LCD T10.C: 217: c=RA4;
+"217
+[e = _c -> _RA4 `i ]
+[; ;LCD T10.C: 218: k1();
+"218
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 219: scan_no=7;
+"219
+[e = _scan_no -> 7 `i ]
+[; ;LCD T10.C: 220: break;
+"220
+[e $U 25  ]
+[; ;LCD T10.C: 222: case 7:
+"222
+[e :U 34 ]
+[; ;LCD T10.C: 224: c=RA5;
+"224
+[e = _c -> _RA5 `i ]
+[; ;LCD T10.C: 225: k1();
+"225
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 226: scan_no=8;
+"226
+[e = _scan_no -> 8 `i ]
+[; ;LCD T10.C: 227: break;
+"227
+[e $U 25  ]
+[; ;LCD T10.C: 229: case 8:
+"229
+[e :U 35 ]
+[; ;LCD T10.C: 230: RA1=1;
+"230
+[e = _RA1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 231: RC0=1;
+"231
+[e = _RC0 -> -> 1 `i `b ]
+[; ;LCD T10.C: 232: RC1=0;
+"232
+[e = _RC1 -> -> 0 `i `b ]
+[; ;LCD T10.C: 233: RC2=1;
+"233
+[e = _RC2 -> -> 1 `i `b ]
+[; ;LCD T10.C: 235: c=RA2;
+"235
+[e = _c -> _RA2 `i ]
+[; ;LCD T10.C: 236: k1();
+"236
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 237: scan_no=9;
+"237
+[e = _scan_no -> 9 `i ]
+[; ;LCD T10.C: 238: break;
+"238
+[e $U 25  ]
+[; ;LCD T10.C: 240: case 9:
+"240
+[e :U 36 ]
+[; ;LCD T10.C: 241: c=RA3;
+"241
+[e = _c -> _RA3 `i ]
+[; ;LCD T10.C: 242: k1();
+"242
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 243: scan_no=10;
+"243
+[e = _scan_no -> 10 `i ]
+[; ;LCD T10.C: 244: break;
+"244
+[e $U 25  ]
+[; ;LCD T10.C: 246: case 10:
+"246
+[e :U 37 ]
+[; ;LCD T10.C: 247: c=RA4;
+"247
+[e = _c -> _RA4 `i ]
+[; ;LCD T10.C: 248: k1();
+"248
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 249: scan_no=11;
+"249
+[e = _scan_no -> 11 `i ]
+[; ;LCD T10.C: 250: break;
+"250
+[e $U 25  ]
+[; ;LCD T10.C: 252: case 11:
+"252
+[e :U 38 ]
+[; ;LCD T10.C: 254: c=RA5;
+"254
+[e = _c -> _RA5 `i ]
+[; ;LCD T10.C: 255: k1();
+"255
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 256: scan_no=12;
+"256
+[e = _scan_no -> 12 `i ]
+[; ;LCD T10.C: 257: break;
+"257
+[e $U 25  ]
+[; ;LCD T10.C: 259: case 12:
+"259
+[e :U 39 ]
+[; ;LCD T10.C: 260: RA1=1;
+"260
+[e = _RA1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 261: RC0=1;
+"261
+[e = _RC0 -> -> 1 `i `b ]
+[; ;LCD T10.C: 262: RC1=1;
+"262
+[e = _RC1 -> -> 1 `i `b ]
+[; ;LCD T10.C: 263: RC2=0;
+"263
+[e = _RC2 -> -> 0 `i `b ]
+[; ;LCD T10.C: 265: c=RA2;
+"265
+[e = _c -> _RA2 `i ]
+[; ;LCD T10.C: 266: k1();
+"266
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 267: scan_no=13;
+"267
+[e = _scan_no -> 13 `i ]
+[; ;LCD T10.C: 268: break;
+"268
+[e $U 25  ]
+[; ;LCD T10.C: 270: case 13:
+"270
+[e :U 40 ]
+[; ;LCD T10.C: 271: c=RA3;
+"271
+[e = _c -> _RA3 `i ]
+[; ;LCD T10.C: 272: k1();
+"272
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 273: scan_no=14;
+"273
+[e = _scan_no -> 14 `i ]
+[; ;LCD T10.C: 274: break;
+"274
+[e $U 25  ]
+[; ;LCD T10.C: 276: case 14:
+"276
+[e :U 41 ]
+[; ;LCD T10.C: 277: c=RA4;
+"277
+[e = _c -> _RA4 `i ]
+[; ;LCD T10.C: 278: k1();
+"278
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 279: scan_no=15;
+"279
+[e = _scan_no -> 15 `i ]
+[; ;LCD T10.C: 280: break;
+"280
+[e $U 25  ]
+[; ;LCD T10.C: 282: case 15:
+"282
+[e :U 42 ]
+[; ;LCD T10.C: 283: c=RA5;
+"283
+[e = _c -> _RA5 `i ]
+[; ;LCD T10.C: 284: k1();
+"284
+[e ( _k1 ..  ]
+[; ;LCD T10.C: 286: scan_no=0;
+"286
+[e = _scan_no -> 0 `i ]
+[; ;LCD T10.C: 287: break;
+"287
+[e $U 25  ]
+"288
+}
+[; ;LCD T10.C: 288: }
+[e $U 25  ]
+"167
+[e :U 26 ]
+[e [\ _scan_no , $ -> 0 `i 27
+ , $ -> 1 `i 28
+ , $ -> 2 `i 29
+ , $ -> 3 `i 30
+ , $ -> 4 `i 31
+ , $ -> 5 `i 32
+ , $ -> 6 `i 33
+ , $ -> 7 `i 34
+ , $ -> 8 `i 35
+ , $ -> 9 `i 36
+ , $ -> 10 `i 37
+ , $ -> 11 `i 38
+ , $ -> 12 `i 39
+ , $ -> 13 `i 40
+ , $ -> 14 `i 41
+ , $ -> 15 `i 42
+ 25 ]
+"288
+[e :U 25 ]
+[; ;LCD T10.C: 289: }
+"289
+[e :UE 24 ]
+}
+"292
+[v _k1 `(v 1 ef ]
+{
+[; ;LCD T10.C: 291: void k1()
+[; ;LCD T10.C: 292: {
+[e :U _k1 ]
+[f ]
+[; ;LCD T10.C: 293: if(key_ready==1)
+"293
+[e $ ! == _key_ready -> 1 `i 44  ]
+[; ;LCD T10.C: 294: {
+"294
+{
+[; ;LCD T10.C: 295: if(c==0)
+"295
+[e $ ! == _c -> 0 `i 45  ]
+[; ;LCD T10.C: 296: {
+"296
+{
+[; ;LCD T10.C: 297: krcount=32;
+"297
+[e = _krcount -> 32 `i ]
+"298
+}
+[; ;LCD T10.C: 298: }
+[e $U 46  ]
+"299
+[e :U 45 ]
+[; ;LCD T10.C: 299: else
+[; ;LCD T10.C: 300: {
+"300
+{
+[; ;LCD T10.C: 301: krcount=krcount-1;
+"301
+[e = _krcount - _krcount -> 1 `i ]
+[; ;LCD T10.C: 303: if(krcount==0)
+"303
+[e $ ! == _krcount -> 0 `i 47  ]
+[; ;LCD T10.C: 304: {
+"304
+{
+[; ;LCD T10.C: 305: nkp=1;
+"305
+[e = _nkp -> 1 `i ]
+[; ;LCD T10.C: 306: start_buzzer=0;
+"306
+[e = _start_buzzer -> 0 `i ]
+[; ;LCD T10.C: 307: krcount=32;
+"307
+[e = _krcount -> 32 `i ]
+"308
+}
+[e :U 47 ]
+"309
+}
+[e :U 46 ]
+"310
+}
+[; ;LCD T10.C: 308: }
+[; ;LCD T10.C: 309: }
+[; ;LCD T10.C: 310: }
+[e $U 48  ]
+"311
+[e :U 44 ]
+[; ;LCD T10.C: 311: else if(dcount==33)
+[e $ ! == _dcount -> 33 `i 49  ]
+[; ;LCD T10.C: 312: {
+"312
+{
+[; ;LCD T10.C: 313: if(c==0)
+"313
+[e $ ! == _c -> 0 `i 50  ]
+[; ;LCD T10.C: 314: {
+"314
+{
+[; ;LCD T10.C: 315: dcount=dcount-1;
+"315
+[e = _dcount - _dcount -> 1 `i ]
+[; ;LCD T10.C: 316: key_code=scan_no;
+"316
+[e = _key_code _scan_no ]
+"317
+}
+[e :U 50 ]
+"319
+}
+[; ;LCD T10.C: 317: }
+[; ;LCD T10.C: 319: }
+[e $U 51  ]
+"321
+[e :U 49 ]
+[; ;LCD T10.C: 321: else
+[; ;LCD T10.C: 322: {
+"322
+{
+[; ;LCD T10.C: 323: dcount=dcount-1;
+"323
+[e = _dcount - _dcount -> 1 `i ]
+[; ;LCD T10.C: 324: if(dcount==0)
+"324
+[e $ ! == _dcount -> 0 `i 52  ]
+[; ;LCD T10.C: 325: {
+"325
+{
+[; ;LCD T10.C: 326: if(c==0)
+"326
+[e $ ! == _c -> 0 `i 53  ]
+[; ;LCD T10.C: 327: {
+"327
+{
+[; ;LCD T10.C: 328: key_ready=1;
+"328
+[e = _key_ready -> 1 `i ]
+[; ;LCD T10.C: 329: start_buzzer=1;
+"329
+[e = _start_buzzer -> 1 `i ]
+[; ;LCD T10.C: 330: dcount=33;
+"330
+[e = _dcount -> 33 `i ]
+"331
+}
+[; ;LCD T10.C: 331: }
+[e $U 54  ]
+"332
+[e :U 53 ]
+[; ;LCD T10.C: 332: else dcount=33;
+[e = _dcount -> 33 `i ]
+[e :U 54 ]
+"333
+}
+[e :U 52 ]
+"334
+}
+[e :U 51 ]
+[e :U 48 ]
+[; ;LCD T10.C: 333: }
+[; ;LCD T10.C: 334: }
+[; ;LCD T10.C: 336: }
+"336
+[e :UE 43 ]
+}
+"340
+[v _delay `(v 1 ef1`ui ]
+{
+[; ;LCD T10.C: 339: void delay(unsigned int del)
+[; ;LCD T10.C: 340: {
+[e :U _delay ]
+[v _del `ui 1 r1 ]
+[f ]
+"341
+[v _d1 `i 1 a ]
+[v _d2 `i 1 a ]
+[; ;LCD T10.C: 341: int d1,d2;
+[; ;LCD T10.C: 342: for(d1=0;d1<=del;d1++)
+"342
+{
+[e = _d1 -> 0 `i ]
+[e $U 59  ]
+"343
+[e :U 56 ]
+[; ;LCD T10.C: 343: for(d2=0;d2<=120;d2++);
+{
+[e = _d2 -> 0 `i ]
+[e $ <= _d2 -> 120 `i 60  ]
+[e $U 61  ]
+[e :U 60 ]
+[e ++ _d2 -> 1 `i ]
+[e $ <= _d2 -> 120 `i 60  ]
+[e :U 61 ]
+}
+"342
+[e ++ _d1 -> 1 `i ]
+[e :U 59 ]
+[e $ <= -> _d1 `ui _del 56  ]
+[e :U 57 ]
+"343
+}
+[; ;LCD T10.C: 344: }
+"344
+[e :UE 55 ]
+}
+"349
+[v _incrementd `(v 1 ef ]
+{
+[; ;LCD T10.C: 348: void incrementd()
+[; ;LCD T10.C: 349: {
+[e :U _incrementd ]
+[f ]
+[; ;LCD T10.C: 350: if(start_sw==1)
+"350
+[e $ ! == _start_sw -> 1 `i 64  ]
+[; ;LCD T10.C: 351: {
+"351
+{
+[; ;LCD T10.C: 352: ds1=ds1+1;
+"352
+[e = _ds1 -> + -> _ds1 `i -> 1 `i `uc ]
+[; ;LCD T10.C: 353: if (ds1>'9')
+"353
+[e $ ! > -> _ds1 `ui -> 57 `ui 65  ]
+[; ;LCD T10.C: 354: {
+"354
+{
+[; ;LCD T10.C: 355: ds1='0';
+"355
+[e = _ds1 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 356: ds2=ds2+1;
+"356
+[e = _ds2 -> + -> _ds2 `i -> 1 `i `uc ]
+[; ;LCD T10.C: 358: if (ds2>'9')
+"358
+[e $ ! > -> _ds2 `ui -> 57 `ui 66  ]
+[; ;LCD T10.C: 359: {
+"359
+{
+[; ;LCD T10.C: 360: ds2='0';
+"360
+[e = _ds2 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 361: ds3=ds3+1;
+"361
+[e = _ds3 -> + -> _ds3 `i -> 1 `i `uc ]
+[; ;LCD T10.C: 363: if (ds3>'9')
+"363
+[e $ ! > -> _ds3 `ui -> 57 `ui 67  ]
+[; ;LCD T10.C: 364: {
+"364
+{
+[; ;LCD T10.C: 365: ds3='0';
+"365
+[e = _ds3 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 366: ds4=ds4+1;
+"366
+[e = _ds4 -> + -> _ds4 `i -> 1 `i `uc ]
+[; ;LCD T10.C: 368: if(ds4>'9')
+"368
+[e $ ! > -> _ds4 `ui -> 57 `ui 68  ]
+[; ;LCD T10.C: 369: {
+"369
+{
+[; ;LCD T10.C: 370: ds1='0';
+"370
+[e = _ds1 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 371: ds2='0';
+"371
+[e = _ds2 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 372: ds3='0';
+"372
+[e = _ds3 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 373: ds4='0';
+"373
+[e = _ds4 -> -> 48 `ui `uc ]
+"374
+}
+[e :U 68 ]
+"376
+}
+[e :U 67 ]
+"378
+}
+[e :U 66 ]
+"380
+}
+[e :U 65 ]
+"381
+}
+[e :U 64 ]
+[; ;LCD T10.C: 374: }
+[; ;LCD T10.C: 376: }
+[; ;LCD T10.C: 378: }
+[; ;LCD T10.C: 380: }
+[; ;LCD T10.C: 381: }
+[; ;LCD T10.C: 382: }
+"382
+[e :UE 63 ]
+}
+"385
+[v _key_release `(v 1 ef ]
+{
+[; ;LCD T10.C: 384: void key_release()
+[; ;LCD T10.C: 385: {
+[e :U _key_release ]
+[f ]
+[; ;LCD T10.C: 386: while(nkp!=1);
+"386
+[e $U 70  ]
+[e :U 71 ]
+[e :U 70 ]
+[e $ != _nkp -> 1 `i 71  ]
+[e :U 72 ]
+[; ;LCD T10.C: 387: key_ready=0;
+"387
+[e = _key_ready -> 0 `i ]
+[; ;LCD T10.C: 388: nkp=0;
+"388
+[e = _nkp -> 0 `i ]
+[; ;LCD T10.C: 389: }
+"389
+[e :UE 69 ]
+}
+"392
+[v _buzzer `(v 1 ef ]
+{
+[; ;LCD T10.C: 391: void buzzer()
+[; ;LCD T10.C: 392: {
+[e :U _buzzer ]
+[f ]
+[; ;LCD T10.C: 393: if(start_buzzer==1)
+"393
+[e $ ! == _start_buzzer -> 1 `i 74  ]
+[; ;LCD T10.C: 394: RC5=~RC5;
+"394
+[e = _RC5 ! _RC5 ]
+[e :U 74 ]
+[; ;LCD T10.C: 395: }
+"395
+[e :UE 73 ]
+}
+"398
+[v _get_key `(v 1 ef ]
+{
+[; ;LCD T10.C: 397: void get_key()
+[; ;LCD T10.C: 398: {
+[e :U _get_key ]
+[f ]
+[; ;LCD T10.C: 399: while(key_ready!=1);
+"399
+[e $U 76  ]
+[e :U 77 ]
+[e :U 76 ]
+[e $ != _key_ready -> 1 `i 77  ]
+[e :U 78 ]
+[; ;LCD T10.C: 400: a=key_code;
+"400
+[e = _a _key_code ]
+[; ;LCD T10.C: 401: key_code=ascii_tab[a];
+"401
+[e = _key_code -> *U + &U _ascii_tab * -> -> _a `ui `ux -> -> # *U &U _ascii_tab `ui `ux `i ]
+[; ;LCD T10.C: 402: }
+"402
+[e :UE 75 ]
+}
+"405
+[v _keyprocess `(v 1 ef ]
+{
+[; ;LCD T10.C: 404: void keyprocess()
+[; ;LCD T10.C: 405: {
+[e :U _keyprocess ]
+[f ]
+[; ;LCD T10.C: 406: switch(key_code)
+"406
+[e $U 81  ]
+[; ;LCD T10.C: 407: {
+"407
+{
+[; ;LCD T10.C: 408: case 'A':
+"408
+[e :U 82 ]
+[; ;LCD T10.C: 409: process_a();
+"409
+[e ( _process_a ..  ]
+[; ;LCD T10.C: 410: break;
+"410
+[e $U 80  ]
+[; ;LCD T10.C: 412: case 'B' :
+"412
+[e :U 83 ]
+[; ;LCD T10.C: 413: process_b();
+"413
+[e ( _process_b ..  ]
+[; ;LCD T10.C: 414: break;
+"414
+[e $U 80  ]
+[; ;LCD T10.C: 415: case 'C' :
+"415
+[e :U 84 ]
+[; ;LCD T10.C: 416: process_c();
+"416
+[e ( _process_c ..  ]
+[; ;LCD T10.C: 417: break;
+"417
+[e $U 80  ]
+"418
+}
+[; ;LCD T10.C: 418: }
+[e $U 80  ]
+"406
+[e :U 81 ]
+[e [\ _key_code , $ -> -> 65 `ui `i 82
+ , $ -> -> 66 `ui `i 83
+ , $ -> -> 67 `ui `i 84
+ 80 ]
+"418
+[e :U 80 ]
+[; ;LCD T10.C: 419: key_release();
+"419
+[e ( _key_release ..  ]
+[; ;LCD T10.C: 420: }
+"420
+[e :UE 79 ]
+}
+"423
+[v _process_a `(v 1 ef ]
+{
+[; ;LCD T10.C: 422: void process_a()
+[; ;LCD T10.C: 423: {
+[e :U _process_a ]
+[f ]
+[; ;LCD T10.C: 424: start_sw=1;
+"424
+[e = _start_sw -> 1 `i ]
+[; ;LCD T10.C: 425: }
+"425
+[e :UE 85 ]
+}
+"428
+[v _process_b `(v 1 ef ]
+{
+[; ;LCD T10.C: 427: void process_b()
+[; ;LCD T10.C: 428: {
+[e :U _process_b ]
+[f ]
+[; ;LCD T10.C: 429: start_sw=0;
+"429
+[e = _start_sw -> 0 `i ]
+[; ;LCD T10.C: 430: }
+"430
+[e :UE 86 ]
+}
+"433
+[v _process_c `(v 1 ef ]
+{
+[; ;LCD T10.C: 432: void process_c()
+[; ;LCD T10.C: 433: {
+[e :U _process_c ]
+[f ]
+[; ;LCD T10.C: 434: start_sw=0;
+"434
+[e = _start_sw -> 0 `i ]
+[; ;LCD T10.C: 435: ds1='0';
+"435
+[e = _ds1 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 436: ds2='0';
+"436
+[e = _ds2 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 437: ds3='0';
+"437
+[e = _ds3 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 438: ds4='0';
+"438
+[e = _ds4 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 439: }
+"439
+[e :UE 87 ]
+}
+"442
+[v _disp_sw `(v 1 ef ]
+{
+[; ;LCD T10.C: 441: void disp_sw()
+[; ;LCD T10.C: 442: {
+[e :U _disp_sw ]
+[f ]
+[; ;LCD T10.C: 443: ds1='9'+1;
+"443
+[e = _ds1 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 444: ds2='9'+1;
+"444
+[e = _ds2 -> + -> 57 `ui -> -> 1 `i `ui `uc ]
+[; ;LCD T10.C: 445: ds3='0';
+"445
+[e = _ds3 -> -> 48 `ui `uc ]
+[; ;LCD T10.C: 446: ds4='5';
+"446
+[e = _ds4 -> -> 53 `ui `uc ]
+[; ;LCD T10.C: 447: }
+"447
+[e :UE 88 ]
+}
+"450
+[v _lcd_disp `(v 1 ef ]
+{
+[; ;LCD T10.C: 449: void lcd_disp()
+[; ;LCD T10.C: 450: {
+[e :U _lcd_disp ]
+[f ]
+[; ;LCD T10.C: 452: cmd_wr(0x80);
+"452
+[e ( _cmd_wr (1 -> -> 128 `i `uc ]
+[; ;LCD T10.C: 453: data_wr(ds4);
+"453
+[e ( _data_wr (1 _ds4 ]
+[; ;LCD T10.C: 454: data_wr(ds3);
+"454
+[e ( _data_wr (1 _ds3 ]
+[; ;LCD T10.C: 455: data_wr(ds2);
+"455
+[e ( _data_wr (1 _ds2 ]
+[; ;LCD T10.C: 456: data_wr(ds1);
+"456
+[e ( _data_wr (1 _ds1 ]
+[; ;LCD T10.C: 458: }
+"458
+[e :UE 89 ]
+}
+"460
+[v _init_lcd `(v 1 ef ]
+{
+[; ;LCD T10.C: 459: void init_lcd()
+[; ;LCD T10.C: 460: {
+[e :U _init_lcd ]
+[f ]
+[; ;LCD T10.C: 461: lcd_delay (3);
+"461
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 462: lcd_delay (3);
+"462
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 463: lcd_delay (3);
+"463
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 465: cmd_data=0x03;
+"465
+[e = _cmd_data -> -> 3 `i `uc ]
+[; ;LCD T10.C: 466: cmd_wr(cmd_data);
+"466
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 467: lcd_delay(3);
+"467
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 469: cmd_data=0x03;
+"469
+[e = _cmd_data -> -> 3 `i `uc ]
+[; ;LCD T10.C: 470: cmd_wr(cmd_data);
+"470
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 471: lcd_delay(3);
+"471
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 473: cmd_data=0x03;
+"473
+[e = _cmd_data -> -> 3 `i `uc ]
+[; ;LCD T10.C: 474: cmd_wr(cmd_data);
+"474
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 475: lcd_delay(3);
+"475
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 477: cmd_data=0x20;
+"477
+[e = _cmd_data -> -> 32 `i `uc ]
+[; ;LCD T10.C: 478: cmd_wr(cmd_data);
+"478
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 479: lcd_delay(3);
+"479
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 481: cmd_data=0x28;
+"481
+[e = _cmd_data -> -> 40 `i `uc ]
+[; ;LCD T10.C: 482: cmd_wr(cmd_data);
+"482
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 483: lcd_delay(3);
+"483
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 485: cmd_data=0x06;
+"485
+[e = _cmd_data -> -> 6 `i `uc ]
+[; ;LCD T10.C: 486: cmd_wr(cmd_data);
+"486
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 487: lcd_delay(3);
+"487
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 489: cmd_data=0x01;
+"489
+[e = _cmd_data -> -> 1 `i `uc ]
+[; ;LCD T10.C: 490: cmd_wr(cmd_data);
+"490
+[e ( _cmd_wr (1 _cmd_data ]
+[; ;LCD T10.C: 491: lcd_delay(3);
+"491
+[e ( _lcd_delay (1 -> -> 3 `i `ui ]
+[; ;LCD T10.C: 493: RB0=0;
+"493
+[e = _RB0 -> -> 0 `i `b ]
+[; ;LCD T10.C: 494: }
+"494
+[e :UE 90 ]
+}
+"497
+[v _lcd_delay `(v 1 ef1`ui ]
+{
+[; ;LCD T10.C: 496: void lcd_delay(unsigned int x)
+[; ;LCD T10.C: 497: {
+[e :U _lcd_delay ]
+[v _x `ui 1 r1 ]
+[f ]
+"498
+[v _i `ui 1 a ]
+[v _j `ui 1 a ]
+[; ;LCD T10.C: 498: unsigned int i,j;
+[; ;LCD T10.C: 500: for (i=0;i<=2*x;i++)
+"500
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 95  ]
+"501
+[e :U 92 ]
+[; ;LCD T10.C: 501: {
+{
+[; ;LCD T10.C: 502: for (j=0;j<=120;j++);
+"502
+{
+[e = _j -> -> 0 `i `ui ]
+[e $ <= _j -> -> 120 `i `ui 96  ]
+[e $U 97  ]
+[e :U 96 ]
+[e ++ _j -> -> 1 `i `ui ]
+[e $ <= _j -> -> 120 `i `ui 96  ]
+[e :U 97 ]
+}
+"503
+}
+"500
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 95 ]
+[e $ <= _i * -> -> 2 `i `ui _x 92  ]
+[e :U 93 ]
+"503
+}
+[; ;LCD T10.C: 503: }
+[; ;LCD T10.C: 504: }
+"504
+[e :UE 91 ]
+}

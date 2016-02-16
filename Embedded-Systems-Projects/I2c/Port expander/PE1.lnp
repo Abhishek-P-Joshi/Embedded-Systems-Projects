@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"PE1.obj" 
+TO "PE1" 
+RAMSIZE(256) 

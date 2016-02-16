@@ -1,0 +1,86 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/22/2003  14:33:11  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE uart rx.obj TO uart rx RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  uart rx.obj (UART_RX)
+
+
+LINK MAP OF MODULE:  uart rx (UART_RX)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     003BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  uart rx (UART_RX)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        UART_RX
+  N:0030H         SYMBOL        DCOUNT1
+  N:0031H         SYMBOL        DCOUNT2
+  N:0032H         SYMBOL        DCOUNT3
+  C:0028H         SYMBOL        DELAY
+  C:000CH         SYMBOL        INIT_UART
+  C:0002H         SYMBOL        L1
+  C:002EH         SYMBOL        M1
+  C:002BH         SYMBOL        M2
+  C:0000H         SYMBOL        MAIN
+  B:0098H.0       SYMBOL        RI
+  C:0018H         SYMBOL        RX
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  D:008DH         SYMBOL        TH1
+  B:0098H.1       SYMBOL        TI
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0020H         SYMBOL        TX
+  C:0000H         LINE#         12
+  C:0002H         LINE#         16
+  C:0004H         LINE#         17
+  C:0006H         LINE#         19
+  C:0008H         LINE#         20
+  C:000AH         LINE#         22
+  C:000CH         LINE#         27
+  C:000FH         LINE#         28
+  C:0012H         LINE#         29
+  C:0014H         LINE#         31
+  C:0017H         LINE#         33
+  C:0018H         LINE#         37
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/22/2003  14:33:11  PAGE 2
+
+
+  C:001BH         LINE#         38
+  C:001DH         LINE#         39
+  C:001FH         LINE#         40
+  C:0020H         LINE#         44
+  C:0023H         LINE#         45
+  C:0025H         LINE#         46
+  C:0027H         LINE#         47
+  C:0028H         LINE#         51
+  C:002BH         LINE#         52
+  C:002EH         LINE#         53
+  C:0031H         LINE#         54
+  C:0034H         LINE#         55
+  C:0037H         LINE#         56
+  C:003AH         LINE#         57
+  -------         ENDMOD        UART_RX
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003BH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=59
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

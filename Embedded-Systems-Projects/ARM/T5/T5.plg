@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>µVision3 Build Log</h1>
+<h2>Project:</h2>
+D:\ABHISHEK JOSHI\ARM\T5\T5.uv2
+Project File Date:  01/01/2002
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Startup.s...
+compiling T5.C...
+linking...
+Program Size: Code=1928 RO-data=16416 RW-data=32 ZI-data=1256  
+FromELF: creating hex file...
+"T5.axf" - 0 Error(s), 0 Warning(s).
+</pre>
+</body>
+</html>

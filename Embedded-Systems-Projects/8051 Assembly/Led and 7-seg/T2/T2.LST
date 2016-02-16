@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  T2                                                                   01/01/2002 03:06:07 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T2.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  00A0                10     sl1 bit p2.0
+  00A1                11     sl2 bit p2.1
+  00A2                12     sl3 bit p2.2
+  00A3                13     sl4 bit p2.3
+                      14     
+0000                  15     org 0000h
+                      16     
+0000                  17     main:
+                      18     
+0000 C2A0             19     clr sl1
+0002 D2A1             20     setb sl2
+0004 D2A2             21     setb sl3
+0006 D2A3             22     setb sl4
+                      23     
+0008 753060           24     mov ds1,#60h
+000B 853080           25     mov p0,ds1
+                      26     
+000E 1142             27     call delay
+                      28     
+                      29     
+0010 D2A0             30     setb sl1
+0012 C2A1             31     clr sl2
+0014 D2A2             32     setb sl3
+0016 D2A3             33     setb sl4
+                      34     
+0018 7531DA           35     mov ds2,#0DAh
+001B 853180           36     mov p0,ds2
+                      37     
+001E 1142             38     call delay
+                      39     
+                      40     
+0020 D2A0             41     setb sl1
+0022 D2A1             42     setb sl2
+0024 C2A2             43     clr sl3
+0026 D2A3             44     setb sl4
+                      45     
+0028 7532F2           46     mov ds3,#0F2h
+002B 853280           47     mov p0,ds3
+                      48     
+002E 1142             49     call delay
+                      50     
+                      51     
+0030 D2A0             52     setb sl1
+0032 D2A1             53     setb sl2
+0034 D2A2             54     setb sl3
+0036 C2A3             55     clr sl4
+                      56     
+0038 753366           57     mov ds4,#66h
+003B 853380           58     mov p0,ds4
+A51 MACRO ASSEMBLER  T2                                                                   01/01/2002 03:06:07 PAGE     2
+
+                      59     
+003E 1142             60     call delay
+                      61     
+0040 80BE             62     jmp main
+                      63     
+                      64     
+0042                  65     delay:
+                      66     
+0042 753601           67     mov dcount3,#01h
+0045 753505           68     L2: mov dcount2,#05h
+0048 7534FF           69     L1: mov dcount1,#0ffh
+004B D534FD           70     djnz dcount1,$
+004E D535F7           71     djnz dcount2,L1
+0051 D536F1           72     djnz dcount3,L2
+0054 22               73     ret
+                      74     
+                      75     end
+A51 MACRO ASSEMBLER  T2                                                                   01/01/2002 03:06:07 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DELAY. . . . . . .  C ADDR   0042H   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+L1 . . . . . . . .  C ADDR   0048H   A   
+L2 . . . . . . . .  C ADDR   0045H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

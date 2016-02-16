@@ -1,0 +1,110 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/01/2002  01:22:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE T1 uart.obj TO T1 uart RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  T1 uart.obj (T1_UART)
+
+
+LINK MAP OF MODULE:  T1 uart (T1_UART)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0071H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  T1 uart (T1_UART)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        T1_UART
+  C:0022H         SYMBOL        CLR_SCREEN
+  N:0034H         SYMBOL        DCOUNT1
+  N:0035H         SYMBOL        DCOUNT2
+  N:0036H         SYMBOL        DCOUNT3
+  C:005EH         SYMBOL        DELAY
+  C:003FH         SYMBOL        HOME_SCREEN
+  C:0016H         SYMBOL        INIT_UART
+  C:0064H         SYMBOL        K1
+  C:0061H         SYMBOL        K2
+  C:0004H         SYMBOL        L1_MAIN
+  C:0000H         SYMBOL        MAIN
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  D:008DH         SYMBOL        TH1
+  B:0098H.1       SYMBOL        TI
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
+  C:0055H         SYMBOL        TX
+  N:0037H         SYMBOL        TX_DATA
+  C:0000H         LINE#         14
+  C:0002H         LINE#         16
+  C:0004H         LINE#         18
+  C:0006H         LINE#         20
+  C:0009H         LINE#         21
+  C:000BH         LINE#         22
+  C:000DH         LINE#         24
+  C:0010H         LINE#         25
+  C:0012H         LINE#         26
+  C:0014H         LINE#         28
+  C:0016H         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2002  01:22:33  PAGE 2
+
+
+  C:0019H         LINE#         35
+  C:001CH         LINE#         36
+  C:001EH         LINE#         37
+  C:0021H         LINE#         39
+  C:0022H         LINE#         43
+  C:0025H         LINE#         44
+  C:0027H         LINE#         45
+  C:0029H         LINE#         47
+  C:002CH         LINE#         48
+  C:002EH         LINE#         49
+  C:0030H         LINE#         51
+  C:0033H         LINE#         52
+  C:0035H         LINE#         53
+  C:0037H         LINE#         55
+  C:003AH         LINE#         56
+  C:003CH         LINE#         57
+  C:003EH         LINE#         59
+  C:003FH         LINE#         63
+  C:0042H         LINE#         64
+  C:0044H         LINE#         65
+  C:0046H         LINE#         67
+  C:0049H         LINE#         68
+  C:004BH         LINE#         69
+  C:004DH         LINE#         71
+  C:0050H         LINE#         72
+  C:0052H         LINE#         73
+  C:0054H         LINE#         75
+  C:0055H         LINE#         78
+  C:0058H         LINE#         79
+  C:005BH         LINE#         80
+  C:005DH         LINE#         81
+  C:005EH         LINE#         84
+  C:0061H         LINE#         85
+  C:0064H         LINE#         86
+  C:0067H         LINE#         87
+  C:006AH         LINE#         88
+  C:006DH         LINE#         89
+  C:0070H         LINE#         90
+  -------         ENDMOD        T1_UART
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0071H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=113
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

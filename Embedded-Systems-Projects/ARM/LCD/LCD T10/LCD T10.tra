@@ -1,0 +1,19 @@
+*** Creating Trace Output File 'LCD T10.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup.o"'
+### List of Objects: adding '"lcd t10.o"'
+### ADS-LD Command completed:
+"startup.o" "lcd t10.o" --device DARMP --ro-base 0x00000000 --entry Reset_Handler --rw-base 0x40000000 --first Reset_Handler --strict --autoat --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\LCD T10.map" -o "LCD T10.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'LCD T10.axf'
+### ADS-LD Command File: 'LCD T10.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'LCD T10.lnp', Handle=0x00000354
+### Writing '.lnp' file
+### ADS-LD Command file 'LCD T10.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,3 @@
+"T8 uart.obj" 
+TO "T8 uart" 
+RAMSIZE(256) 

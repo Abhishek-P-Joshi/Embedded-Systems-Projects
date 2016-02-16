@@ -1,0 +1,179 @@
+C51 COMPILER V9.00   T1                                                                    01/01/2002 04:42:45 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE T1
+OBJECT MODULE PLACED IN T1.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE T1.C BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<stdio.h>
+   2          #include<reg51.h>
+   3          
+   4          
+   5          sbit vled=P0^0;
+   6          sbit RS=P0^1;
+   7          sbit RW=P0^2;
+   8          sbit e=P0^3;
+   9          
+  10          void init_lcd();
+  11          void cmd_wr(unsigned char);
+  12          void data_wr(unsigned char);
+  13          void data_map(unsigned char);
+  14          void lcd_delay();
+  15          void enable();
+  16          
+  17          
+  18          
+  19          void main()
+  20          {
+  21   1      init_lcd();
+  22   1      
+  23   1              while(1)
+  24   1              {
+  25   2                      
+  26   2                      
+  27   2                      cmd_wr(0x84);
+  28   2                      lcd_delay();
+  29   2      
+  30   2                      data_wr('A');
+  31   2                      lcd_delay();
+  32   2      
+  33   2                      data_wr('B');
+  34   2                      lcd_delay();
+  35   2      
+  36   2                      data_wr('H');
+  37   2                      lcd_delay();
+  38   2      
+  39   2                      data_wr('I');
+  40   2                      lcd_delay();
+  41   2      
+  42   2                      data_wr('S');
+  43   2                      lcd_delay();
+  44   2      
+  45   2                      data_wr('H');
+  46   2                      lcd_delay();
+  47   2      
+  48   2                      data_wr('E');
+  49   2                      lcd_delay();
+  50   2      
+  51   2                      data_wr('K');
+  52   2                      lcd_delay();
+  53   2      
+  54   2                      cmd_wr(0xc5);
+  55   2                      lcd_delay();
+C51 COMPILER V9.00   T1                                                                    01/01/2002 04:42:45 PAGE 2   
+
+  56   2      
+  57   2                      data_wr('J');
+  58   2                      lcd_delay();
+  59   2      
+  60   2                      data_wr('O');
+  61   2                      lcd_delay();
+  62   2      
+  63   2                      data_wr('S');
+  64   2                      lcd_delay();
+  65   2      
+  66   2                      data_wr('H');
+  67   2                      lcd_delay();
+  68   2      
+  69   2                      data_wr('I');
+  70   2                      lcd_delay();
+  71   2      
+  72   2              }
+  73   1      
+  74   1      }
+  75          
+  76          void cmd_wr(unsigned char a)
+  77          {
+  78   1       
+  79   1       RS=0;
+  80   1       RW=0;
+  81   1      
+  82   1       P0= ((a & 0xf0) | (P0 & 0x0f));
+  83   1       enable();
+  84   1      
+  85   1       P0= (((a<<4) & 0xf0) | (P0 & 0x0f));
+  86   1       enable();
+  87   1      }
+  88          
+  89          
+  90          void data_wr(unsigned char a)
+  91          {
+  92   1       
+  93   1       RS=1;
+  94   1       RW=0;
+  95   1      
+  96   1       P0= ((a & 0xf0) | (P0 & 0x0f));
+  97   1       enable();
+  98   1      
+  99   1       P0= (((a<<4) & 0xf0) | (P0 & 0x0f));
+ 100   1       enable();
+ 101   1      }
+ 102          
+ 103          void lcd_delay()
+ 104          {
+ 105   1       int i,j;
+ 106   1       for(i=0;i<=5;i++)
+ 107   1       for(j=0;j<=120;j++);
+ 108   1      }
+ 109          
+ 110          void init_lcd()
+ 111          {
+ 112   1       lcd_delay();
+ 113   1       lcd_delay();
+ 114   1       lcd_delay();
+ 115   1      
+ 116   1       cmd_wr(0x03);
+ 117   1       lcd_delay();
+C51 COMPILER V9.00   T1                                                                    01/01/2002 04:42:45 PAGE 3   
+
+ 118   1      
+ 119   1       cmd_wr(0x03);
+ 120   1       lcd_delay();
+ 121   1      
+ 122   1       cmd_wr(0x03);
+ 123   1       lcd_delay();
+ 124   1      
+ 125   1       cmd_wr(0x20);
+ 126   1       lcd_delay();
+ 127   1      
+ 128   1       cmd_wr(0x28);
+ 129   1       lcd_delay();
+ 130   1      
+ 131   1       cmd_wr(0x06);
+ 132   1       lcd_delay();
+ 133   1      
+ 134   1       cmd_wr(0x01);
+ 135   1       lcd_delay();
+ 136   1      
+ 137   1       vled=0;
+ 138   1      }
+ 139          
+ 140          void enable()
+ 141          {
+ 142   1       e=1;
+ 143   1       ;
+ 144   1       ;
+ 145   1       ;
+ 146   1       ;
+ 147   1       ;
+ 148   1       e=0;
+ 149   1      }
+ 150          
+ 151          
+ 152          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    291    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

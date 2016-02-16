@@ -1,0 +1,296 @@
+A51 MACRO ASSEMBLER  T5_1                                                                 01/01/2002 02:50:31 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T5-1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T5-1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     ds1 equ 30h
+  0031                 2     ds2 equ 31h
+  0032                 3     ds3 equ 32h
+  0033                 4     ds4 equ 33h
+                       5     
+  0034                 6     dcount1 equ 34h
+  0035                 7     dcount2 equ 35h
+  0036                 8     dcount3 equ 36h
+                       9     
+  0037                10     count equ 37h
+                      11     
+  00A0                12     sl1 bit p2.0
+  00A1                13     sl2 bit p2.1
+  00A2                14     sl3 bit p2.2
+  00A3                15     sl4 bit p2.3
+                      16     
+0000                  17     org 0000h
+                      18     
+0000 758000           19     mov p0,#00h
+                      20     
+0003                  21     main:
+                      22     
+0003 753030           23     mov ds1,#"0"
+0006 753130           24     mov ds2,#"0"
+0009 753230           25     mov ds3,#"0"
+000C 753330           26     mov ds4,#"0"
+                      27     
+000F                  28     L1_main:
+                      29     
+000F 753714           30     mov count,#20d
+                      31     
+0012                  32     L2_main:
+                      33     
+0012 111B             34     call display
+0014 D537FB           35     djnz count,L2_main
+                      36     
+0017 11A6             37     call inc_d
+0019 80F4             38     jmp L1_main
+                      39     
+                      40     
+001B                  41     display:
+                      42     
+001B C2A0             43     clr sl1
+001D D2A1             44     setb sl2
+001F D2A2             45     setb sl3
+0021 D2A3             46     setb sl4
+                      47     
+0023 114C             48     call adisp1
+0025 117C             49     call delay
+                      50     
+                      51     
+0027 D2A0             52     setb sl1
+0029 C2A1             53     clr sl2
+002B D2A2             54     setb sl3
+002D D2A3             55     setb sl4
+                      56     
+002F 1158             57     call adisp2
+0031 117C             58     call delay
+A51 MACRO ASSEMBLER  T5_1                                                                 01/01/2002 02:50:31 PAGE     2
+
+                      59     
+                      60     
+0033 D2A0             61     setb sl1
+0035 D2A1             62     setb sl2
+0037 C2A2             63     clr sl3
+0039 D2A3             64     setb sl4
+                      65     
+003B 1164             66     call adisp3
+003D 117C             67     call delay
+                      68     
+                      69     
+003F D2A0             70     setb sl1
+0041 D2A1             71     setb sl2
+0043 D2A2             72     setb sl3
+0045 C2A3             73     clr sl4
+                      74     
+0047 1170             75     call adisp4
+0049 117C             76     call delay
+                      77     
+004B 22               78     ret
+                      79     
+                      80     
+004C                  81     adisp1:
+                      82     
+004C 90008F           83     mov dptr,#adisp_lut
+004F E530             84     mov a,ds1
+0051 C3               85     clr c
+0052 9430             86     subb a,#"0"
+0054 93               87     movc a,@a+dptr
+0055 F580             88     mov p0,a
+0057 22               89     ret
+                      90     
+                      91     
+0058                  92     adisp2:
+                      93     
+0058 90008F           94     mov dptr,#adisp_lut
+005B E531             95     mov a,ds2
+005D C3               96     clr c
+005E 9430             97     subb a,#"0"
+0060 93               98     movc a,@a+dptr
+0061 F580             99     mov p0,a
+0063 22              100     ret
+                     101     
+                     102     
+0064                 103     adisp3:
+                     104     
+0064 90008F          105     mov dptr,#adisp_lut
+0067 E532            106     mov a,ds3
+0069 C3              107     clr c
+006A 9430            108     subb a,#"0"
+006C 93              109     movc a,@a+dptr
+006D F580            110     mov p0,a
+006F 22              111     ret
+                     112     
+                     113     
+0070                 114     adisp4:
+                     115     
+0070 90008F          116     mov dptr,#adisp_lut
+0073 E533            117     mov a,ds4
+0075 C3              118     clr c
+0076 9430            119     subb a,#"0"
+0078 93              120     movc a,@a+dptr
+0079 F580            121     mov p0,a
+007B 22              122     ret
+                     123     
+                     124     
+A51 MACRO ASSEMBLER  T5_1                                                                 01/01/2002 02:50:31 PAGE     3
+
+007C                 125     delay:
+                     126     
+007C 753601          127     mov dcount3,#01h
+007F 753505          128     L2: mov dcount2,#05h
+0082 7534FF          129     L1: mov dcount1,#0ffh
+0085 D534FD          130     djnz dcount1,$
+0088 D535F7          131     djnz dcount2,L1
+008B D536F1          132     djnz dcount3,L2
+008E 22              133     ret
+                     134     
+                     135     
+008F                 136     adisp_lut:
+                     137     
+008F FC              138     db 0FCh ;0
+0090 60              139     db 60h  ;1
+0091 DA              140     db 0DAh ;2
+0092 F2              141     db 0F2h ;3
+0093 66              142     db 66h  ;4
+0094 B6              143     db 0B6h ;5
+0095 BE              144     db 0BEh ;6
+0096 E0              145     db 0E0h ;7
+0097 FE              146     db 0FEh ;8
+0098 F6              147     db 0F6h ;9
+                     148     
+0099 FF              149     db 0FFh ;3a
+009A FF              150     db 0FFh ;3b
+009B FF              151     db 0FFh ;3c
+009C FF              152     db 0FFh ;3d
+009D FF              153     db 0FFh ;3e
+009E FF              154     db 0FFh ;3f
+009F FF              155     db 0FFh ;40
+                     156     
+00A0 EE              157     db 0EEh ;A
+00A1 3E              158     db 3Eh  ;B
+00A2 9C              159     db 9Ch  ;C
+00A3 7A              160     db 7Ah  ;D
+00A4 9E              161     db 9Eh  ;E
+00A5 8E              162     db 8Eh  ;F
+                     163     
+                     164     
+00A6                 165     inc_d:
+                     166     
+00A6 0530            167     inc ds1
+00A8 E530            168     mov a,ds1
+00AA B43A04          169     cjne a,#"9"+1,G5
+00AD 753041          170     mov ds1,#"A"
+00B0 22              171     ret
+                     172     
+                     173     
+                     174     
+00B1 B44700          175     G5:cjne a,#"F"+1,$+3
+00B4 5001            176     jnc L1_id
+00B6 22              177     ret
+                     178     
+                     179     
+                     180     
+00B7                 181     L1_id:
+                     182     
+00B7 753030          183     mov ds1,#"0"
+00BA 0531            184     inc ds2
+00BC E531            185     mov a,ds2
+00BE B43A04          186     cjne a,#"9"+1,G6
+00C1 753141          187     mov ds2,#"A"
+00C4 22              188     ret
+                     189     
+00C5 B44700          190     G6:cjne a,#"F"+1,$+3
+A51 MACRO ASSEMBLER  T5_1                                                                 01/01/2002 02:50:31 PAGE     4
+
+00C8 5001            191     jnc L2_id
+00CA 22              192     ret
+                     193     
+                     194     
+00CB                 195     L2_id:
+                     196     
+00CB 753130          197     mov ds2,#"0"
+00CE 0532            198     inc ds3
+00D0 E532            199     mov a,ds3
+00D2 B43A04          200     cjne a,#"9"+1,G7
+00D5 753241          201     mov ds3,#"A"
+00D8 22              202     ret
+                     203     
+00D9 B44700          204     G7:cjne a,#"F"+1,$+3
+00DC 5001            205     jnc L3_id
+00DE 22              206     ret
+                     207     
+                     208     
+00DF                 209     L3_id:
+                     210     
+00DF 753230          211     mov ds3,#"0"
+00E2 0533            212     inc ds4
+00E4 E533            213     mov a,ds4
+00E6 B43A04          214     cjne a,#"9"+1,G8
+00E9 753041          215     mov ds1,#"A"
+00EC 22              216     ret
+                     217     
+                     218     
+00ED B44700          219     G8:cjne a,#"F"+1,$+3
+00F0 5001            220     jnc L4_id
+00F2 22              221     ret
+                     222     
+                     223     
+00F3                 224     L4_id:
+                     225     
+00F3 753000          226     mov ds1,#00h
+00F6 753100          227     mov ds2,#00h
+00F9 753200          228     mov ds3,#00h
+00FC 753300          229     mov ds4,#00h
+00FF 22              230     ret
+                     231     
+                     232     end
+A51 MACRO ASSEMBLER  T5_1                                                                 01/01/2002 02:50:31 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADISP1 . . . . . .  C ADDR   004CH   A   
+ADISP2 . . . . . .  C ADDR   0058H   A   
+ADISP3 . . . . . .  C ADDR   0064H   A   
+ADISP4 . . . . . .  C ADDR   0070H   A   
+ADISP_LUT. . . . .  C ADDR   008FH   A   
+COUNT. . . . . . .  N NUMB   0037H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DELAY. . . . . . .  C ADDR   007CH   A   
+DISPLAY. . . . . .  C ADDR   001BH   A   
+DS1. . . . . . . .  N NUMB   0030H   A   
+DS2. . . . . . . .  N NUMB   0031H   A   
+DS3. . . . . . . .  N NUMB   0032H   A   
+DS4. . . . . . . .  N NUMB   0033H   A   
+G5 . . . . . . . .  C ADDR   00B1H   A   
+G6 . . . . . . . .  C ADDR   00C5H   A   
+G7 . . . . . . . .  C ADDR   00D9H   A   
+G8 . . . . . . . .  C ADDR   00EDH   A   
+INC_D. . . . . . .  C ADDR   00A6H   A   
+L1 . . . . . . . .  C ADDR   0082H   A   
+L1_ID. . . . . . .  C ADDR   00B7H   A   
+L1_MAIN. . . . . .  C ADDR   000FH   A   
+L2 . . . . . . . .  C ADDR   007FH   A   
+L2_ID. . . . . . .  C ADDR   00CBH   A   
+L2_MAIN. . . . . .  C ADDR   0012H   A   
+L3_ID. . . . . . .  C ADDR   00DFH   A   
+L4_ID. . . . . . .  C ADDR   00F3H   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+SL1. . . . . . . .  B ADDR   00A0H.0 A   
+SL2. . . . . . . .  B ADDR   00A0H.1 A   
+SL3. . . . . . . .  B ADDR   00A0H.2 A   
+SL4. . . . . . . .  B ADDR   00A0H.3 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

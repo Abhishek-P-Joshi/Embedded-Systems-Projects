@@ -1,0 +1,163 @@
+A51 MACRO ASSEMBLER  T1_UART                                                              01/01/2002 01:22:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.01
+OBJECT MODULE PLACED IN T1 uart.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE T1 uart.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0034                 1     dcount1 equ 34h
+  0035                 2     dcount2 equ 35h
+  0036                 3     dcount3 equ 36h
+                       4     
+  0037                 5     tx_data equ 37h
+                       6     
+                       7     
+                       8     
+                       9     
+0000                  10     org 000h
+                      11     
+0000                  12     main:
+                      13     
+0000 1116             14     call init_uart
+                      15     
+0002 1122             16     call clr_screen
+0004                  17     l1_main:
+0004 113F             18     call home_screen
+                      19     
+0006 753748           20     mov tx_data,#"H"
+0009 1155             21     call tx
+000B 115E             22     call delay
+                      23     
+000D 753745           24     mov tx_data,#"E"
+0010 1155             25     call tx
+0012 115E             26     call delay
+                      27     
+0014 80EE             28     jmp l1_main
+                      29     
+                      30        
+0016                  31     init_uart:
+                      32     
+                      33     
+0016 438920           34     orl tmod,#20h
+0019 758DFD           35     mov th1,#0FDh    
+001C D28E             36     setb tr1
+001E 759852           37     mov scon,#52h
+                      38     
+0021 22               39     ret
+                      40     
+0022                  41     clr_screen:
+                      42     
+0022 75371B           43     mov tx_data,#1bh
+0025 1155             44     call tx
+0027 115E             45     call delay
+                      46     
+0029 75375B           47     mov tx_data,#"["
+002C 1155             48     call tx
+002E 115E             49     call delay
+                      50     
+0030 753732           51     mov tx_data,#"2"
+0033 1155             52     call tx
+0035 115E             53     call delay
+                      54     
+0037 75374A           55     mov tx_data,#"J"
+003A 1155             56     call tx
+003C 115E             57     call delay
+                      58     
+A51 MACRO ASSEMBLER  T1_UART                                                              01/01/2002 01:22:33 PAGE     2
+
+003E 22               59     ret
+                      60     
+003F                  61     home_screen:
+                      62     
+003F 75371B           63     mov tx_data,#1bh
+0042 1155             64     call tx
+0044 115E             65     call delay
+                      66     
+0046 75375B           67     mov tx_data,#"["
+0049 1155             68     call tx
+004B 115E             69     call delay
+                      70     
+004D 753748           71     mov tx_data,#"H"
+0050 1155             72     call tx
+0052 115E             73     call delay
+                      74     
+0054 22               75     ret
+                      76     
+0055                  77     tx:
+0055 3099FD           78     jnb ti,$
+0058 853799           79     mov sbuf,tx_data
+005B C299             80     clr ti
+005D 22               81     ret
+                      82     
+005E                  83     delay:
+005E 753602           84     mov dcount3,#02h
+0061 75353F           85     K2: mov dcount2,#3fh
+0064 7534FF           86     K1: mov dcount1,#0ffh
+0067 D534FD           87     djnz dcount1,$
+006A D535F7           88     djnz dcount2,K1
+006D D536F1           89     djnz dcount3,K2
+0070 22               90     ret
+                      91     
+                      92     
+                      93     
+                      94     
+                      95     end
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  T1_UART                                                              01/01/2002 01:22:33 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CLR_SCREEN . . . .  C ADDR   0022H   A   
+DCOUNT1. . . . . .  N NUMB   0034H   A   
+DCOUNT2. . . . . .  N NUMB   0035H   A   
+DCOUNT3. . . . . .  N NUMB   0036H   A   
+DELAY. . . . . . .  C ADDR   005EH   A   
+HOME_SCREEN. . . .  C ADDR   003FH   A   
+INIT_UART. . . . .  C ADDR   0016H   A   
+K1 . . . . . . . .  C ADDR   0064H   A   
+K2 . . . . . . . .  C ADDR   0061H   A   
+L1_MAIN. . . . . .  C ADDR   0004H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TX . . . . . . . .  C ADDR   0055H   A   
+TX_DATA. . . . . .  N NUMB   0037H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

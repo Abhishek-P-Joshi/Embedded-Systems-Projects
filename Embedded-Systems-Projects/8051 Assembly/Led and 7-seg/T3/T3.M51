@@ -1,0 +1,112 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/01/2002  03:30:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE T3.obj TO T3 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  T3.obj (T3)
+
+
+LINK MAP OF MODULE:  T3 (T3)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0079H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  T3 (T3)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        T3
+  N:0034H         SYMBOL        DCOUNT1
+  N:0035H         SYMBOL        DCOUNT2
+  N:0036H         SYMBOL        DCOUNT3
+  C:005CH         SYMBOL        DELAY
+  C:0013H         SYMBOL        DISPLAY
+  C:006FH         SYMBOL        DISP_LUT
+  N:0030H         SYMBOL        DS1
+  N:0031H         SYMBOL        DS2
+  N:0032H         SYMBOL        DS3
+  N:0033H         SYMBOL        DS4
+  C:0062H         SYMBOL        L1
+  C:005FH         SYMBOL        L2
+  C:000FH         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:00A0H         SYMBOL        P2
+  B:00A0H.0       SYMBOL        SL1
+  B:00A0H.1       SYMBOL        SL2
+  B:00A0H.2       SYMBOL        SL3
+  B:00A0H.3       SYMBOL        SL4
+  C:0000H         LINE#         17
+  C:0003H         LINE#         19
+  C:0006H         LINE#         20
+  C:0009H         LINE#         21
+  C:000CH         LINE#         22
+  C:000FH         LINE#         26
+  C:0011H         LINE#         27
+  C:0013H         LINE#         31
+  C:0015H         LINE#         32
+  C:0017H         LINE#         33
+  C:0019H         LINE#         34
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/01/2002  03:30:44  PAGE 2
+
+
+  C:001BH         LINE#         36
+  C:001EH         LINE#         37
+  C:0020H         LINE#         38
+  C:0021H         LINE#         39
+  C:0023H         LINE#         41
+  C:0025H         LINE#         44
+  C:0027H         LINE#         45
+  C:0029H         LINE#         46
+  C:002BH         LINE#         47
+  C:002DH         LINE#         49
+  C:0030H         LINE#         50
+  C:0032H         LINE#         51
+  C:0033H         LINE#         52
+  C:0035H         LINE#         54
+  C:0037H         LINE#         57
+  C:0039H         LINE#         58
+  C:003BH         LINE#         59
+  C:003DH         LINE#         60
+  C:003FH         LINE#         62
+  C:0042H         LINE#         63
+  C:0044H         LINE#         64
+  C:0045H         LINE#         65
+  C:0047H         LINE#         67
+  C:0049H         LINE#         70
+  C:004BH         LINE#         71
+  C:004DH         LINE#         72
+  C:004FH         LINE#         73
+  C:0051H         LINE#         75
+  C:0054H         LINE#         76
+  C:0056H         LINE#         77
+  C:0057H         LINE#         78
+  C:0059H         LINE#         80
+  C:005BH         LINE#         82
+  C:005CH         LINE#         87
+  C:005FH         LINE#         88
+  C:0062H         LINE#         89
+  C:0065H         LINE#         90
+  C:0068H         LINE#         91
+  C:006BH         LINE#         92
+  C:006EH         LINE#         93
+  -------         ENDMOD        T3
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0079H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=121
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
